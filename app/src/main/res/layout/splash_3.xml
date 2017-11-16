@@ -15,27 +15,35 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="40dp" />
+        tools:layout_editor_absoluteY="40dp"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="129dp"
         android:layout_height="129dp"
+        android:layout_marginBottom="123dp"
+        android:layout_marginEnd="127dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="100dp"
         android:background="@drawable/splash3_icon_3x"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="194dp" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="245dp"
         android:layout_height="26dp"
+        android:fontFamily="@font/lato_black"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteY="446dp"
         tools:text="Bahan Baku Masakan Diantar" />
 
@@ -43,13 +51,16 @@
         android:id="@+id/textView6"
         android:layout_width="258dp"
         android:layout_height="48dp"
+        android:layout_marginBottom="48dp"
+        android:fontFamily="@font/lato"
         android:gravity="center_horizontal"
         android:textColor="#000000"
         android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="471dp"
+        tools:ignore="MissingConstraints"
         tools:text="Kami akan mengantar bahan baku masakan yang anda pesan dalam aplikasi langsung kerumah Anda." />
 
     <android.support.constraint.Guideline
