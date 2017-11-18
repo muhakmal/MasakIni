@@ -1,0 +1,5 @@
+<root>
+    <item name='android.support.constraint.ConstraintLayout'>
+        <annotation name='java.lang.Deprecated' />
+    </item>
+</root>

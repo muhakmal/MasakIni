@@ -20,7 +20,8 @@
         </activity>
 
         <activity android:name=".WelcomeActivity"/>
-
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".BuatAkunActivity"/>
         <activity android:name=".MainActivity"/>
 
         <meta-data

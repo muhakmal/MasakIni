@@ -1,11 +1,6 @@
 <resources>
     <string name="app_name">MasakIni</string>
-    <string name="SELANJUTNYA">selanjutnya</string>
-    <integer-array name="img_id_arr">
-        <item>@layout/splash_1</item>
-        <item>@layout/splash_2</item>
-        <item>@layout/splash_3</item>
-        <item>@layout/splash_4</item>
-    </integer-array>
-
+    <string name="buat_akun">Buat Akun</string>
+    <string name="login">Login</string>
+    <string name="belum_punya_akun_daftar">Belum punya Akun? Daftar</string>
 </resources>

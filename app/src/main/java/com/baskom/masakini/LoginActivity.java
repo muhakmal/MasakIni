@@ -12,28 +12,24 @@ import android.widget.TextView;
  * Created by akmalmuhamad on 18/11/17.
  */
 
-public class BuatAkunActivity extends AppCompatActivity{
+public class LoginActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.buat_akun);
+        setContentView(R.layout.login);
 
-        final EditText etNama = (EditText) findViewById(R.id.etNama);
         final EditText etEmail = (EditText) findViewById(R.id.etEmail);
         final EditText etPassword = (EditText) findViewById(R.id.etPassword);
 
-        final Button btBuatAkun = (Button) findViewById(R.id.btBuatAkun);
+        final Button btLogin = (Button) findViewById(R.id.btLogin);
+        final TextView textBuatAkunLink = (TextView) findViewById(R.id.textBuatAkun);
 
-        final TextView loginLink = (TextView) findViewById(R.id.textLogin);
-
-        loginLink.setOnClickListener(new View.OnClickListener() {
+        textBuatAkunLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent loginIntent = new Intent(BuatAkunActivity.this, LoginActivity.class);
-                BuatAkunActivity.this.startActivity(loginIntent);
+                Intent buatAkunIntent = new Intent(LoginActivity.this, BuatAkunActivity.class);
+                LoginActivity.this.startActivity(buatAkunIntent);
             }
         });
-
     }
-
 }
