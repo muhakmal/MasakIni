@@ -41,8 +41,6 @@ public class WelcomeActivity extends AppIntro {
         showSkipButton(false);
         setProgressButtonEnabled(true);
 
-        // Turn vibration on and set intensity.
-        // NOTE: you will probably need to ask VIBRATE permission in Manifest.
 
     }
     @Override
