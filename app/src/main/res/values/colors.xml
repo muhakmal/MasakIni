@@ -4,4 +4,21 @@
     <color name="colorPrimaryDark">#DE8712</color>
     <color name="colorAccent">#fa9d3b</color>
     <color name="baseWhite">#FFFFFF</color>
+
+    <!-- Screens background color-->
+
+    <!-- dots inactive colors -->
+    <color name="dot_dark_screen">#b6b9b9</color>
+
+    <!-- dots active colors -->
+    <color name="dot_light_screen">#f9a636</color>
+
+    <array name="array_dot_active">
+        <item>@color/dot_light_screen</item>
+    </array>
+
+    <array name="array_dot_inactive">
+        <item>@color/dot_dark_screen</item>
+    </array>
+
 </resources>
