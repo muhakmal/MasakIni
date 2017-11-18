@@ -9,7 +9,7 @@ import android.support.v4.app.Fragment;
 import com.github.paolorotolo.appintro.AppIntro;
 import com.github.paolorotolo.appintro.AppIntroFragment;
 
-public class welcomeActivity extends AppIntro {
+public class WelcomeActivity extends AppIntro {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
