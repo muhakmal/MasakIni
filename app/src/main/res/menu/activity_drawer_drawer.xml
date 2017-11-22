@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_beranda"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Beranda"
+            />
+        <item
+            android:id="@+id/nav_info_akun"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="Info Akun" />
+        <item
+            android:id="@+id/nav_riwayat_order"
+            android:icon="@drawable/ic_history_black_24dp"
+            android:title="Riwayat Order" />
+
+    </group>
+
+    <item android:title="Bantuan">
+        <menu>
+            <item
+                android:id="@+id/nav_kontak_kami"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Kontak Kami" />
+        </menu>
+    </item>
+
+</menu>

@@ -3,4 +3,15 @@
     <string name="buat_akun">Buat Akun</string>
     <string name="login">Login</string>
     <string name="belum_punya_akun_daftar">Belum punya Akun? Daftar</string>
+    <string name="title_activity_drawer">MasakIni</string>
+    <string name="riwayat_order">Riwayat Order</string>
+    <string name="info_akun">Info Akun</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

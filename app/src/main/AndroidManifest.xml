@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.baskom.masakini">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_mi"
@@ -9,24 +11,31 @@
         android:roundIcon="@mipmap/ic_launcher_mi"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".SplashActivity" android:theme="@style/splashTheme">
+        <activity
+            android:name=".splashactivity.SplashActivity"
+            android:theme="@style/splashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+        <activity android:name=".splashactivity.WelcomeActivity" />
+        <activity android:name=".useractivity.LoginActivity" />
+        <activity android:name=".useractivity.BuatAkunActivity" />
+        <activity android:name=".sidedrawer.InfoAkunActivity"/>
+        <activity android:name=".sidedrawer.RiwayatOrderActivity"/>
 
-        <activity android:name=".WelcomeActivity"/>
-        <activity android:name=".LoginActivity"/>
-        <activity android:name=".BuatAkunActivity"/>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <activity
+            android:name=".DrawerActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

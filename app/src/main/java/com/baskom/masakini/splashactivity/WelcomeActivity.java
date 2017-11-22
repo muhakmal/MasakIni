@@ -1,22 +1,14 @@
-package com.baskom.masakini;
+package com.baskom.masakini.splashactivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.os.Bundle;
-import android.app.Activity;
 import android.content.Intent;
-import android.view.Menu;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.TextView;
 
 
-
+import com.baskom.masakini.R;
+import com.baskom.masakini.useractivity.LoginActivity;
 import com.github.paolorotolo.appintro.AppIntro;
-import com.github.paolorotolo.appintro.AppIntroFragment;
 
 public class WelcomeActivity extends AppIntro {
 

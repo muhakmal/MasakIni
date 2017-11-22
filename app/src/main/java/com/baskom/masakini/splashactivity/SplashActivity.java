@@ -1,4 +1,4 @@
-package com.baskom.masakini;
+package com.baskom.masakini.splashactivity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;

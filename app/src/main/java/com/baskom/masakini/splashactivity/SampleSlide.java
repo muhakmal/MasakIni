@@ -1,4 +1,4 @@
-package com.baskom.masakini;
+package com.baskom.masakini.splashactivity;
 
 /**
  * Created by akmalmuhamad on 18/11/17.
