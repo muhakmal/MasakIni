@@ -38,8 +38,10 @@
     <ImageView
         android:layout_width="258dp"
         android:layout_height="73dp"
-        android:layout_marginTop="124dp"
-        android:background="@drawable/splash2_deskripsi"
+        android:layout_marginBottom="59dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/splash3_deskripsi"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

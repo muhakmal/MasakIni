@@ -23,8 +23,9 @@
         <activity android:name=".splashactivity.WelcomeActivity" />
         <activity android:name=".useractivity.LoginActivity" />
         <activity android:name=".useractivity.BuatAkunActivity" />
-        <activity android:name=".sidedrawer.InfoAkunActivity"/>
-        <activity android:name=".sidedrawer.RiwayatOrderActivity"/>
+        <activity android:name=".fragmentcontent.InfoAkunActivity"/>
+        <activity android:name=".fragmentcontent.RiwayatOrderActivity"/>
+        <activity android:name=".fragmentcontent.CartActivity"/>
 
         <activity android:name=".MainActivity" />
 

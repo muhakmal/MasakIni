@@ -17,12 +17,53 @@ public class ResepTabActivity extends android.support.v4.app.Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_content, container,false);
+        return inflater.inflate(R.layout.fragment_resep, container,false);
     }
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        TextView textView = (TextView)view.findViewById(R.id.text_view);
-        textView.setText("this is fragment resep");}
+    public class ResepCard{
+        private String judulResep;
+        private String subJudulResep;
+        private String tingkatKesulitan;
+        private String untukBerapaOrang;
+        private int waktuMemasak;
+
+        public ResepCard(){
+
+        }
+
+        public ResepCard(String judulResep, String subJudulResep, String tingkatKesulitan, String untukBerapaOrang, int waktuMemasak){
+            this.judulResep = judulResep;
+            this.subJudulResep = subJudulResep;
+            this.tingkatKesulitan = tingkatKesulitan;
+            this.untukBerapaOrang = untukBerapaOrang;
+            this.waktuMemasak = waktuMemasak;
+        }
+
+        //setter getter judul resep
+        public String getJudulResep(){return judulResep;}
+        public void setJudulResep(String judulResep){this.judulResep = judulResep;}
+
+        //steter getter subjudulresep
+        public String getSubJudulResep(){return subJudulResep;}
+        public void setSubJudulResep(String subJudulResep){this.subJudulResep=subJudulResep;}
+
+        //setter getter tinggkat kesulitan
+        public String getTingkatKesulitan(){return tingkatKesulitan;}
+        public void setTingkatKesulitan(String tingkatKesulitan){this.tingkatKesulitan = tingkatKesulitan;}
+
+        //setter getter untuk berapa orang
+        public String getUntukBerapaOrang(){return untukBerapaOrang;}
+        public void setUntukBerapaOrang(String untukBerapaOrang){this.untukBerapaOrang = untukBerapaOrang;}
+
+        //setter getter waktu memasak
+        public int getWaktuMemasak(){return waktuMemasak;}
+        public void setWaktuMemasak(int waktuMemasak){this.waktuMemasak = waktuMemasak;}
+
+
+
+
+    }
+
+
+
 }

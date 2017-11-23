@@ -30,6 +30,20 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:id="@+id/skip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="219dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:text="Lanjut Tanpa Daftar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textBuatAkun"
+                android:layout_marginRight="219dp"
+                android:layout_marginLeft="16dp" />
+
+            <TextView
                 android:id="@+id/textView"
                 android:layout_width="315dp"
                 android:layout_height="46dp"
@@ -37,7 +51,6 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="29dp"
                 android:layout_marginStart="16dp"
-                android:fontFamily="@font/lato_black"
                 android:text="@string/login"
                 android:textColor="@color/colorAccent"
                 android:textSize="32sp"
@@ -55,7 +68,6 @@
                 android:layout_marginStart="17dp"
                 android:layout_marginTop="20dp"
                 android:ems="10"
-                android:fontFamily="@font/lato"
                 android:hint="Masukkan Alamat Email"
                 android:inputType="textEmailAddress"
                 android:textSize="14sp"
@@ -72,7 +84,6 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginStart="17dp"
                 android:ems="10"
-                android:fontFamily="@font/lato"
                 android:hint="Masukkan Password"
                 android:inputType="textPassword"
                 android:text=""
@@ -87,7 +98,6 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="15dp"
                 android:background="@color/colorAccent"
-                android:fontFamily="@font/lato_black"
                 android:text="LOGIN"
                 android:textColor="@color/baseWhite"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -102,7 +112,6 @@
                 android:layout_marginStart="16dp"
                 android:textSize="13dp"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/lato"
                 android:text="@string/belum_punya_akun_daftar"
                 android:textColor="@color/colorAccent"
                 app:layout_constraintStart_toStartOf="parent"

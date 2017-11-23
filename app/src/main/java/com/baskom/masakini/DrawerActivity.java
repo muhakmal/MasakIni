@@ -12,9 +12,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
-import com.baskom.masakini.sidedrawer.InfoAkunActivity;
-import com.baskom.masakini.sidedrawer.RiwayatOrderActivity;
+import com.baskom.masakini.fragmentcontent.CartActivity;
+import com.baskom.masakini.fragmentcontent.InfoAkunActivity;
+import com.baskom.masakini.fragmentcontent.RiwayatOrderActivity;
 
 
 public class DrawerActivity extends AppCompatActivity
@@ -24,7 +26,6 @@ public class DrawerActivity extends AppCompatActivity
     private DrawerLayout drawer;
     private TabLayout tabLayout;
     private String[] pageTitle = {"RESEP", "VIDEO"};
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +37,8 @@ public class DrawerActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-        //setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
+
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -83,6 +85,8 @@ public class DrawerActivity extends AppCompatActivity
 
 
     }
+
+
     @SuppressWarnings("masih kosong")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -91,10 +95,10 @@ public class DrawerActivity extends AppCompatActivity
         if (id == R.id.nav_beranda) {
             viewPager.setCurrentItem(0);
         } else if (id == R.id.nav_info_akun) {
-            Intent infoAkun = new Intent(this, InfoAkunActivity.class);
+            Intent infoAkun = new Intent(DrawerActivity.this, InfoAkunActivity.class);
             startActivity(infoAkun);
         } else if (id == R.id.nav_riwayat_order) {
-            Intent riwayatOrder = new Intent(this, RiwayatOrderActivity.class);
+            Intent riwayatOrder = new Intent(DrawerActivity.this, RiwayatOrderActivity.class);
             startActivity(riwayatOrder);
         } else if (id == R.id.nav_kontak_kami) {
             //launch email
@@ -115,7 +119,7 @@ public class DrawerActivity extends AppCompatActivity
         }
     }
 
-
+/*
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -129,6 +133,6 @@ public class DrawerActivity extends AppCompatActivity
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
 }

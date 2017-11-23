@@ -18,6 +18,7 @@ import com.baskom.masakini.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 /**
  * Created by akmalmuhamad on 18/11/17.
@@ -34,10 +35,20 @@ public class LoginActivity extends AppCompatActivity{
 
         final Button btLogin = (Button) findViewById(R.id.btLogin);
         final TextView textBuatAkunLink = (TextView) findViewById(R.id.textBuatAkun);
+        final TextView textLanjut = (TextView) findViewById(R.id.skip);
+
+        textLanjut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent skip = new Intent(LoginActivity.this, DrawerActivity.class);
+                LoginActivity.this.startActivity(skip);
+            }
+        });
 
         textBuatAkunLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent buatAkunIntent = new Intent(LoginActivity.this, BuatAkunActivity.class);
                 LoginActivity.this.startActivity(buatAkunIntent);
             }
@@ -63,7 +74,7 @@ public class LoginActivity extends AppCompatActivity{
 
                             }else{
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                                builder.setMessage("Login Gagal")
+                                builder.setMessage("Email atau Username Salah")
                                         .setNegativeButton("Ulangi", null)
                                         .create()
                                         .show();
