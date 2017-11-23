@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#DE8712</color>
     <color name="colorAccent">#fa9d3b</color>
     <color name="baseWhite">#FFFFFF</color>
+    <color name="greySubText">#9e9e9e</color>
 
     <!-- Screens background color-->
 

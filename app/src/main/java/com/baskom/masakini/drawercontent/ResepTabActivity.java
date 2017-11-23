@@ -2,67 +2,90 @@ package com.baskom.masakini.drawercontent;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.baskom.masakini.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by akmalmuhamad on 20/11/17.
  */
 
 public class ResepTabActivity extends android.support.v4.app.Fragment {
-    @Nullable
+
+    private RecyclerView recyclerView;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private ResepCardAdapter adapter;
+    private List<ResepCard> resepCardList;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_resep, container,false);
+
+        View rootView = inflater.inflate(R.layout.fragment_resep, container, false);
+
+        RecyclerView rv = (RecyclerView) rootView.findViewById(R.id.recycler_view);
+        rv.setHasFixedSize(true);
+
+        resepCardList = new ArrayList<>();
+        adapter = new ResepCardAdapter(ResepTabActivity.this, resepCardList);
+        ResepCard resepCard = new ResepCard(
+                R.id.cardView_main_image,
+                "Pizza Mozarella Bagi-Bagi",
+                "Ekstra Kismis dan kopi luak, dan macam-nya",
+                "Gampil",
+                "5",
+                "3 Milenium"
+        );
+        resepCardList.add(0,resepCard);
+
+        resepCard = new ResepCard(
+                R.id.cardView_main_image,
+                "Pizza Mozarella Bagi-Bagi",
+                "Ekstra Kismis dan kopi luak, dan macam-nya",
+                "Gampil",
+                "5",
+                "3 Milenium"
+        );
+        resepCardList.add(0,resepCard);
+
+        resepCard = new ResepCard(
+                R.id.cardView_main_image,
+                "Pizza Mozarella Bagi-Bagi",
+                "Ekstra Kismis dan kopi luak, dan macam-nya",
+                "Gampil",
+                "5",
+                "3 Milenium"
+        );
+        resepCardList.add(0,resepCard);
+
+        resepCard = new ResepCard(
+                R.id.cardView_main_image,
+                "Pizza Mozarella Bagi-Bagi",
+                "Ekstra Kismis dan kopi luak, dan macam-nya",
+                "Gampil",
+                "5",
+                "3 Milenium"
+        );
+        resepCardList.add(0,resepCard);
+        adapter.notifyDataSetChanged();
+
+        LinearLayoutManager linearLayoutManager =   new LinearLayoutManager(getActivity());
+        rv.setLayoutManager(linearLayoutManager);
+        return rootView;
+
+
+
+
     }
 
-    public class ResepCard{
-        private String judulResep;
-        private String subJudulResep;
-        private String tingkatKesulitan;
-        private String untukBerapaOrang;
-        private int waktuMemasak;
-
-        public ResepCard(){
-
-        }
-
-        public ResepCard(String judulResep, String subJudulResep, String tingkatKesulitan, String untukBerapaOrang, int waktuMemasak){
-            this.judulResep = judulResep;
-            this.subJudulResep = subJudulResep;
-            this.tingkatKesulitan = tingkatKesulitan;
-            this.untukBerapaOrang = untukBerapaOrang;
-            this.waktuMemasak = waktuMemasak;
-        }
-
-        //setter getter judul resep
-        public String getJudulResep(){return judulResep;}
-        public void setJudulResep(String judulResep){this.judulResep = judulResep;}
-
-        //steter getter subjudulresep
-        public String getSubJudulResep(){return subJudulResep;}
-        public void setSubJudulResep(String subJudulResep){this.subJudulResep=subJudulResep;}
-
-        //setter getter tinggkat kesulitan
-        public String getTingkatKesulitan(){return tingkatKesulitan;}
-        public void setTingkatKesulitan(String tingkatKesulitan){this.tingkatKesulitan = tingkatKesulitan;}
-
-        //setter getter untuk berapa orang
-        public String getUntukBerapaOrang(){return untukBerapaOrang;}
-        public void setUntukBerapaOrang(String untukBerapaOrang){this.untukBerapaOrang = untukBerapaOrang;}
-
-        //setter getter waktu memasak
-        public int getWaktuMemasak(){return waktuMemasak;}
-        public void setWaktuMemasak(int waktuMemasak){this.waktuMemasak = waktuMemasak;}
-
-
-
-
-    }
 
 
 
