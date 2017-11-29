@@ -26,7 +26,6 @@
         <activity android:name=".fragmentcontent.InfoAkunActivity"/>
         <activity android:name=".fragmentcontent.RiwayatOrderActivity"/>
         <activity android:name=".fragmentcontent.CartActivity"/>
-
         <activity android:name=".MainActivity" />
 
         <meta-data

@@ -1,6 +1,7 @@
 package com.baskom.masakini.drawercontent;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +30,7 @@ public class ResepCardAdapter extends RecyclerView.Adapter<ResepCardAdapter.MyVi
         public MyViewHolder(View itemView) {
             super(itemView);
             judulResep = (TextView)itemView.findViewById(R.id.cardView_JudulResep);
-            subJudulResep = (TextView)itemView.findViewById(R.id.cardView_subJudulResep);
+            subJudulResep = (TextView)itemView.findViewById(R.id.cardView_deksripsiResep);
             tingkatKesulitan = (TextView)itemView.findViewById(R.id.cardView_tingkat_kesulitan);
             untukBerapaOrang = (TextView)itemView.findViewById(R.id.cardView_untukBerapaOrang);
             waktuMemasak = (TextView)itemView.findViewById(R.id.cardView_waktuMemasak);
@@ -65,12 +66,11 @@ public class ResepCardAdapter extends RecyclerView.Adapter<ResepCardAdapter.MyVi
                 .load(resepCardList.getResepImage())
                 .into(holder.resepImage);
 
-
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return resepCards.size();
     }
 
 

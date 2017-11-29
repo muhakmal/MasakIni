@@ -35,47 +35,48 @@ public class ResepTabActivity extends android.support.v4.app.Fragment {
         rv.setHasFixedSize(true);
 
         resepCardList = new ArrayList<>();
-        adapter = new ResepCardAdapter(ResepTabActivity.this, resepCardList);
         ResepCard resepCard = new ResepCard(
-                R.id.cardView_main_image,
-                "Pizza Mozarella Bagi-Bagi",
+                R.drawable.dummy_img_resep,
+                "Pizza Apik Bagi-Bagi",
                 "Ekstra Kismis dan kopi luak, dan macam-nya",
-                "Gampil",
-                "5",
-                "3 Milenium"
+                "Sulit",
+                "7",
+                "3 Abad"
         );
-        resepCardList.add(0,resepCard);
+        resepCardList.add(resepCard);
 
-        resepCard = new ResepCard(
-                R.id.cardView_main_image,
+        ResepCard resepCard1 = new ResepCard(
+                R.drawable.dummy_img_resep,
                 "Pizza Mozarella Bagi-Bagi",
                 "Ekstra Kismis dan kopi luak, dan macam-nya",
                 "Gampil",
                 "5",
                 "3 Milenium"
         );
-        resepCardList.add(0,resepCard);
+        resepCardList.add(resepCard1);
 
-        resepCard = new ResepCard(
-                R.id.cardView_main_image,
+        ResepCard resepCard2 = new ResepCard(
+                R.drawable.dummy_img_resep,
                 "Pizza Mozarella Bagi-Bagi",
                 "Ekstra Kismis dan kopi luak, dan macam-nya",
                 "Gampil",
                 "5",
                 "3 Milenium"
         );
-        resepCardList.add(0,resepCard);
+        resepCardList.add(resepCard2);
 
-        resepCard = new ResepCard(
-                R.id.cardView_main_image,
+        ResepCard resepCard3 = new ResepCard(
+                R.drawable.dummy_img_resep,
                 "Pizza Mozarella Bagi-Bagi",
                 "Ekstra Kismis dan kopi luak, dan macam-nya",
                 "Gampil",
                 "5",
                 "3 Milenium"
         );
-        resepCardList.add(0,resepCard);
+        resepCardList.add(resepCard3);
+        adapter = new ResepCardAdapter(ResepTabActivity.this, resepCardList);
         adapter.notifyDataSetChanged();
+        rv.setAdapter(adapter);
 
         LinearLayoutManager linearLayoutManager =   new LinearLayoutManager(getActivity());
         rv.setLayoutManager(linearLayoutManager);

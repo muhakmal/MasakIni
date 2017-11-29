@@ -27,21 +27,7 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/skip"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="219dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="10dp"
-                android:text="Lanjut Tanpa Daftar"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textBuatAkun"
-                android:layout_marginRight="219dp"
-                android:layout_marginLeft="16dp" />
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/textView"
@@ -51,12 +37,30 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="29dp"
                 android:layout_marginStart="16dp"
-                android:text="@string/login"
+                android:text="@string/buat_akun"
                 android:textColor="@color/colorAccent"
                 android:textSize="32sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/etNama"
+                android:layout_width="327dp"
+                android:layout_height="45dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="17dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:hint="Masukkan Nama"
+                android:inputType="textPersonName"
+                android:text=""
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
 
             <EditText
                 android:id="@+id/etEmail"
@@ -66,14 +70,13 @@
                 android:layout_marginLeft="17dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginStart="17dp"
-                android:layout_marginTop="20dp"
                 android:ems="10"
                 android:hint="Masukkan Alamat Email"
                 android:inputType="textEmailAddress"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintTop_toBottomOf="@+id/etNama" />
 
             <EditText
                 android:id="@+id/etPassword"
@@ -92,31 +95,36 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
+            <TextView
+                android:id="@+id/textLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="175dp"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="175dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="10dp"
+                android:text="Sudah Punya Akun? Login"
+                android:textColor="@color/colorAccent"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.12"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btBuatAkun" />
+
             <Button
-                android:id="@+id/btLogin"
+                android:id="@+id/btBuatAkun"
                 android:layout_width="327dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="15dp"
                 android:background="@color/colorAccent"
-                android:text="LOGIN"
+                android:text="BUAT AKUN"
                 android:textColor="@color/baseWhite"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etPassword" />
-
-            <TextView
-                android:id="@+id/textBuatAkun"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:textSize="13dp"
-                android:layout_marginTop="10dp"
-                android:text="@string/belum_punya_akun_daftar"
-                android:textColor="@color/colorAccent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btLogin"
-                android:layout_marginLeft="16dp" />
 
 
         </android.support.constraint.ConstraintLayout>

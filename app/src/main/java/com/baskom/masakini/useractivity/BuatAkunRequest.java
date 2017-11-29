@@ -11,7 +11,7 @@ import java.util.Map;
  */
 
 public class BuatAkunRequest extends StringRequest {
-    private static final String BUATAKUN_REQUEST_URL = "https://masakiniapps.000webhostapp.com/Register.php";
+    private static final String BUATAKUN_REQUEST_URL = "http://masakini.xyz/masakiniapi/Register.php";
     private Map<String, String> params;
 
     public BuatAkunRequest(String nama, String email, String password, Response.Listener<String> listener){

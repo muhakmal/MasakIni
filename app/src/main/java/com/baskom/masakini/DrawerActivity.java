@@ -9,23 +9,11 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-import com.baskom.masakini.drawercontent.ResepCard;
-import com.baskom.masakini.drawercontent.ResepCardAdapter;
-import com.baskom.masakini.drawercontent.ResepTabActivity;
-import com.baskom.masakini.fragmentcontent.CartActivity;
 import com.baskom.masakini.fragmentcontent.InfoAkunActivity;
 import com.baskom.masakini.fragmentcontent.RiwayatOrderActivity;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class DrawerActivity extends AppCompatActivity
@@ -58,18 +46,6 @@ public class DrawerActivity extends AppCompatActivity
             tabLayout.addTab(tabLayout.newTab().setText(pageTitle[i]));
         }
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-
-
-        // resep card
-
-
-
-
-        //create new object in the adapter
-
-
-
-
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
