@@ -16,10 +16,10 @@
         app:titleTextColor="@android:color/white" />
 
     <TextView
-        android:layout_margin="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ini cart"/>
+        android:layout_margin="40dp"
+        android:text="ini cart" />
 
 
 </LinearLayout>

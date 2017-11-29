@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".splashactivity.SplashActivity"
+            android:name=".splash.SplashActivity"
             android:theme="@style/splashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,22 +20,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".splashactivity.WelcomeActivity" />
-        <activity android:name=".useractivity.LoginActivity" />
-        <activity android:name=".useractivity.BuatAkunActivity" />
-        <activity android:name=".fragmentcontent.InfoAkunActivity"/>
-        <activity android:name=".fragmentcontent.RiwayatOrderActivity"/>
-        <activity android:name=".fragmentcontent.CartActivity"/>
+        <activity android:name=".splash.WelcomeActivity" />
+        <activity android:name=".userarea.LoginActivity" />
+        <activity android:name=".userarea.BuatAkunActivity" />
+        <activity android:name=".subactivity.drawer.InfoAkunActivity"/>
+        <activity android:name=".subactivity.drawer.RiwayatOrderActivity"/>
+        <activity android:name=".subactivity.CartActivity"/>
         <activity android:name=".MainActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity
-            android:name=".DrawerActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
