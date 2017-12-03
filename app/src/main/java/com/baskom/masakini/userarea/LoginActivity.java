@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                                builder.setMessage("Email atau Username Salah")
+                                builder.setMessage(response)
                                         .setNegativeButton("Ulangi", null)
                                         .create()
                                         .show();
