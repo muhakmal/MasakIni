@@ -44,19 +44,19 @@ public class VideoTabActivity extends android.support.v4.app.Fragment {
 
         VideoFeed videoFeed1 = new VideoFeed(
                 R.drawable.dummy_img_resep,
-                "Pizza Apik Dibuat Dengan Kasih Sayang"
+                "Pizza Kasih Sayang - Feat Masterchef"
         );
         videoFeedList.add(videoFeed1);
 
         VideoFeed videoFeed2 = new VideoFeed(
                 R.drawable.dummy_img_resep,
-                "Pizza Apik Dibuat Dengan Mantan"
+                "Pizza Mantan - Special Ingredients"
         );
         videoFeedList.add(videoFeed2);
 
         VideoFeed videoFeed3 = new VideoFeed(
                 R.drawable.dummy_img_resep,
-                "Pizza Apik Dibuat Dengan Kasih"
+                "Pizza Pizza Pizza oh Pizza"
         );
         videoFeedList.add(videoFeed3);
 

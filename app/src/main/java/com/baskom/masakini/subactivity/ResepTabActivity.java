@@ -38,47 +38,49 @@ public class ResepTabActivity extends android.support.v4.app.Fragment {
 
         ResepFeed resepFeed = new ResepFeed(
                 R.drawable.dummy_img_resep,
-                "Pizza Apik Bagi-Bagi",
-                "Ekstra Kismis dan kopi luak, dan macam-nya",
-                "Sulit",
-                "7",
-                "3 Abad"
+                "Pizza Cinta",
+                "Dibuat dengan kasih cinta yang sbenearnya.",
+                "Mudah",
+                "7 orang",
+                "30 menit"
         );
         resepFeedList.add(resepFeed);
 
         ResepFeed resepFeed1 = new ResepFeed(
                 R.drawable.dummy_img_resep,
-                "Pizza Mozarella Bagi-Bagi",
-                "Ekstra Kismis dan kopi luak, dan macam-nya",
-                "Gampil",
-                "5",
-                "3 Milenium"
+                "Pizza Kayu Manis",
+                "Dibuat dengan kayu dari senyum manis kamu.",
+                "Sedang",
+                "5 orang",
+                "60 menit"
         );
         resepFeedList.add(resepFeed1);
 
         ResepFeed resepFeed2 = new ResepFeed(
                 R.drawable.dummy_img_resep,
-                "Pizza Mozarella Bagi-Bagi",
-                "Ekstra Kismis dan kopi luak, dan macam-nya",
-                "Gampil",
-                "5",
-                "3 Milenium"
+                "Pizza Kismis",
+                "Dibuat pakai kismis.",
+                "Sulit",
+                "5 orang",
+                "45 menit"
         );
         resepFeedList.add(resepFeed2);
 
         ResepFeed resepFeed3 = new ResepFeed(
                 R.drawable.dummy_img_resep,
-                "Pizza Mozarella Bagi-Bagi",
-                "Ekstra Kismis dan kopi luak, dan macam-nya",
-                "Gampil",
-                "5",
-                "3 Milenium"
+                "Pizza Kasih",
+                "Ekstra Kasih sayang mantan.",
+                "Mudah",
+                "5 orang",
+                "60 menit"
         );
         resepFeedList.add(resepFeed3);
 
         adapter = new ResepCardAdapter(ResepTabActivity.this, resepFeedList);
         adapter.notifyDataSetChanged();
         rv.setAdapter(adapter);
+
+
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         rv.setLayoutManager(linearLayoutManager);
