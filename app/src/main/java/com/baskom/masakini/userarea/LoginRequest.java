@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class LoginRequest extends StringRequest {
     private static final String LOGIN_REQUEST_URL = "http://masakini.xyz/masakiniapi/Login.php";
-    private Map<String, String> params;
+    private static Map<String, String> params;
 
     public LoginRequest(String email, String password, Response.Listener<String> listener) {
         super(Request.Method.POST, LOGIN_REQUEST_URL, listener, null);
@@ -25,5 +25,9 @@ public class LoginRequest extends StringRequest {
     @Override
     public Map<String, String> getParams() {
         return params;
+    }
+
+    public static String getEmail(){
+        return params.get("email");
     }
 }
