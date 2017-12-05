@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.baskom.masakini.R;
-import com.baskom.masakini.feedlist.ResepFeed;
+import com.baskom.masakini.feed.ResepFeed;
 
 /**
  * Created by akmalmuhamad on 04/12/17.

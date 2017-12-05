@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.baskom.masakini.R;
 import com.baskom.masakini.adapter.ResepCardAdapter;
-import com.baskom.masakini.feedlist.ResepFeed;
+import com.baskom.masakini.feed.ResepFeed;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ import java.util.List;
  * Created by akmalmuhamad on 20/11/17.
  */
 
-public class ResepTabActivity extends android.support.v4.app.Fragment implements View.OnClickListener{
+public class ResepTabActivity extends android.support.v4.app.Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
