@@ -21,20 +21,25 @@ import java.util.List;
 
 public class ResepTabActivity extends android.support.v4.app.Fragment {
 
-    private RecyclerView recyclerView;
-    private RecyclerView.LayoutManager mLayoutManager;
-    private ResepCardAdapter adapter;
-    private List<ResepFeed> resepFeedList;
-
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_resep, container, false);
 
-        RecyclerView rv = (RecyclerView) rootView.findViewById(R.id.recycler_view);
-        rv.setHasFixedSize(true);
+        RecyclerView recyclerView = rootView.findViewById(R.id.recycler_view);
+        recyclerView.setNestedScrollingEnabled(false);
 
-        resepFeedList = new ArrayList<>();
+        ResepCardAdapter adapter = new ResepCardAdapter(generateDummyList());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager( new LinearLayoutManager(rootView.getContext()));
+        recyclerView.setHasFixedSize(true);
+
+        return rootView;
+    }
+
+    //Method buat bikin list resep dummy
+    private List<ResepFeed> generateDummyList(){
+        List<ResepFeed> resepFeedList = new ArrayList<>();
 
         ResepFeed resepFeed = new ResepFeed(
                 R.drawable.dummy_img_resep,
@@ -76,18 +81,6 @@ public class ResepTabActivity extends android.support.v4.app.Fragment {
         );
         resepFeedList.add(resepFeed3);
 
-        adapter = new ResepCardAdapter(ResepTabActivity.this, resepFeedList);
-        adapter.notifyDataSetChanged();
-        rv.setAdapter(adapter);
-
-
-
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        rv.setLayoutManager(linearLayoutManager);
-        return rootView;
-
-
+        return resepFeedList;
     }
-
-
 }
