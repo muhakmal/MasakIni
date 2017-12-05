@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linear_resep"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -62,77 +62,52 @@
                 android:textSize="13sp"
                 android:textStyle="normal" />
 
-            <ImageView
-                android:id="@+id/cardView_ic_waktuMemasak"
-                android:layout_width="12dp"
-                android:layout_height="12dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="16dp"
-                android:background="@drawable/ic_duration" />
-
             <TextView
                 android:id="@+id/cardView_waktuMemasak"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/cardView_deksripsiResep"
                 android:layout_alignParentBottom="true"
-                android:layout_marginLeft="5dp"
-                android:layout_marginStart="5dp"
-                android:layout_toEndOf="@+id/cardView_ic_waktuMemasak"
-                android:layout_toRightOf="@+id/cardView_ic_waktuMemasak"
+                android:layout_alignStart="@+id/cardView_deksripsiResep"
+                android:drawableLeft="@drawable/ic_timer"
+                android:drawablePadding="5dp"
+                android:gravity="center"
                 android:text="30 menit"
                 android:textColor="@color/greySubText"
                 android:textSize="10sp" />
 
 
-            <ImageView
-                android:id="@+id/ic_difficulty"
-                android:layout_width="12dp"
-                android:layout_height="12dp"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_toEndOf="@+id/cardView_waktuMemasak"
-                android:layout_toRightOf="@+id/cardView_waktuMemasak"
-                android:background="@drawable/ic_difficulty" />
-
             <TextView
                 android:id="@+id/cardView_tingkat_kesulitan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/ic_difficulty"
-                android:layout_marginLeft="5dp"
-                android:layout_marginStart="5dp"
-                android:layout_toEndOf="@+id/ic_difficulty"
-                android:layout_toRightOf="@+id/ic_difficulty"
+                android:layout_alignTop="@+id/cardView_waktuMemasak"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/cardView_waktuMemasak"
+                android:layout_toRightOf="@+id/cardView_waktuMemasak"
+                android:drawableLeft="@drawable/ic_kesulitan"
+                android:drawablePadding="5dp"
+                android:gravity="center_vertical"
                 android:text="Sedang"
                 android:textColor="@color/greySubText"
                 android:textSize="10sp" />
 
 
-            <ImageView
-                android:id="@+id/ic_people"
-                android:layout_width="12dp"
-                android:layout_height="12dp"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_toEndOf="@+id/cardView_tingkat_kesulitan"
-                android:layout_toRightOf="@+id/cardView_tingkat_kesulitan"
-                android:background="@drawable/ic_people" />
-
             <TextView
                 android:id="@+id/cardView_untukBerapaOrang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/ic_people"
-                android:layout_marginLeft="5dp"
-                android:layout_marginStart="5dp"
-                android:layout_toEndOf="@+id/ic_people"
-                android:layout_toRightOf="@+id/ic_people"
+                android:layout_alignTop="@+id/cardView_tingkat_kesulitan"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/cardView_tingkat_kesulitan"
+                android:layout_toRightOf="@+id/cardView_tingkat_kesulitan"
                 android:text="5 orang"
                 android:textColor="@color/greySubText"
-                android:textSize="10sp" />
+                android:textSize="10sp"
+                android:drawableLeft="@drawable/ic_forknknife"
+                android:drawablePadding="5dp"/>
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 

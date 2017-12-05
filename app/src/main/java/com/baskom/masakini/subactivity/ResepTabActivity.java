@@ -2,15 +2,17 @@ package com.baskom.masakini.subactivity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.baskom.masakini.R;
 import com.baskom.masakini.adapter.ResepCardAdapter;
-import com.baskom.masakini.feed.ResepFeed;
+import com.baskom.masakini.feedlist.ResepFeed;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,12 +21,13 @@ import java.util.List;
  * Created by akmalmuhamad on 20/11/17.
  */
 
-public class ResepTabActivity extends android.support.v4.app.Fragment {
+public class ResepTabActivity extends android.support.v4.app.Fragment implements View.OnClickListener{
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_resep, container, false);
+
 
         RecyclerView recyclerView = rootView.findViewById(R.id.recycler_view);
         recyclerView.setNestedScrollingEnabled(false);
@@ -83,4 +86,5 @@ public class ResepTabActivity extends android.support.v4.app.Fragment {
 
         return resepFeedList;
     }
+
 }
