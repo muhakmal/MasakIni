@@ -26,6 +26,7 @@
         <activity android:name=".subactivity.drawer.InfoAkunActivity"/>
         <activity android:name=".subactivity.drawer.RiwayatOrderActivity"/>
         <activity android:name=".subactivity.CartActivity"/>
+        <activity android:name=".adapter.ResepDetil"/>
         <activity android:name=".MainActivity" />
 
         <meta-data

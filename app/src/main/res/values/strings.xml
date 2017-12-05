@@ -6,12 +6,36 @@
     <string name="title_activity_drawer">MasakIni</string>
     <string name="riwayat_order">Riwayat Order</string>
     <string name="info_akun">Info Akun</string>
-
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="action_settings">Settings</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
+
+
+    <string-array name="penjelasan_resep">
+        <item></item>
+    </string-array>
+
+    <string-array name="takaran">
+        <item></item>
+    </string-array>
+
+    <string-array name="bahan">
+        <item></item>
+    </string-array>
+
+    <string-array name="step">
+        <item></item>
+    </string-array>
+
+    <string-array name="step_deskripsi">
+        <item></item>
+    </string-array>
+
+
+
+
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

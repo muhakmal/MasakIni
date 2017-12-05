@@ -22,7 +22,7 @@
         android:id="@+id/imageView2"
         android:layout_width="129dp"
         android:layout_height="161dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/sprite_ic_splash_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -32,7 +32,7 @@
     <ImageView
         android:layout_width="222dp"
         android:layout_height="73dp"
-        android:layout_marginTop="123dp"
+        android:layout_marginTop="100dp"
         android:background="@drawable/deskripsi_splash_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

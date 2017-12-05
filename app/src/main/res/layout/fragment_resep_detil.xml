@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_content_resep_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/step_deskripsi_4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="31dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="31dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="5dp"
+        android:text="step_deskripsi_4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/step_4" />
+
+    <TextView
+        android:id="@+id/step_deskripsi_5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="31dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="31dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="5dp"
+        android:text="step_deskripsi_5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/step_5" />
+
+    <TextView
+
+        android:id="@+id/step_4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="200dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="200dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:text="step_4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/step_deskripsi_3" />
+
+    <TextView
+
+        android:id="@+id/step_5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="200dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="200dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:text="step_5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/step_deskripsi_4" />
+
+    <TextView
+
+        android:id="@+id/step_2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="200dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="200dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:text="step_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/step_deskripsi_1" />
+
+    <TextView
+
+        android:id="@+id/step_3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="200dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="200dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:text="step_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/step_deskripsi_2" />
+
+    <RelativeLayout
+        android:id="@+id/main_banner"
+        android:layout_width="match_parent"
+        android:layout_height="176dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/judul_resep_detil"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/main_banner"
+        android:layout_marginLeft="29dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="20dp"
+        android:text="JUDUL RESEP"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_banner" />
+
+    <TextView
+        android:id="@+id/deskripsi_detil"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/judul_resep_detil"
+        android:layout_alignStart="@+id/judul_resep_detil"
+        android:layout_below="@+id/judul_resep_detil"
+        android:layout_marginEnd="200dp"
+        android:layout_marginLeft="29dp"
+        android:layout_marginRight="200dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="13dp"
+        android:text="DESKRIPSI RESEP"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/judul_resep_detil" />
+
+
+    <TextView
+        android:id="@+id/durasi_teks_detil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/deskripsi_detil"
+        android:layout_alignTop="@+id/kesulitan_detil"
+        android:layout_marginTop="13dp"
+        android:drawableLeft="@drawable/ic_timer"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="30 menit"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toStartOf="@+id/kesulitan_detil"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deskripsi_detil" />
+
+    <TextView
+        android:id="@+id/kesulitan_detil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/deskripsi_detil"
+        android:layout_marginTop="86dp"
+        android:layout_toEndOf="@+id/deskripsi_detil"
+        android:layout_toRightOf="@+id/deskripsi_detil"
+        android:drawableLeft="@drawable/ic_kesulitan"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="Sedang"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toStartOf="@+id/untuk_berapa_orang_detil"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/durasi_teks_detil"
+        app:layout_constraintTop_toBottomOf="@+id/main_banner" />
+
+    <TextView
+        android:id="@+id/untuk_berapa_orang_detil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/kesulitan_detil"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="86dp"
+        android:drawableLeft="@drawable/ic_forknknife"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="5 orang"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/kesulitan_detil"
+        app:layout_constraintTop_toBottomOf="@+id/main_banner" />
+
+    <TextView
+        android:id="@+id/penjelasan_resep"
+        android:layout_width="313dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:text="@string/lorem_ipsum"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kesulitan_detil" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="150dp"
+        android:layout_marginLeft="29dp"
+        android:layout_marginRight="150dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="14dp"
+        android:text="Bahan-Bahan Masakan"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/penjelasan_resep" />
+
+    <TextView
+        android:id="@+id/takaran_1"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginLeft="29dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="7dp"
+        android:text="takaran_1"
+        android:textAlignment="textEnd"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/bahan_1"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginEnd="200dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="200dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="7dp"
+        android:gravity="start"
+        android:text="bahan_1"
+        android:textAlignment="textStart"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/takaran_1"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/takaran_2"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginLeft="29dp"
+        android:layout_marginStart="29dp"
+        android:text="takaran_2"
+        android:textAlignment="textEnd"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/takaran_1" />
+
+    <TextView
+        android:id="@+id/bahan_2"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="200dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="200dp"
+        android:layout_marginStart="8dp"
+        android:gravity="start"
+        android:text="bahan_2"
+        android:textAlignment="textStart"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/takaran_2"
+        app:layout_constraintTop_toBottomOf="@+id/bahan_1" />
+
+    <TextView
+        android:id="@+id/takaran_3"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginLeft="29dp"
+        android:layout_marginStart="29dp"
+        android:text="takaran_3"
+        android:textAlignment="textEnd"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/takaran_2" />
+
+    <TextView
+        android:id="@+id/bahan_3"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginEnd="200dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="200dp"
+        android:layout_marginStart="8dp"
+        android:text="bahan_3"
+        android:textAlignment="textStart"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/takaran_3"
+        app:layout_constraintTop_toBottomOf="@+id/bahan_2" />
+
+    <TextView
+        android:id="@+id/takaran_4"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginLeft="29dp"
+        android:layout_marginStart="29dp"
+        android:text="takaran_4"
+        android:textAlignment="textEnd"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/takaran_3" />
+
+    <TextView
+        android:id="@+id/bahan_4"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="200dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="200dp"
+        android:layout_marginStart="8dp"
+        android:gravity="start"
+        android:text="bahan_4"
+        android:textAlignment="textStart"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/takaran_4"
+        app:layout_constraintTop_toBottomOf="@+id/bahan_3" />
+
+    <TextView
+        android:id="@+id/takaran_5"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginLeft="29dp"
+        android:layout_marginStart="29dp"
+        android:text="takaran_5"
+        android:textAlignment="textEnd"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/takaran_4" />
+
+    <TextView
+        android:id="@+id/takaran_10"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginLeft="29dp"
+        android:layout_marginStart="29dp"
+        android:text="takaran_10"
+        android:textAlignment="textEnd"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/takaran_9" />
+
+    <TextView
+        android:id="@+id/takaran_9"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginLeft="29dp"
+        android:layout_marginStart="29dp"
+        android:text="takaran_9"
+        android:textAlignment="textEnd"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/takaran_8" />
+
+    <TextView
+        android:id="@+id/takaran_8"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginLeft="29dp"
+        android:layout_marginStart="29dp"
+        android:text="takaran_8"
+        android:textAlignment="textEnd"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/takaran_7" />
+
+    <TextView
+        android:id="@+id/takaran_7"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginLeft="29dp"
+        android:layout_marginStart="29dp"
+        android:text="takaran_7"
+        android:textAlignment="textEnd"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/takaran_6" />
+
+    <TextView
+        android:id="@+id/takaran_6"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginLeft="29dp"
+        android:layout_marginStart="29dp"
+        android:text="takaran_6"
+        android:textAlignment="textEnd"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/takaran_5" />
+
+    <TextView
+        android:id="@+id/bahan_10"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="200dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="200dp"
+        android:layout_marginStart="8dp"
+        android:gravity="start"
+        android:text="bahan_10"
+        android:textAlignment="textStart"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/takaran_10"
+        app:layout_constraintTop_toBottomOf="@+id/bahan_9" />
+
+    <TextView
+        android:id="@+id/bahan_9"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="200dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="200dp"
+        android:layout_marginStart="8dp"
+        android:gravity="start"
+        android:text="bahan_9"
+        android:textAlignment="textStart"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/takaran_10"
+        app:layout_constraintTop_toBottomOf="@+id/bahan_8" />
+
+    <TextView
+        android:id="@+id/bahan_8"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="200dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="200dp"
+        android:layout_marginStart="8dp"
+        android:gravity="start"
+        android:text="bahan_8"
+        android:textAlignment="textStart"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/takaran_8"
+        app:layout_constraintTop_toBottomOf="@+id/bahan_7" />
+
+    <TextView
+        android:id="@+id/bahan_7"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="200dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="200dp"
+        android:layout_marginStart="8dp"
+        android:gravity="start"
+        android:text="bahan_7"
+        android:textAlignment="textStart"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/takaran_7"
+        app:layout_constraintTop_toBottomOf="@+id/bahan_6" />
+
+    <TextView
+        android:id="@+id/bahan_6"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="200dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="200dp"
+        android:layout_marginStart="8dp"
+        android:gravity="start"
+        android:text="bahan_6"
+        android:textAlignment="textStart"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/takaran_6"
+        app:layout_constraintTop_toBottomOf="@+id/bahan_5" />
+
+    <TextView
+        android:id="@+id/bahan_5"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="200dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="200dp"
+        android:layout_marginStart="8dp"
+        android:gravity="start"
+        android:text="bahan_5"
+        android:textAlignment="textStart"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/takaran_5"
+        app:layout_constraintTop_toBottomOf="@+id/bahan_4" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <TextView
+        android:id="@+id/cara_memasak"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="200dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginRight="200dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="29dp"
+        android:text="Cara Memasak"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/takaran_10" />
+
+    <TextView
+
+        android:id="@+id/step_1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="200dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="200dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:text="step_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cara_memasak" />
+
+    <TextView
+        android:id="@+id/step_deskripsi_3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="31dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="31dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="5dp"
+        android:text="step_deskripsi_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/step_3" />
+
+    <TextView
+        android:id="@+id/step_deskripsi_2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="5dp"
+        android:text="step_deskripsi_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/step_2" />
+
+    <TextView
+        android:id="@+id/step_deskripsi_1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="35dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="5dp"
+        android:text="step_deskripsi_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/step_1" />
+
+    <RelativeLayout
+        android:id="@+id/box_button"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/step_deskripsi_5">
+
+        <Button
+            android:id="@+id/btn_beli"
+            android:layout_width="312dp"
+            android:layout_height="44dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="BELI"
+            tools:layout_editor_absoluteX="123dp"
+            tools:layout_editor_absoluteY="976dp" />
+
+
+    </RelativeLayout>
+
+
+</android.support.constraint.ConstraintLayout>
