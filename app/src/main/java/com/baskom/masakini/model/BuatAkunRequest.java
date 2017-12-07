@@ -1,4 +1,4 @@
-package com.baskom.masakini.userarea;
+package com.baskom.masakini.model;
 
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;

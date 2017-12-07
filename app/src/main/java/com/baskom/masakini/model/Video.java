@@ -1,14 +1,14 @@
-package com.baskom.masakini.feed;
+package com.baskom.masakini.model;
 
 /**
  * Created by akmalmuhamad on 29/11/17.
  */
 
-public class VideoFeed {
+public class Video {
     private String judulVideo;
     private int videoImage;
 
-    public VideoFeed(int videoImage, String judulVideo) {
+    public Video(int videoImage, String judulVideo) {
         this.videoImage = videoImage;
         this.judulVideo = judulVideo;
     }

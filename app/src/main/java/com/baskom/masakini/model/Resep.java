@@ -1,4 +1,4 @@
-package com.baskom.masakini.feed;
+package com.baskom.masakini.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -17,22 +17,31 @@ public class Resep implements Serializable {
     private String tingkatKesulitan;
     private String untukBerapaOrang;
     private String waktuMemasak;
+    private int jumlahBahan;
+    private List<Bahan> bahan = new ArrayList<>();
     private int jumlahStep;
-    private List<String> judulStep = new ArrayList<>();
-    private List<String> penjelasanStep = new ArrayList<>();
+    private List<Step> step = new ArrayList<>();
 
-    public Resep(int resepImage, String judulResep, String subJudulResep, String penjelasanResep, String tingkatKesulitan,
-                 String untukBerapaOrang, String waktuMemasak, int jumlahStep, List<String> judulStep, List<String> penjelasanStep){
-            this.resepImage = resepImage;
-            this.judulResep = judulResep;
-            this.subJudulResep = subJudulResep;
-            this.penjelasanResep = penjelasanResep;
-            this.tingkatKesulitan = tingkatKesulitan;
-            this.untukBerapaOrang = untukBerapaOrang;
-            this.waktuMemasak = waktuMemasak;
-            this.jumlahStep = jumlahStep;
-            this.judulStep.addAll(judulStep);
-            this.penjelasanStep.addAll(penjelasanStep);
+    public Resep(int resepImage, String judulResep, String subJudulResep, String penjelasanResep, String tingkatKesulitan, String untukBerapaOrang, String waktuMemasak, int jumlahBahan, List<Bahan> bahan, int jumlahStep, List<Step> step) {
+        this.resepImage = resepImage;
+        this.judulResep = judulResep;
+        this.subJudulResep = subJudulResep;
+        this.penjelasanResep = penjelasanResep;
+        this.tingkatKesulitan = tingkatKesulitan;
+        this.untukBerapaOrang = untukBerapaOrang;
+        this.waktuMemasak = waktuMemasak;
+        this.jumlahBahan = jumlahBahan;
+        this.bahan.addAll(bahan);
+        this.jumlahStep = jumlahStep;
+        this.step.addAll(step);
+    }
+
+    public int getResepImage() {
+        return resepImage;
+    }
+
+    public void setResepImage(int resepImage) {
+        this.resepImage = resepImage;
     }
 
     public String getJudulResep() {
@@ -83,27 +92,35 @@ public class Resep implements Serializable {
         this.waktuMemasak = waktuMemasak;
     }
 
-    public int getResepImage() {
-        return resepImage;
+    public int getJumlahBahan() {
+        return jumlahBahan;
     }
 
-    public void setResepImage(int resepImage) {
-        this.resepImage = resepImage;
+    public void setJumlahBahan(int jumlahBahan) {
+        this.jumlahBahan = jumlahBahan;
     }
 
-    public List<String> getJudulStep() {
-        return judulStep;
+    public List<Bahan> getBahan() {
+        return bahan;
     }
 
-    public void setJudulStep(List<String> judulStep) {
-        this.judulStep = judulStep;
+    public void setBahan(List<Bahan> bahan) {
+        this.bahan = bahan;
     }
 
-    public List<String> getPenjelasanStep() {
-        return penjelasanStep;
+    public int getJumlahStep() {
+        return jumlahStep;
     }
 
-    public void setPenjelasanStep(List<String> penjelasanStep) {
-        this.penjelasanStep = penjelasanStep;
+    public void setJumlahStep(int jumlahStep) {
+        this.jumlahStep = jumlahStep;
+    }
+
+    public List<Step> getStep() {
+        return step;
+    }
+
+    public void setStep(List<Step> step) {
+        this.step = step;
     }
 }

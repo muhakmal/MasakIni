@@ -1,16 +1,12 @@
-package com.baskom.masakini.adapter;
+package com.baskom.masakini.controller;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.baskom.masakini.R;
-import com.baskom.masakini.feed.Resep;
-import com.baskom.masakini.subactivity.ResepTabActivity;
-import com.bumptech.glide.Glide;
+import com.baskom.masakini.model.Resep;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +33,9 @@ public class ResepCardAdapter extends RecyclerView.Adapter{
 
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
-        ((ResepViewHolder) holder).bindData(resepList.get(position));
+        if(holder.getItemViewType() == R.layout.card_resep){
+            ((ResepViewHolder) holder).bindData(resepList.get(position));
+        }
     }
 
     @Override

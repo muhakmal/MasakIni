@@ -1,4 +1,4 @@
-package com.baskom.masakini.splash;
+package com.baskom.masakini.view;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -7,7 +7,6 @@ import android.content.Intent;
 
 
 import com.baskom.masakini.R;
-import com.baskom.masakini.userarea.LoginActivity;
 import com.github.paolorotolo.appintro.AppIntro;
 
 public class WelcomeActivity extends AppIntro {

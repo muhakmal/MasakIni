@@ -1,4 +1,4 @@
-package com.baskom.masakini.subactivity.drawer;
+package com.baskom.masakini.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,14 +16,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.baskom.masakini.MainActivity;
 import com.baskom.masakini.R;
-import com.baskom.masakini.userarea.LoginActivity;
-import com.baskom.masakini.userarea.LoginRequest;
+import com.baskom.masakini.model.LoginRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 /**
  * Created by akmalmuhamad on 20/11/17.
