@@ -1,4 +1,4 @@
-package com.baskom.masakini.feedlist;
+package com.baskom.masakini.feed;
 
 /**
  * Created by akmalmuhamad on 05/12/17.

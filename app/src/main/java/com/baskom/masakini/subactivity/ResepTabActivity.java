@@ -1,5 +1,6 @@
 package com.baskom.masakini.subactivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.CardView;
@@ -8,11 +9,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.baskom.masakini.MainActivity;
 import com.baskom.masakini.R;
 import com.baskom.masakini.adapter.ResepCardAdapter;
-import com.baskom.masakini.feedlist.ResepFeed;
+import com.baskom.masakini.feed.Resep;
+import com.baskom.masakini.feed.ResepFeed;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +26,7 @@ import java.util.List;
  * Created by akmalmuhamad on 20/11/17.
  */
 
-public class ResepTabActivity extends android.support.v4.app.Fragment implements View.OnClickListener{
+public class ResepTabActivity extends android.support.v4.app.Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -34,57 +39,105 @@ public class ResepTabActivity extends android.support.v4.app.Fragment implements
 
         ResepCardAdapter adapter = new ResepCardAdapter(generateDummyList());
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager( new LinearLayoutManager(rootView.getContext()));
+        recyclerView.setLayoutManager( new LinearLayoutManager(getActivity()));
         recyclerView.setHasFixedSize(true);
 
         return rootView;
     }
 
     //Method buat bikin list resep dummy
-    private List<ResepFeed> generateDummyList(){
-        List<ResepFeed> resepFeedList = new ArrayList<>();
+    private List<Resep> generateDummyList(){
+        List<Resep> resepList = new ArrayList<>();
 
-        ResepFeed resepFeed = new ResepFeed(
+        List<String> judulStep = new ArrayList<>();
+        for(int i = 1; i <= 5; i++){
+            judulStep.add("Ini step "+i);
+        }
+        List<String> penjelasanStep = new ArrayList<>();
+        for(int i = 1; i <= 5; i++){
+            penjelasanStep.add("Ini penjelasan step "+i);
+        }
+        Resep resep = new Resep(
                 R.drawable.dummy_img_resep,
                 "Pizza Cinta",
-                "Dibuat dengan kasih cinta yang sbenearnya.",
+                "Dibuat dengan kasih cinta yang sebenernya.",
+                getString(R.string.lorem_ipsum),
                 "Mudah",
-                "7 orang",
-                "30 menit"
+                "5 orang",
+                "30 Menit",
+                5,
+                judulStep,
+                penjelasanStep
         );
-        resepFeedList.add(resepFeed);
+        resepList.add(resep);
 
-        ResepFeed resepFeed1 = new ResepFeed(
+        List<String> judulStep1 = new ArrayList<>();
+        for(int i = 1; i <= 4; i++){
+            judulStep1.add("Ini step "+i);
+        }
+        List<String> penjelasanStep1 = new ArrayList<>();
+        for(int i = 1; i <= 4; i++){
+            penjelasanStep1.add("Ini penjelasan step "+i);
+        }
+        Resep resep1 = new Resep(
+                R.drawable.dummy_img_resep,
+                "Pizza Kasih",
+                "Ekstrak kasih sayang mantan.",
+                getString(R.string.lorem_ipsum),
+                "Sedang",
+                "5 orang",
+                "400 Menit",
+                4,
+                judulStep1,
+                penjelasanStep1
+        );
+        resepList.add(resep1);
+
+        List<String> judulStep2 = new ArrayList<>();
+        for(int i = 1; i <= 7; i++){
+            judulStep2.add("Ini step "+i);
+        }
+        List<String> penjelasanStep2 = new ArrayList<>();
+        for(int i = 1; i <= 7; i++){
+            penjelasanStep2.add("Ini penjelasan step "+i);
+        }
+        Resep resep2 = new Resep(
                 R.drawable.dummy_img_resep,
                 "Pizza Kayu Manis",
                 "Dibuat dengan kayu dari senyum manis kamu.",
+                getString(R.string.lorem_ipsum),
                 "Sedang",
                 "5 orang",
-                "60 menit"
+                "60 Menit",
+                7,
+                judulStep2,
+                penjelasanStep2
         );
-        resepFeedList.add(resepFeed1);
+        resepList.add(resep2);
 
-        ResepFeed resepFeed2 = new ResepFeed(
+        List<String> judulStep3 = new ArrayList<>();
+        for(int i = 1; i <= 3; i++){
+            judulStep3.add("Ini step "+i);
+        }
+        List<String> penjelasanStep3 = new ArrayList<>();
+        for(int i = 1; i <= 3; i++){
+            penjelasanStep3.add("Ini penjelasan step "+i);
+        }
+        Resep resep3 = new Resep(
                 R.drawable.dummy_img_resep,
                 "Pizza Kismis",
                 "Dibuat pakai kismis.",
+                getString(R.string.lorem_ipsum),
                 "Sulit",
                 "5 orang",
-                "45 menit"
+                "45 Menit",
+                3,
+                judulStep3,
+                penjelasanStep3
         );
-        resepFeedList.add(resepFeed2);
+        resepList.add(resep3);
 
-        ResepFeed resepFeed3 = new ResepFeed(
-                R.drawable.dummy_img_resep,
-                "Pizza Kasih",
-                "Ekstra Kasih sayang mantan.",
-                "Mudah",
-                "5 orang",
-                "60 menit"
-        );
-        resepFeedList.add(resepFeed3);
-
-        return resepFeedList;
+        return resepList;
     }
 
 }

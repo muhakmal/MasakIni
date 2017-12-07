@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.baskom.masakini.R;
-import com.baskom.masakini.feed.ResepFeed;
+import com.baskom.masakini.feed.Resep;
 import com.baskom.masakini.subactivity.ResepTabActivity;
 import com.bumptech.glide.Glide;
 
@@ -21,11 +21,10 @@ import java.util.List;
 
 public class ResepCardAdapter extends RecyclerView.Adapter{
 
-    private ResepTabActivity mContext;
-    private List<ResepFeed> resepFeeds = new ArrayList<>();
+    private List<Resep> resepList = new ArrayList<>();
 
-    public ResepCardAdapter(List<ResepFeed> resepFeeds) {
-        this.resepFeeds.addAll(resepFeeds);
+    public ResepCardAdapter(List<Resep> resepList) {
+        this.resepList.addAll(resepList);
     }
 
     @Override
@@ -38,12 +37,12 @@ public class ResepCardAdapter extends RecyclerView.Adapter{
 
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
-        ((ResepViewHolder) holder).bindData(resepFeeds.get(position));
+        ((ResepViewHolder) holder).bindData(resepList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return resepFeeds.size();
+        return resepList.size();
     }
 
     @Override
