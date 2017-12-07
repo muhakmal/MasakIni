@@ -1,4 +1,4 @@
-package com.baskom.masakini.adapter;
+package com.baskom.masakini.controller;
 
 import android.content.Intent;
 import android.support.v7.widget.CardView;
@@ -7,10 +7,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.baskom.masakini.MainActivity;
 import com.baskom.masakini.R;
-import com.baskom.masakini.feed.Resep;
-import com.baskom.masakini.subactivity.ResepTabActivity;
+import com.baskom.masakini.model.Resep;
+import com.baskom.masakini.view.ResepDetilActivity;
 
 /**
  * Created by Castor on 12/5/2017.
@@ -45,7 +44,7 @@ public class ResepViewHolder extends RecyclerView.ViewHolder{
        cardView.setOnClickListener(new View.OnClickListener(){
            @Override
            public void onClick(View view) {
-               Intent intent = new Intent(view.getContext(), ResepDetil.class);
+               Intent intent = new Intent(view.getContext(), ResepDetilActivity.class);
                intent.putExtra("objekResep",resep);
                view.getContext().startActivity(intent);
            }

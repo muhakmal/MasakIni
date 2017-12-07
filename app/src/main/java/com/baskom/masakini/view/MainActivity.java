@@ -1,4 +1,4 @@
-package com.baskom.masakini;
+package com.baskom.masakini.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,9 +12,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.baskom.masakini.adapter.ViewPagerAdapter;
-import com.baskom.masakini.subactivity.drawer.InfoAkunActivity;
-import com.baskom.masakini.subactivity.drawer.RiwayatOrderActivity;
+import com.baskom.masakini.R;
+import com.baskom.masakini.controller.ViewPagerAdapter;
 
 
 public class MainActivity extends AppCompatActivity
@@ -59,7 +58,7 @@ public class MainActivity extends AppCompatActivity
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
         //change view pager page when tab selected
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());

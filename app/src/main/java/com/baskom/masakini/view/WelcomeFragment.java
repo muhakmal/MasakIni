@@ -1,4 +1,4 @@
-package com.baskom.masakini.splash;
+package com.baskom.masakini.view;
 
 /**
  * Created by akmalmuhamad on 18/11/17.

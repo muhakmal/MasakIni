@@ -1,23 +1,18 @@
-package com.baskom.masakini.subactivity;
+package com.baskom.masakini.view;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.baskom.masakini.MainActivity;
 import com.baskom.masakini.R;
-import com.baskom.masakini.adapter.ResepCardAdapter;
-import com.baskom.masakini.feed.Resep;
-import com.baskom.masakini.feed.ResepFeed;
+import com.baskom.masakini.controller.ResepCardAdapter;
+import com.baskom.masakini.model.Bahan;
+import com.baskom.masakini.model.Resep;
+import com.baskom.masakini.model.Step;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +31,7 @@ public class ResepTabActivity extends android.support.v4.app.Fragment {
 
         RecyclerView recyclerView = rootView.findViewById(R.id.recycler_view);
         recyclerView.setNestedScrollingEnabled(false);
+        recyclerView.setFocusable(false);
 
         ResepCardAdapter adapter = new ResepCardAdapter(generateDummyList());
         recyclerView.setAdapter(adapter);
@@ -49,13 +45,13 @@ public class ResepTabActivity extends android.support.v4.app.Fragment {
     private List<Resep> generateDummyList(){
         List<Resep> resepList = new ArrayList<>();
 
-        List<String> judulStep = new ArrayList<>();
-        for(int i = 1; i <= 5; i++){
-            judulStep.add("Ini step "+i);
+        List<Bahan> bahan = new ArrayList<>();
+        for(int i = 1; i <= 3; i++){
+            bahan.add(new Bahan("Ini nama bahan "+i, "Ini takaran bahan "+i));
         }
-        List<String> penjelasanStep = new ArrayList<>();
+        List<Step> step = new ArrayList<>();
         for(int i = 1; i <= 5; i++){
-            penjelasanStep.add("Ini penjelasan step "+i);
+            step.add(new Step("Ini step "+i, "Ini penjelasan step "+i));
         }
         Resep resep = new Resep(
                 R.drawable.dummy_img_resep,
@@ -63,21 +59,22 @@ public class ResepTabActivity extends android.support.v4.app.Fragment {
                 "Dibuat dengan kasih cinta yang sebenernya.",
                 getString(R.string.lorem_ipsum),
                 "Mudah",
-                "5 orang",
+                "4 orang",
                 "30 Menit",
+                3,
+                bahan,
                 5,
-                judulStep,
-                penjelasanStep
+                step
         );
         resepList.add(resep);
 
-        List<String> judulStep1 = new ArrayList<>();
-        for(int i = 1; i <= 4; i++){
-            judulStep1.add("Ini step "+i);
+        List<Bahan> bahan1 = new ArrayList<>();
+        for(int i = 1; i <= 6; i++){
+            bahan1.add(new Bahan("Ini nama bahan "+i, "Ini takaran bahan "+i));
         }
-        List<String> penjelasanStep1 = new ArrayList<>();
+        List<Step> step1 = new ArrayList<>();
         for(int i = 1; i <= 4; i++){
-            penjelasanStep1.add("Ini penjelasan step "+i);
+            step1.add(new Step("Ini step "+i, "Ini penjelasan step "+i));
         }
         Resep resep1 = new Resep(
                 R.drawable.dummy_img_resep,
@@ -85,21 +82,22 @@ public class ResepTabActivity extends android.support.v4.app.Fragment {
                 "Ekstrak kasih sayang mantan.",
                 getString(R.string.lorem_ipsum),
                 "Sedang",
-                "5 orang",
+                "9 orang",
                 "400 Menit",
+                6,
+                bahan1,
                 4,
-                judulStep1,
-                penjelasanStep1
+                step1
         );
         resepList.add(resep1);
 
-        List<String> judulStep2 = new ArrayList<>();
-        for(int i = 1; i <= 7; i++){
-            judulStep2.add("Ini step "+i);
+        List<Bahan> bahan2 = new ArrayList<>();
+        for(int i = 1; i <= 8; i++){
+            bahan2.add(new Bahan("Ini nama bahan "+i, "Ini takaran bahan "+i));
         }
-        List<String> penjelasanStep2 = new ArrayList<>();
-        for(int i = 1; i <= 7; i++){
-            penjelasanStep2.add("Ini penjelasan step "+i);
+        List<Step> step2 = new ArrayList<>();
+        for(int i = 1; i <= 6; i++){
+            step2.add(new Step("Ini step "+i, "Ini penjelasan step "+i));
         }
         Resep resep2 = new Resep(
                 R.drawable.dummy_img_resep,
@@ -107,21 +105,22 @@ public class ResepTabActivity extends android.support.v4.app.Fragment {
                 "Dibuat dengan kayu dari senyum manis kamu.",
                 getString(R.string.lorem_ipsum),
                 "Sedang",
-                "5 orang",
+                "7 orang",
                 "60 Menit",
-                7,
-                judulStep2,
-                penjelasanStep2
+                8,
+                bahan2,
+                6,
+                step2
         );
         resepList.add(resep2);
 
-        List<String> judulStep3 = new ArrayList<>();
-        for(int i = 1; i <= 3; i++){
-            judulStep3.add("Ini step "+i);
+        List<Bahan> bahan3 = new ArrayList<>();
+        for(int i = 1; i <= 7; i++){
+            bahan3.add(new Bahan("Ini nama bahan "+i, "Ini takaran bahan "+i));
         }
-        List<String> penjelasanStep3 = new ArrayList<>();
-        for(int i = 1; i <= 3; i++){
-            penjelasanStep3.add("Ini penjelasan step "+i);
+        List<Step> step3 = new ArrayList<>();
+        for(int i = 1; i <= 10; i++){
+            step3.add(new Step("Ini step "+i, "Ini penjelasan step "+i));
         }
         Resep resep3 = new Resep(
                 R.drawable.dummy_img_resep,
@@ -129,11 +128,12 @@ public class ResepTabActivity extends android.support.v4.app.Fragment {
                 "Dibuat pakai kismis.",
                 getString(R.string.lorem_ipsum),
                 "Sulit",
-                "5 orang",
+                "11 orang",
                 "45 Menit",
-                3,
-                judulStep3,
-                penjelasanStep3
+                7,
+                bahan3,
+                10,
+                step3
         );
         resepList.add(resep3);
 

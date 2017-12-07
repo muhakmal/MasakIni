@@ -1,4 +1,4 @@
-package com.baskom.masakini.adapter;
+package com.baskom.masakini.controller;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,8 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.baskom.masakini.R;
-import com.baskom.masakini.feed.VideoFeed;
-import com.baskom.masakini.subactivity.VideoTabActivity;
+import com.baskom.masakini.model.Video;
+import com.baskom.masakini.view.VideoTabActivity;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
@@ -21,7 +21,7 @@ import java.util.List;
 public class VideoCardAdapter extends RecyclerView.Adapter<VideoCardAdapter.MyViewHolder> {
 
     private VideoTabActivity mContext;
-    private List<VideoFeed> videoFeeds;
+    private List<Video> videos;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView judulVideo;
@@ -34,9 +34,9 @@ public class VideoCardAdapter extends RecyclerView.Adapter<VideoCardAdapter.MyVi
         }
     }
 
-    public VideoCardAdapter(VideoTabActivity mContext, List<VideoFeed> videoFeeds) {
+    public VideoCardAdapter(VideoTabActivity mContext, List<Video> videos) {
         this.mContext = mContext;
-        this.videoFeeds = videoFeeds;
+        this.videos = videos;
     }
 
     @Override
@@ -48,17 +48,17 @@ public class VideoCardAdapter extends RecyclerView.Adapter<VideoCardAdapter.MyVi
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        final VideoFeed videoFeedList = videoFeeds.get(position);
-        holder.judulVideo.setText(videoFeedList.getJudulVideo());
+        final Video videoList = videos.get(position);
+        holder.judulVideo.setText(videoList.getJudulVideo());
 
         Glide.with(mContext)
-                .load(videoFeedList.getVideoImage())
+                .load(videoList.getVideoImage())
                 .into(holder.videoImage);
     }
 
     @Override
     public int getItemCount() {
-        return videoFeeds.size();
+        return videos.size();
     }
 
 

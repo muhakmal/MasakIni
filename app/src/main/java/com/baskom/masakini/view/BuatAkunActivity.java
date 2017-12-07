@@ -1,4 +1,4 @@
-package com.baskom.masakini.userarea;
+package com.baskom.masakini.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,8 +12,8 @@ import android.widget.TextView;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
-import com.baskom.masakini.MainActivity;
 import com.baskom.masakini.R;
+import com.baskom.masakini.model.BuatAkunRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,39 +22,32 @@ import org.json.JSONObject;
  * Created by akmalmuhamad on 18/11/17.
  */
 
-public class LoginActivity extends AppCompatActivity {
+public class BuatAkunActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_buat_akun);
 
+        final EditText etNama = (EditText) findViewById(R.id.etNama);
         final EditText etEmail = (EditText) findViewById(R.id.etEmail);
         final EditText etPassword = (EditText) findViewById(R.id.etPassword);
 
-        final Button btLogin = (Button) findViewById(R.id.btLogin);
-        final TextView textBuatAkunLink = (TextView) findViewById(R.id.textBuatAkun);
-        final TextView textLanjut = (TextView) findViewById(R.id.skip);
+        final Button btBuatAkun = (Button) findViewById(R.id.btBuatAkun);
 
-        textLanjut.setOnClickListener(new View.OnClickListener() {
+        final TextView loginLink = (TextView) findViewById(R.id.textLogin);
+
+        loginLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent skip = new Intent(LoginActivity.this, MainActivity.class);
-                LoginActivity.this.startActivity(skip);
+                Intent loginIntent = new Intent(BuatAkunActivity.this, LoginActivity.class);
+                BuatAkunActivity.this.startActivity(loginIntent);
             }
         });
 
-        textBuatAkunLink.setOnClickListener(new View.OnClickListener() {
+        btBuatAkun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Intent buatAkunIntent = new Intent(LoginActivity.this, BuatAkunActivity.class);
-                LoginActivity.this.startActivity(buatAkunIntent);
-            }
-        });
-
-        btLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                final String nama = etNama.getText().toString();
                 final String email = etEmail.getText().toString();
                 final String password = etPassword.getText().toString();
 
@@ -64,32 +57,28 @@ public class LoginActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");
-
                             if (success) {
-                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                LoginActivity.this.startActivity(intent);
-
-
+                                Intent intent = new Intent(BuatAkunActivity.this, LoginActivity.class);
+                                BuatAkunActivity.this.startActivity(intent);
                             } else {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                                builder.setMessage(response)
+                                AlertDialog.Builder builder = new AlertDialog.Builder(BuatAkunActivity.this);
+                                builder.setMessage("User Sudah Terdaftar")
                                         .setNegativeButton("Ulangi", null)
                                         .create()
                                         .show();
                             }
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-
-
                     }
                 };
 
-                LoginRequest loginRequest = new LoginRequest(email, password, responseListener);
-                RequestQueue antrian = Volley.newRequestQueue(LoginActivity.this);
-                antrian.add(loginRequest);
-
+                BuatAkunRequest buatAkunRequest = new BuatAkunRequest(nama, email, password, responseListener);
+                RequestQueue antrian = Volley.newRequestQueue(BuatAkunActivity.this);
+                antrian.add(buatAkunRequest);
             }
         });
     }
+
 }
