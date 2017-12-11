@@ -21,8 +21,8 @@ public class RiwayatOrderActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_riwayat_order);
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
-        TextView textView = (TextView)findViewById(R.id.text_view);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        TextView textView = findViewById(R.id.text_view);
 
         setSupportActionBar(toolbar);
         if(getIntent()!=null){

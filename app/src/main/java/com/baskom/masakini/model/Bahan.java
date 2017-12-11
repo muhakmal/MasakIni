@@ -10,9 +10,9 @@ public class Bahan implements Serializable {
     private String nama;
     private String takaran;
 
-    public Bahan(String nama, String takaran) {
-        this.nama = nama;
+    public Bahan(String takaran, String nama) {
         this.takaran = takaran;
+        this.nama = nama;
     }
 
     public String getNama() {

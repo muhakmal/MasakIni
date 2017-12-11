@@ -1,9 +1,13 @@
 package com.baskom.masakini.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.baskom.masakini.R;
@@ -32,6 +36,17 @@ public class ResepDetilActivity extends AppCompatActivity{
         TextView textViewOrang = findViewById(R.id.untuk_berapa_orang_detil);
         LinearLayout linearLayoutBahan = findViewById(R.id.linear_bahanMasakan);
         LinearLayout linearLayoutStep = findViewById(R.id.linear_caraMemasak);
+        ImageView imageView = findViewById(R.id.main_image_banner);
+
+        Button btn_beli = findViewById(R.id.btn_beli);
+        btn_beli.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent troliIntent = new Intent(ResepDetilActivity.this, CartActivity.class);
+                ResepDetilActivity.this.startActivity(troliIntent);
+            }
+        });
+
 
         for(int i = 0; i < resep.getBahan().size(); i++){
             View view = getLayoutInflater().inflate(R.layout.text_bahan, linearLayoutBahan, false);
@@ -55,6 +70,7 @@ public class ResepDetilActivity extends AppCompatActivity{
             linearLayoutStep.addView(view);
         }
 
+        imageView.setImageResource(resep.getResepImage());
         textViewJudul.setText(resep.getJudulResep());
         textViewSubjudul.setText(resep.getSubJudulResep());
         textViewPenjelasan.setText(resep.getPenjelasanResep());
@@ -63,4 +79,5 @@ public class ResepDetilActivity extends AppCompatActivity{
         textViewWaktu.setText(resep.getWaktuMemasak());
 
     }
+
 }
