@@ -1,6 +1,7 @@
 package com.baskom.masakini.controller;
 
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -15,7 +16,7 @@ import com.baskom.masakini.view.ResepDetilActivity;
  * Created by Castor on 12/5/2017.
  */
 
-public class ResepViewHolder extends RecyclerView.ViewHolder{
+public class ResepViewHolder extends RecyclerView.ViewHolder {
     private TextView judulResep;
     private TextView subJudulResep;
     private TextView tingkatKesulitan;
@@ -24,7 +25,7 @@ public class ResepViewHolder extends RecyclerView.ViewHolder{
     private ImageView resepImage;
     private CardView cardView;
 
-    public ResepViewHolder(View itemView){
+    public ResepViewHolder(View itemView) {
         super(itemView);
         judulResep = itemView.findViewById(R.id.cardView_JudulResep);
         subJudulResep = itemView.findViewById(R.id.cardView_deksripsiResep);
@@ -35,20 +36,21 @@ public class ResepViewHolder extends RecyclerView.ViewHolder{
         cardView = itemView.findViewById(R.id.card_view_resep);
     }
 
-    public void bindData(final Resep resep){
-       judulResep.setText(resep.getJudulResep());
-       subJudulResep.setText(resep.getSubJudulResep());
-       tingkatKesulitan.setText(resep.getTingkatKesulitan());
-       untukBerapaOrang.setText(resep.getUntukBerapaOrang());
-       waktuMemasak.setText(resep.getWaktuMemasak());
-       cardView.setOnClickListener(new View.OnClickListener(){
-           @Override
-           public void onClick(View view) {
-               Intent intent = new Intent(view.getContext(), ResepDetilActivity.class);
-               intent.putExtra("objekResep",resep);
-               view.getContext().startActivity(intent);
-           }
-       });
+    public void bindData(final Resep resep) {
+        resepImage.setImageResource(resep.getResepImage());
+        judulResep.setText(resep.getJudulResep());
+        subJudulResep.setText(resep.getSubJudulResep());
+        tingkatKesulitan.setText(resep.getTingkatKesulitan());
+        untukBerapaOrang.setText(resep.getUntukBerapaOrang());
+        waktuMemasak.setText(resep.getWaktuMemasak());
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), ResepDetilActivity.class);
+                intent.putExtra("objekResep", resep);
+                view.getContext().startActivity(intent);
+            }
+        });
     }
 
 

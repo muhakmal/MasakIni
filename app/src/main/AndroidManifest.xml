@@ -9,6 +9,8 @@
         android:icon="@mipmap/ic_launcher_mi"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_mi"
+        android:hardwareAccelerated="false"
+        android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
@@ -32,6 +34,8 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+
 
     </application>
 

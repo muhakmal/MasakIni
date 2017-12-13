@@ -51,7 +51,8 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="29dp"
                 android:layout_marginStart="16dp"
-                android:text="@string/login"
+                android:textStyle="bold"
+                android:text="Masuk"
                 android:textColor="@color/colorAccent"
                 android:textSize="32sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -98,7 +99,8 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="15dp"
                 android:background="@color/colorAccent"
-                android:text="LOGIN"
+                android:textStyle="bold"
+                android:text="MASUK"
                 android:textColor="@color/baseWhite"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -106,6 +108,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
             <TextView
+                android:textStyle="bold"
                 android:id="@+id/textBuatAkun"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

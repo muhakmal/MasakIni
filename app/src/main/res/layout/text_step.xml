@@ -9,23 +9,27 @@
         android:id="@+id/text_judul_step"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:gravity="center"
-        android:text="nah kan bisa"
-        android:textColor="@color/nliveo_black"
-        android:textSize="15sp"
+        android:text="Siapkan bahan"
+        android:textColor="@color/SemiBlack"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_penjelasan_step"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:text="nah kan bisa"
-        android:textColor="@color/nliveo_black"
-        android:textSize="15sp"
+        android:gravity="left"
+        android:text="Begini cara menyiapkan bahan"
+        android:textColor="@color/SemiBlack"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_judul_step" />
+        app:layout_constraintTop_toBottomOf="@+id/text_judul_step"
+        android:layout_marginLeft="8dp" />
+
 </android.support.constraint.ConstraintLayout>

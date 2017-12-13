@@ -1,200 +1,227 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
-
-<android.support.constraint.ConstraintLayout
-    android:id="@+id/fragment_content_resep_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:id="@+id/main_banner"
-        android:layout_width="412dp"
-        android:layout_height="176dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/judul_resep_detil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/main_banner"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:text="JUDUL RESEP"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_banner" />
-
-    <TextView
-        android:id="@+id/deskripsi_detil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/judul_resep_detil"
-        android:layout_alignStart="@+id/judul_resep_detil"
-        android:layout_below="@+id/judul_resep_detil"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:text="DESKRIPSI RESEP"
-        android:textSize="13sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/judul_resep_detil"
-        android:layout_marginLeft="24dp" />
-
-
-    <TextView
-        android:id="@+id/durasi_teks_detil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/deskripsi_detil"
-        android:layout_alignTop="@+id/kesulitan_detil"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:drawableLeft="@drawable/ic_timer"
-        android:drawablePadding="5dp"
-        android:gravity="center"
-        android:text="30 menit"
-        android:textSize="10sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deskripsi_detil"
-        android:layout_marginLeft="24dp" />
-
-    <TextView
-        android:id="@+id/kesulitan_detil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/deskripsi_detil"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_toEndOf="@+id/deskripsi_detil"
-        android:layout_toRightOf="@+id/deskripsi_detil"
-        android:drawableLeft="@drawable/ic_kesulitan"
-        android:drawablePadding="5dp"
-        android:gravity="center"
-        android:text="Sedang"
-        android:textSize="10sp"
-        app:layout_constraintStart_toEndOf="@+id/durasi_teks_detil"
-        app:layout_constraintTop_toBottomOf="@+id/deskripsi_detil"
-        android:layout_marginLeft="24dp" />
-
-    <TextView
-        android:id="@+id/untuk_berapa_orang_detil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/kesulitan_detil"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:drawableLeft="@drawable/ic_forknknife"
-        android:drawablePadding="5dp"
-        android:gravity="center"
-        android:text="5 orang"
-        android:textSize="10sp"
-        app:layout_constraintStart_toEndOf="@+id/kesulitan_detil"
-        app:layout_constraintTop_toBottomOf="@+id/deskripsi_detil"
-        android:layout_marginLeft="24dp" />
-
-    <View
-        android:id="@+id/view"
+    <ScrollView
+        android:id="@+id/scrollview"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:background="@color/nliveo_gray"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/kesulitan_detil" />
+        android:layout_height="match_parent"
+        android:layout_above="@+id/linearLayout">
 
-    <TextView
-        android:id="@+id/penjelasan_resep"
-        android:layout_width="313dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/lorem_ipsum"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/fragment_content_resep_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/baseWhite">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:text="Bahan-Bahan Masakan"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/penjelasan_resep"
-        android:layout_marginLeft="24dp" />
+            <RelativeLayout
+                android:id="@+id/main_banner_relative"
+                android:layout_width="match_parent"
+                android:layout_height="176dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/main_image_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="176dp"
+                    android:scaleType="fitXY" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/judul_resep_detil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/main_banner_relative"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:text="JUDUL RESEP"
+                android:textColor="@color/SemiBlack"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/main_banner_relative" />
+
+            <TextView
+                android:id="@+id/deskripsi_detil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/judul_resep_detil"
+                android:layout_alignStart="@+id/judul_resep_detil"
+                android:layout_below="@+id/judul_resep_detil"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:text="Deskripsi resep..."
+                android:textColor="@color/SemiBlack"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/judul_resep_detil" />
+
+
+            <TextView
+                android:id="@+id/durasi_teks_detil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/deskripsi_detil"
+                android:layout_alignTop="@+id/kesulitan_detil"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:drawableLeft="@drawable/ic_timer"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:text="30 menit"
+                android:textColor="@color/SemiBlack"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/deskripsi_detil" />
+
+            <TextView
+                android:id="@+id/kesulitan_detil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/deskripsi_detil"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_toEndOf="@+id/deskripsi_detil"
+                android:layout_toRightOf="@+id/deskripsi_detil"
+                android:drawableLeft="@drawable/ic_kesulitan"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:text="Sedang"
+                android:textColor="@color/SemiBlack"
+                android:textSize="13sp"
+                app:layout_constraintStart_toEndOf="@+id/durasi_teks_detil"
+                app:layout_constraintTop_toBottomOf="@+id/deskripsi_detil" />
+
+            <TextView
+                android:id="@+id/untuk_berapa_orang_detil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/kesulitan_detil"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:drawableLeft="@drawable/ic_forknknife"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:text="5 orang"
+                android:textColor="@color/SemiBlack"
+                android:textSize="13sp"
+                app:layout_constraintStart_toEndOf="@+id/kesulitan_detil"
+                app:layout_constraintTop_toBottomOf="@+id/deskripsi_detil" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/nliveo_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/kesulitan_detil" />
+
+            <TextView
+                android:id="@+id/penjelasan_resep"
+                android:layout_width="313dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="23dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="23dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/lorem_ipsum"
+                android:textColor="@color/SemiBlack"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:text="Bahan-Bahan Masakan"
+                android:textColor="@color/SemiBlack"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/penjelasan_resep" />
+
+            <LinearLayout
+                android:id="@+id/linear_bahanMasakan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/cara_memasak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:text="Cara Memasak"
+                android:textColor="@color/SemiBlack"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linear_bahanMasakan" />
+
+            <LinearLayout
+                android:id="@+id/linear_caraMemasak"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cara_memasak" />
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
 
     <LinearLayout
-        android:id="@+id/linear_bahanMasakan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        android:layout_marginLeft="24dp"
-        android:orientation="vertical" >
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/cara_memasak"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:text="Cara Memasak"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linear_bahanMasakan"
-        android:layout_marginLeft="24dp" />
-
-    <LinearLayout
-        android:id="@+id/linear_caraMemasak"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cara_memasak"
-        android:layout_marginLeft="24dp"
-        android:orientation="vertical">
-
-    </LinearLayout>
-
-    <RelativeLayout
-        android:id="@+id/box_button"
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linear_caraMemasak">
+        android:layout_height="65dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/baseWhite"
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn_beli"
             android:layout_width="312dp"
-            android:layout_height="44dp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="BELI"
-            tools:layout_editor_absoluteX="123dp"
-            tools:layout_editor_absoluteY="976dp" />
-    </RelativeLayout>
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="beli"
+            android:textColor="@color/baseWhite"
+            android:textStyle="bold" />
+    </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
 
-</ScrollView>
+</RelativeLayout>
