@@ -207,7 +207,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:background="@color/baseWhite"
         android:gravity="center"
@@ -215,9 +215,10 @@
 
         <Button
             android:id="@+id/btn_beli"
-            android:layout_width="312dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:background="@color/colorPrimary"
+            android:textSize="16sp"
             android:text="beli"
             android:textColor="@color/baseWhite"
             android:textStyle="bold" />

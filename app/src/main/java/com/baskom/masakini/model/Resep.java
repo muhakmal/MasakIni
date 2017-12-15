@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Resep implements Serializable {
 
-    private int resepImage;
+    private String resepImage;
     private String judulResep;
     private String subJudulResep;
     private String penjelasanResep;
@@ -22,7 +22,7 @@ public class Resep implements Serializable {
     private int jumlahStep;
     private List<Step> step = new ArrayList<>();
 
-    public Resep(int resepImage, String judulResep, String subJudulResep, String penjelasanResep, String tingkatKesulitan, String untukBerapaOrang, String waktuMemasak, int jumlahBahan, List<Bahan> bahan, int jumlahStep, List<Step> step) {
+    public Resep(String resepImage, String judulResep, String subJudulResep, String penjelasanResep, String tingkatKesulitan, String untukBerapaOrang, String waktuMemasak, int jumlahBahan, List<Bahan> bahan, int jumlahStep, List<Step> step) {
         this.resepImage = resepImage;
         this.judulResep = judulResep;
         this.subJudulResep = subJudulResep;
@@ -36,11 +36,11 @@ public class Resep implements Serializable {
         this.step.addAll(step);
     }
 
-    public int getResepImage() {
+    public String getResepImage() {
         return resepImage;
     }
 
-    public void setResepImage(int resepImage) {
+    public void setResepImage(String resepImage) {
         this.resepImage = resepImage;
     }
 
