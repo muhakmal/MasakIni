@@ -7,24 +7,24 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.baskom.masakini.R;
 import com.baskom.masakini.model.Resep;
+import com.bumptech.glide.Glide;
 
 /**
  * Created by akmalmuhamad on 04/12/17.
  */
 
-public class ResepDetilActivity extends AppCompatActivity{
+public class ResepDetilActivity extends AppCompatActivity {
 
     Resep resep;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_resep_detil);
+        setContentView(R.layout.activity_resep_detil);
 
         resep = (Resep) getIntent().getSerializableExtra("objekResep");
 
@@ -39,16 +39,20 @@ public class ResepDetilActivity extends AppCompatActivity{
         ImageView imageView = findViewById(R.id.main_image_banner);
 
         Button btn_beli = findViewById(R.id.btn_beli);
+
         btn_beli.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent troliIntent = new Intent(ResepDetilActivity.this, CartActivity.class);
-                ResepDetilActivity.this.startActivity(troliIntent);
+
+                Intent troliIntent = new Intent(view.getContext(), TroliActivity.class);
+                troliIntent.putExtra("objekResep", resep);
+                view.getContext().startActivity(troliIntent);
             }
         });
 
 
-        for(int i = 0; i < resep.getBahan().size(); i++){
+        //untuk munculin nama bahan dan takaran
+        for (int i = 0; i < resep.getBahan().size(); i++) {
             View view = getLayoutInflater().inflate(R.layout.text_bahan, linearLayoutBahan, false);
 
             TextView textViewNamaBahan = view.findViewById(R.id.text_nama_bahan);
@@ -59,7 +63,8 @@ public class ResepDetilActivity extends AppCompatActivity{
             linearLayoutBahan.addView(view);
         }
 
-        for(int i = 0; i < resep.getStep().size(); i++){
+        //untuk munculin judul step
+        for (int i = 0; i < resep.getStep().size(); i++) {
             View view = getLayoutInflater().inflate(R.layout.text_step, linearLayoutStep, false);
 
             TextView textViewJudulStep = view.findViewById(R.id.text_judul_step);
@@ -70,7 +75,8 @@ public class ResepDetilActivity extends AppCompatActivity{
             linearLayoutStep.addView(view);
         }
 
-        imageView.setImageResource(resep.getResepImage());
+        //setter untuk setiap variabel ke dalam XML
+        Glide.with(imageView.getContext()).load(resep.getResepImage()).into(imageView);
         textViewJudul.setText(resep.getJudulResep());
         textViewSubjudul.setText(resep.getSubJudulResep());
         textViewPenjelasan.setText(resep.getPenjelasanResep());
