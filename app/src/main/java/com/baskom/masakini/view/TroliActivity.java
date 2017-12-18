@@ -18,8 +18,6 @@ import com.baskom.masakini.R;
 import com.baskom.masakini.model.Resep;
 import com.bumptech.glide.Glide;
 
-import java.text.DateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -77,7 +75,6 @@ public class TroliActivity extends AppCompatActivity {
         hargaTroli.setText("Harga Bahan Masakan : 100.000,-");
         Glide.with(imageTroli.getContext()).load(resep.getResepImage()).into(imageTroli);
         totalEstimasi.setText("100.000,-");
-        biayaPengiriman.setText("Gratis Bos");
 
 
         btnBeli.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +87,7 @@ public class TroliActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 //menuju page pembayaran
-                                Intent intentPembayaran = new Intent(TroliActivity.this, KonfirmasiActivity.class);
+                                Intent intentPembayaran = new Intent(TroliActivity.this, PengirimanActivity.class);
                                 startActivity(intentPembayaran);
                             }
                         })

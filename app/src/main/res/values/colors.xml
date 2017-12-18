@@ -8,6 +8,7 @@
     <color name="SemiBlack">#4A4A4A</color>
     <color name="divider">#e7e7e7</color>
     <color name="semigrey">#f2f2f2</color>
+    <drawable name="semigreudraw">#f2f2f2</drawable>
 
 
     <!-- Screens background color-->

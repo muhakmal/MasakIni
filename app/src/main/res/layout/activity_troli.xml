@@ -35,8 +35,8 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_gravity="center"
-                android:layout_marginTop="9dp"
-                android:elevation="10dp"
+                android:layout_margin="5dp"
+                app:cardElevation="2dp"
                 app:cardUseCompatPadding="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
@@ -135,26 +135,15 @@
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="63dp"
-        android:background="@color/baseWhite"
+        android:layout_height="40dp"
+        android:background="@color/semigrey"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent">
 
-
         <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView3"
-            android:layout_alignStart="@+id/textView3"
-            android:layout_below="@+id/textView3"
-            android:layout_marginTop="8dp"
-            android:text="Biaya Pengiriman : "
-            android:textStyle="bold" />
-
-        <TextView
+            android:gravity="center_vertical"
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -167,25 +156,17 @@
             android:text="Total Estimasi :"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/biaya_pengiriman"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/textView5"
-            android:layout_alignBottom="@+id/textView5"
-            android:layout_alignEnd="@+id/total_estimasi"
-            android:layout_alignRight="@+id/total_estimasi"
-            android:text="Gratis" />
 
         <TextView
             android:id="@+id/total_estimasi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/textView5"
+            android:layout_alignBaseline="@+id/textView3"
+            android:layout_alignBottom="@+id/textView3"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginEnd="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginEnd="21dp"
+            android:layout_marginRight="21dp"
             android:text="Rp 120.000,-" />
     </RelativeLayout>
 

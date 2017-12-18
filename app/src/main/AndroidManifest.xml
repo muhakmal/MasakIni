@@ -28,7 +28,9 @@
         <activity android:name=".view.TroliActivity" />
         <activity android:name=".view.ResepDetilActivity" />
         <activity android:name=".view.MainActivity" />
-        <activity android:name=".view.KonfirmasiActivity"/>
+        <activity android:name=".view.PengirimanActivity"/>
+        <activity android:name=".view.PembayaranActivity"/>
+        <activity android:name=".view.SelesaiActivity"/>
 
         <meta-data
             android:name="preloaded_fonts"
