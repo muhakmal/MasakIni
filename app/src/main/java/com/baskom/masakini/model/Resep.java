@@ -10,38 +10,28 @@ import java.util.List;
 
 public class Resep implements Serializable {
 
-    private String resepImage;
     private String judulResep;
     private String subJudulResep;
     private String penjelasanResep;
     private String tingkatKesulitan;
     private String untukBerapaOrang;
     private String waktuMemasak;
-    private int jumlahBahan;
+    private String resepImage;
     private List<Bahan> bahan = new ArrayList<>();
-    private int jumlahStep;
     private List<Step> step = new ArrayList<>();
+    private List<Produk> produk = new ArrayList<>();
 
-    public Resep(String resepImage, String judulResep, String subJudulResep, String penjelasanResep, String tingkatKesulitan, String untukBerapaOrang, String waktuMemasak, int jumlahBahan, List<Bahan> bahan, int jumlahStep, List<Step> step) {
-        this.resepImage = resepImage;
+    public Resep(String judulResep, String subJudulResep, String penjelasanResep, String tingkatKesulitan, String untukBerapaOrang, String waktuMemasak, String resepImage, List<Bahan> bahan, List<Step> step, List<Produk> produk) {
         this.judulResep = judulResep;
         this.subJudulResep = subJudulResep;
         this.penjelasanResep = penjelasanResep;
         this.tingkatKesulitan = tingkatKesulitan;
         this.untukBerapaOrang = untukBerapaOrang;
         this.waktuMemasak = waktuMemasak;
-        this.jumlahBahan = jumlahBahan;
-        this.bahan.addAll(bahan);
-        this.jumlahStep = jumlahStep;
-        this.step.addAll(step);
-    }
-
-    public String getResepImage() {
-        return resepImage;
-    }
-
-    public void setResepImage(String resepImage) {
         this.resepImage = resepImage;
+        this.bahan = bahan;
+        this.step = step;
+        this.produk = produk;
     }
 
     public String getJudulResep() {
@@ -92,12 +82,12 @@ public class Resep implements Serializable {
         this.waktuMemasak = waktuMemasak;
     }
 
-    public int getJumlahBahan() {
-        return jumlahBahan;
+    public String getResepImage() {
+        return resepImage;
     }
 
-    public void setJumlahBahan(int jumlahBahan) {
-        this.jumlahBahan = jumlahBahan;
+    public void setResepImage(String resepImage) {
+        this.resepImage = resepImage;
     }
 
     public List<Bahan> getBahan() {
@@ -108,19 +98,19 @@ public class Resep implements Serializable {
         this.bahan = bahan;
     }
 
-    public int getJumlahStep() {
-        return jumlahStep;
-    }
-
-    public void setJumlahStep(int jumlahStep) {
-        this.jumlahStep = jumlahStep;
-    }
-
     public List<Step> getStep() {
         return step;
     }
 
     public void setStep(List<Step> step) {
         this.step = step;
+    }
+
+    public List<Produk> getProduk() {
+        return produk;
+    }
+
+    public void setProduk(List<Produk> produk) {
+        this.produk = produk;
     }
 }

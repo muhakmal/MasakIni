@@ -50,11 +50,11 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        //setviewpager adapter
+        //set viewpager adapter
         ViewPagerAdapter pagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
 
-        //change tab selevtion when swipe viewpager
+        //change tab selection when swipe viewpager
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
         //change view pager page when tab selected
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-/*
+    /*
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
