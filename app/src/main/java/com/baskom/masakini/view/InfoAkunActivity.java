@@ -54,7 +54,7 @@ public class InfoAkunActivity extends AppCompatActivity{
         final TextView textEmail = findViewById(R.id.text_view_email);
         final TextView textName = findViewById(R.id.text_view_nama);
 
-        ////Tarik info akun dari database berdasarkan email (START)
+        ////Tarik info akun dari database berdasarkan email
         email = LoginRequest.getEmail();
 
         //Response Listener buat requestnya
@@ -91,7 +91,6 @@ public class InfoAkunActivity extends AppCompatActivity{
 
         //Masukin ke queuenya
         queue.add(request);
-        ////Tarik info akun dari database berdasarkan email (END)
     }
 
 
