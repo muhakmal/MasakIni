@@ -7,123 +7,105 @@
     android:background="@color/baseWhite"
     android:theme="@style/AppTheme">
 
-    <RelativeLayout
-        android:id="@+id/linear"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+
+    <TextView
+
+        android:id="@+id/skip"
+        android:layout_width="125dp"
+        android:layout_height="19dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="7dp"
+        android:text="Lanjut Tanpa Daftar"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBuatAkun" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="315dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="29dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="56dp"
+        android:text="Masuk"
+        android:textColor="@color/colorAccent"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linear"
-        app:layout_constraintVertical_bias="1.0">
+    <com.andreabaccega.widget.FormEditText
+        android:id="@+id/etEmail"
+        android:layout_width="327dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Masukkan Alamat Email"
+        android:inputType="textEmailAddress"
+        android:textSize="14sp"
+        app:emptyErrorString="Masukkan alamat email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:testErrorString="Masukkan format dengan benar"
+        app:testType="email" />
 
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    <com.andreabaccega.widget.FormEditText
+        android:id="@+id/etPassword"
+        android:layout_width="327dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="17dp"
+        android:ems="10"
+        android:hint="Masukkan Password"
+        android:inputType="textPassword"
+        android:text=""
+        android:textSize="14sp"
+        app:emptyErrorString="Masukkan password anda"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etEmail"
+        app:testErrorString="Password harus menggunakan huruf dan angka"
+        app:testType="alphaNumeric" />
 
-            <TextView
-                android:id="@+id/skip"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="219dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="219dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="10dp"
-                android:text="Lanjut Tanpa Daftar"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textBuatAkun" />
+    <Button
+        android:id="@+id/btLogin"
+        android:layout_width="327dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/colorAccent"
+        android:text="MASUK"
+        android:textColor="@color/baseWhite"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="315dp"
-                android:layout_height="46dp"
-                android:layout_marginEnd="29dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="29dp"
-                android:layout_marginStart="16dp"
-                android:textStyle="bold"
-                android:text="Masuk"
-                android:textColor="@color/colorAccent"
-                android:textSize="32sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/textBuatAkun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/belum_punya_akun_daftar"
+        android:textColor="@color/colorAccent"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btLogin" />
 
-            <EditText
-                android:id="@+id/etEmail"
-                android:layout_width="327dp"
-                android:layout_height="45dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginLeft="17dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginStart="17dp"
-                android:layout_marginTop="20dp"
-                android:ems="10"
-                android:hint="Masukkan Alamat Email"
-                android:inputType="textEmailAddress"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-            <EditText
-                android:id="@+id/etPassword"
-                android:layout_width="327dp"
-                android:layout_height="45dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginLeft="17dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginStart="17dp"
-                android:ems="10"
-                android:hint="Masukkan Password"
-                android:inputType="textPassword"
-                android:text=""
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etEmail" />
-
-            <Button
-                android:id="@+id/btLogin"
-                android:layout_width="327dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="15dp"
-                android:background="@color/colorAccent"
-                android:textStyle="bold"
-                android:text="MASUK"
-                android:textColor="@color/baseWhite"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etPassword" />
-
-            <TextView
-                android:textStyle="bold"
-                android:id="@+id/textBuatAkun"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="10dp"
-                android:text="@string/belum_punya_akun_daftar"
-                android:textColor="@color/colorAccent"
-                android:textSize="13dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btLogin" />
-
-
-        </android.support.constraint.ConstraintLayout>
-
-
-    </ScrollView>
 </android.support.constraint.ConstraintLayout>

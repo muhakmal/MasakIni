@@ -9,6 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.andreabaccega.formedittextvalidator.AlphaNumericValidator;
+import com.andreabaccega.formedittextvalidator.EmailValidator;
+import com.andreabaccega.formedittextvalidator.PersonFullNameValidator;
+import com.andreabaccega.widget.FormEditText;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
@@ -28,14 +32,16 @@ public class BuatAkunActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buat_akun);
 
-        final EditText etNama = (EditText) findViewById(R.id.etNama);
-        final EditText etEmail = (EditText) findViewById(R.id.etEmail);
-        final EditText etPassword = (EditText) findViewById(R.id.etPassword);
+        final FormEditText etNama = findViewById(R.id.etNama);
+        final FormEditText etEmail = findViewById(R.id.etEmail);
+        final FormEditText etPassword = findViewById(R.id.etPassword);
+
+        etEmail.addValidator(new EmailValidator(null));
+        etNama.addValidator(new PersonFullNameValidator(null));
+        etPassword.addValidator(new AlphaNumericValidator(null));
 
         final Button btBuatAkun = (Button) findViewById(R.id.btBuatAkun);
-
         final TextView loginLink = (TextView) findViewById(R.id.textLogin);
-
         loginLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,6 +61,11 @@ public class BuatAkunActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         try {
+                            FormEditText[] allFields = {etNama, etEmail,etPassword};
+                            boolean allValid = true;
+                            for(FormEditText field : allFields){
+                                allValid = field.testValidity() && allValid;
+                            }
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");
                             if (success) {
@@ -63,6 +74,7 @@ public class BuatAkunActivity extends AppCompatActivity {
                             } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(BuatAkunActivity.this);
                                 builder.setMessage("User Sudah Terdaftar")
+                                        .setTitle("Buat Akun Gagal")
                                         .setNegativeButton("Ulangi", null)
                                         .create()
                                         .show();

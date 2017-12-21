@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.andreabaccega.formedittextvalidator.AlphaNumericValidator;
+import com.andreabaccega.formedittextvalidator.EmailValidator;
+import com.andreabaccega.widget.FormEditText;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
@@ -28,8 +31,11 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        final EditText etEmail = (EditText) findViewById(R.id.etEmail);
-        final EditText etPassword = (EditText) findViewById(R.id.etPassword);
+        final FormEditText etEmail = findViewById(R.id.etEmail);
+        final FormEditText etPassword = findViewById(R.id.etPassword);
+
+        etEmail.addValidator(new EmailValidator("Harus email"));
+        etPassword.addValidator(new AlphaNumericValidator(null));
 
         final Button btLogin = (Button) findViewById(R.id.btLogin);
         final TextView textBuatAkunLink = (TextView) findViewById(R.id.textBuatAkun);
@@ -62,17 +68,21 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         try {
+                            FormEditText[] allFields = {etEmail, etPassword};
+                            boolean allValid = true;
+                            for(FormEditText field :allFields){
+                                allValid = field.testValidity() && allValid;
+                            }
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");
-
                             if (success) {
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 LoginActivity.this.startActivity(intent);
-
-
                             } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
                                 builder.setMessage(response)
+                                        .setTitle("Masuk Gagal")
+                                        .setMessage("Format Email atau Password yang anda masukkan salah.")
                                         .setNegativeButton("Ulangi", null)
                                         .create()
                                         .show();

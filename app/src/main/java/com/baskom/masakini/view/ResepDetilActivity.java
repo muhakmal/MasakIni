@@ -46,7 +46,7 @@ public class ResepDetilActivity extends AppCompatActivity {
 
                 Intent troliIntent = new Intent(view.getContext(), TroliActivity.class);
                 troliIntent.putExtra("objekResep", resep);
-                view.getContext().startActivity(troliIntent);
+                startActivity(troliIntent);
             }
         });
 

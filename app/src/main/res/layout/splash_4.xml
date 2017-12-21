@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="194dp"
-        android:layout_height="54dp"
+        android:layout_height="58dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/logo_masakini"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,11 +33,11 @@
     <ImageView
         android:layout_width="287dp"
         android:layout_height="73dp"
-        android:layout_marginTop="90dp"
+        android:layout_marginBottom="100dp"
         android:background="@drawable/deskripsi_splash_4"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

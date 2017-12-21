@@ -33,12 +33,12 @@
     <ImageView
         android:layout_width="254dp"
         android:layout_height="73dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginBottom="100dp"
         android:background="@drawable/deskripsi_splash_2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

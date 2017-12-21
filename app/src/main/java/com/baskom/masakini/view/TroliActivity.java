@@ -27,6 +27,7 @@ import java.util.Date;
 public class TroliActivity extends AppCompatActivity {
 
     Resep resep;
+    int totalHarga;
 
     //fungsi tanggal
     private String formatTanggal(Date date) {
@@ -39,7 +40,7 @@ public class TroliActivity extends AppCompatActivity {
         setContentView(R.layout.activity_troli);
 
         resep = (Resep) getIntent().getSerializableExtra("objekResep");
-
+        totalHarga = 0;
 
         Toolbar toolbar = findViewById(R.id.toolbar);
 
@@ -59,24 +60,24 @@ public class TroliActivity extends AppCompatActivity {
         Button btnBeli = findViewById(R.id.btn_beli_troli);
 
 
-        for (int i = 0; i < resep.getBahan().size(); i++) {
+        for (int i = 0; i < resep.getProduk().size(); i++) {
             View view = getLayoutInflater().inflate(R.layout.text_bahan, textLinearLayoutTroli, false);
 
             TextView textViewNamaBahanTroli = view.findViewById(R.id.text_nama_bahan);
             TextView textViewTakaranTroli = view.findViewById(R.id.text_takaran_bahan);
-            textViewNamaBahanTroli.setText(resep.getBahan().get(i).getNama());
-            textViewTakaranTroli.setText(resep.getBahan().get(i).getTakaran());
+            textViewNamaBahanTroli.setText(resep.getProduk().get(i).getNama());
+            textViewTakaranTroli.setText(resep.getProduk().get(i).getTakaran());
+            totalHarga += resep.getProduk().get(i).getHarga();
 
             textLinearLayoutTroli.addView(view);
         }
 
         tanggalTroli.setText(formatTanggal(new Date()));
         judulTroli.setText("Bahan Masakan Untuk " + resep.getJudulResep());
-        hargaTroli.setText("Harga Bahan Masakan : 100.000,-");
+        hargaTroli.setText("Harga Bahan Masakan : "+totalHarga+",-");
         Glide.with(imageTroli.getContext()).load(resep.getResepImage()).into(imageTroli);
-        totalEstimasi.setText("100.000,-");
-
-
+        totalEstimasi.setText(Integer.toString(totalHarga+20000));
+        
         btnBeli.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
