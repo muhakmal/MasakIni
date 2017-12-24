@@ -47,6 +47,7 @@ public class TroliActivity extends AppCompatActivity {
 
         resep = (Resep) getIntent().getSerializableExtra("objekResep");
         hargaProduk = 0;
+        totalEstimasi = 0;
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         ImageView imageTroli = findViewById(R.id.image_troli);
@@ -104,8 +105,6 @@ public class TroliActivity extends AppCompatActivity {
                     totalEstimasi = hargaProduk;
                 } else if (jumlahPaket == 3) {
                     totalEstimasi = hargaProduk * 3;
-                } else {
-
                 }
 
                 tv_totalEstimasi.setText("Rp." + Integer.toString(totalEstimasi));
@@ -125,6 +124,7 @@ public class TroliActivity extends AppCompatActivity {
                                 //menuju page pembayaran
                                 Intent intentPembayaran = new Intent(TroliActivity.this, PembelianKonfirmasiActivity.class);
                                 intentPembayaran.putExtra("objekTroli", transaksi);
+                                intentPembayaran.putExtra("totalEstimasi", totalEstimasi);
                                 startActivity(intentPembayaran);
                             }
                         })

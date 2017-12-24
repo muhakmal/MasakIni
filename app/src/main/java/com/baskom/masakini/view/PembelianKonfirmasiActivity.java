@@ -21,6 +21,7 @@ import com.baskom.masakini.model.Transaksi;
 public class PembelianKonfirmasiActivity extends AppCompatActivity {
 
     Transaksi transaksi;
+    int totalEstimasi;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class PembelianKonfirmasiActivity extends AppCompatActivity {
         setContentView(R.layout.konfirmasi_pengiriman);
 
         transaksi = (Transaksi) getIntent().getSerializableExtra("objekTroli");
+        totalEstimasi = getIntent().getIntExtra("totalEstimasi",1);
 
         android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -39,8 +41,9 @@ public class PembelianKonfirmasiActivity extends AppCompatActivity {
         TextView btnUbah = findViewById(R.id.btn_ubah);
         TextView tvHargaBahan = findViewById(R.id.tv_harga_bahan_masakan);
         TextView tvBiayaPengiriman = findViewById(R.id.tv_biaya_pengiriman);
-        TextView tvTotal = findViewById(R.id.tv_total_yang_harus_dibayar);
-
+        TextView tvTotal = findViewById(R.id.total_harga);
+        tvHargaBahan.setText("Rp"+Integer.toString(totalEstimasi));
+        tvTotal.setText("Rp"+Integer.toString(totalEstimasi+20000));
 
         btnSelanjutnya.setOnClickListener(new View.OnClickListener() {
             @Override
