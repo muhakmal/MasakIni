@@ -6,6 +6,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.andreabaccega.formedittextvalidator.AlphaNumericValidator;
@@ -38,11 +39,14 @@ public class BuatAkunActivity extends AppCompatActivity {
         final FormEditText etPassword = findViewById(R.id.etPassword);
         final FormEditText etNohp = findViewById(R.id.et_no_hp_buatakun);
         final FormEditText etAlamat = findViewById(R.id.et_alamat_lengkap_buatakun);
+        final ProgressBar progressBar = findViewById(R.id.progressBar_buatakun);
         etPassword.setTypeface(EasyFonts.robotoRegular(this));
 
         etEmail.addValidator(new EmailValidator(null));
         etNama.addValidator(new PersonFullNameValidator(null));
         etPassword.addValidator(new AlphaNumericValidator(null));
+        etNohp.addValidator(new NumericValidator(null));
+        etAlamat.addValidator(new AlphaNumericValidator(null));
 
         final Button btBuatAkun = (Button) findViewById(R.id.btBuatAkun);
         final TextView loginLink = (TextView) findViewById(R.id.textLogin);
@@ -62,7 +66,7 @@ public class BuatAkunActivity extends AppCompatActivity {
                 final String password = etPassword.getText().toString();
                 final String no_hp = etNohp.getText().toString();
                 final String alamat_lengkap = etAlamat.getText().toString();
-
+                progressBar.setVisibility(View.VISIBLE);
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -85,6 +89,7 @@ public class BuatAkunActivity extends AppCompatActivity {
                                         .create()
                                         .show();
                             }
+                            progressBar.setVisibility(View.GONE);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
