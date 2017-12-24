@@ -11,8 +11,8 @@ import com.baskom.masakini.view.VideoTabActivity;
  * Created by akmalmuhamad on 20/11/17.
  */
 
-public class ViewPagerAdapter extends FragmentPagerAdapter {
-    public ViewPagerAdapter(FragmentManager fragmentManager) {
+public class MainViewPagerAdapter extends FragmentPagerAdapter {
+    public MainViewPagerAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
     }
 

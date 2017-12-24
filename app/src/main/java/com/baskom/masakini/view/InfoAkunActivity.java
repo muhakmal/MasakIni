@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -36,6 +37,10 @@ public class InfoAkunActivity extends AppCompatActivity{
         setContentView(R.layout.activity_info_akun);
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Info Akun");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         Button btnKeluar = (Button)findViewById(R.id.btn_keluar);
         btnKeluar.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -47,12 +52,10 @@ public class InfoAkunActivity extends AppCompatActivity{
             }
         });
 
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Info Akun");
 
         final TextView textId = findViewById(R.id.text_view_id);
-        final TextView textEmail = findViewById(R.id.text_view_email);
-        final TextView textName = findViewById(R.id.text_view_nama);
+        final EditText textEmail = findViewById(R.id.text_view_email);
+        final EditText textName = findViewById(R.id.text_view_nama);
 
         ////Tarik info akun dari database berdasarkan email
         email = LoginRequest.getEmail();
@@ -64,8 +67,8 @@ public class InfoAkunActivity extends AppCompatActivity{
                 try{
                     JSONObject jsonResponse = new JSONObject(response);
                     textId.setText(jsonResponse.getString("userid"));
-                    textEmail.setText(jsonResponse.getString("email"));
-                    textName.setText(jsonResponse.getString("name"));
+                    textEmail.setText(jsonResponse.getString("email"), TextView.BufferType.EDITABLE);
+                    textName.setText(jsonResponse.getString("name"), TextView.BufferType.EDITABLE);
                 }catch (JSONException e){
                     e.printStackTrace();
                 }
@@ -91,6 +94,7 @@ public class InfoAkunActivity extends AppCompatActivity{
 
         //Masukin ke queuenya
         queue.add(request);
+
     }
 
 
@@ -100,12 +104,14 @@ public class InfoAkunActivity extends AppCompatActivity{
         if (item.getItemId() == android.R.id.home){
             //do something before finish
             finish();
-            Intent back = new Intent(InfoAkunActivity.this, MainActivity.class);
-            startActivity(back);
+            /*Intent back = new Intent(InfoAkunActivity.this, MainActivity.class);
+            startActivity(back);*/
         }
         return super.onOptionsItemSelected(item);
     }
 
-
-
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
 }

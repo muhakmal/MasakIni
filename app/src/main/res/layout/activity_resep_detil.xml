@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -43,8 +44,8 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
                 android:text="JUDUL RESEP"
-                android:textColor="@color/SemiBlack"
-                android:textSize="18sp"
+                android:textColor="@color/nliveo_black"
+                android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/main_banner_relative" />
@@ -58,10 +59,8 @@
                 android:layout_below="@+id/judul_resep_detil"
                 android:layout_marginLeft="24dp"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="0dp"
                 android:text="Deskripsi resep..."
-                android:textColor="@color/SemiBlack"
-                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/judul_resep_detil" />
 
@@ -79,7 +78,7 @@
                 android:drawablePadding="5dp"
                 android:gravity="center"
                 android:text="30 menit"
-                android:textColor="@color/SemiBlack"
+                android:textColor="@color/greySubText"
                 android:textSize="13sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/deskripsi_detil" />
@@ -98,7 +97,7 @@
                 android:drawablePadding="5dp"
                 android:gravity="center"
                 android:text="Sedang"
-                android:textColor="@color/SemiBlack"
+                android:textColor="@color/greySubText"
                 android:textSize="13sp"
                 app:layout_constraintStart_toEndOf="@+id/durasi_teks_detil"
                 app:layout_constraintTop_toBottomOf="@+id/deskripsi_detil" />
@@ -117,7 +116,7 @@
                 android:drawablePadding="5dp"
                 android:gravity="center"
                 android:text="5 orang"
-                android:textColor="@color/SemiBlack"
+                android:textColor="@color/greySubText"
                 android:textSize="13sp"
                 app:layout_constraintStart_toEndOf="@+id/kesulitan_detil"
                 app:layout_constraintTop_toBottomOf="@+id/deskripsi_detil" />
@@ -133,6 +132,33 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/kesulitan_detil" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/nliveo_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/penjelasan_resep" />
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/nliveo_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linear_bahanMasakan" />
+
 
             <TextView
                 android:id="@+id/penjelasan_resep"
@@ -155,13 +181,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="8dp"
                 android:text="Bahan-Bahan Masakan"
-                android:textColor="@color/SemiBlack"
-                android:textSize="16sp"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/penjelasan_resep" />
+                app:layout_constraintTop_toBottomOf="@+id/view2" />
 
             <LinearLayout
                 android:id="@+id/linear_bahanMasakan"
@@ -184,20 +210,22 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
                 android:text="Cara Memasak"
-                android:textColor="@color/SemiBlack"
-                android:textSize="16sp"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linear_bahanMasakan" />
+                app:layout_constraintTop_toBottomOf="@+id/linear_bahanMasakan"
+                android:paddingBottom="10dp"/>
 
             <LinearLayout
                 android:id="@+id/linear_caraMemasak"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
                 android:orientation="vertical"
+                android:paddingBottom="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cara_memasak" />
 
@@ -207,7 +235,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="@dimen/tinggiButton"
         android:layout_alignParentBottom="true"
         android:background="@color/baseWhite"
         android:gravity="center"
@@ -218,9 +246,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorPrimary"
-            android:textSize="16sp"
             android:text="beli"
             android:textColor="@color/baseWhite"
+            android:textSize="16sp"
             android:textStyle="bold" />
     </LinearLayout>
 

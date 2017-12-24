@@ -18,6 +18,7 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import com.baskom.masakini.R;
 import com.baskom.masakini.model.BuatAkunRequest;
+import com.vstechlab.easyfonts.EasyFonts;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,6 +36,7 @@ public class BuatAkunActivity extends AppCompatActivity {
         final FormEditText etNama = findViewById(R.id.etNama);
         final FormEditText etEmail = findViewById(R.id.etEmail);
         final FormEditText etPassword = findViewById(R.id.etPassword);
+        etPassword.setTypeface(EasyFonts.robotoRegular(this));
 
         etEmail.addValidator(new EmailValidator(null));
         etNama.addValidator(new PersonFullNameValidator(null));
@@ -68,12 +70,12 @@ public class BuatAkunActivity extends AppCompatActivity {
                             }
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");
-                            if (success) {
+                            if (success && allValid) {
                                 Intent intent = new Intent(BuatAkunActivity.this, LoginActivity.class);
                                 BuatAkunActivity.this.startActivity(intent);
                             } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(BuatAkunActivity.this);
-                                builder.setMessage("User Sudah Terdaftar")
+                                builder.setMessage("User sudah terdaftar dan atau format yang anda masukkan salah")
                                         .setTitle("Buat Akun Gagal")
                                         .setNegativeButton("Ulangi", null)
                                         .create()

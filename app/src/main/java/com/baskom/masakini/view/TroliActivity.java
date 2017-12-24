@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,7 +15,9 @@ import android.widget.TextView;
 
 import com.baskom.masakini.R;
 import com.baskom.masakini.model.Resep;
+import com.baskom.masakini.model.Transaksi;
 import com.bumptech.glide.Glide;
+import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 
 import java.util.Date;
 
@@ -27,7 +28,12 @@ import java.util.Date;
 public class TroliActivity extends AppCompatActivity {
 
     Resep resep;
-    int totalHarga;
+    Transaksi transaksi;
+
+    int hargaProduk;
+    int totalEstimasi;
+    int jumlahPaket = 1;
+    int totalTakaran;
 
     //fungsi tanggal
     private String formatTanggal(Date date) {
@@ -40,55 +46,85 @@ public class TroliActivity extends AppCompatActivity {
         setContentView(R.layout.activity_troli);
 
         resep = (Resep) getIntent().getSerializableExtra("objekResep");
-        totalHarga = 0;
+        hargaProduk = 0;
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Beli Bahan Masakan");
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        ImageView imageTroli = findViewById(R.id.image_troli);
         TextView tanggalTroli = findViewById(R.id.tanggal_troli);
         TextView judulTroli = findViewById(R.id.judul_resep_troli);
-        TextView hargaTroli = findViewById(R.id.harga_troli);
+        TextView tv_hargaTroli = findViewById(R.id.harga_troli);
+
         LinearLayout textLinearLayoutTroli = findViewById(R.id.linear_text_troli);
-        ImageView imageTroli = findViewById(R.id.image_troli);
-        Button tongsampahTroli = findViewById(R.id.tongsampah_troli);
-        TextView totalEstimasi = findViewById(R.id.total_estimasi);
-        TextView biayaPengiriman = findViewById(R.id.biaya_pengiriman);
         Button btnBeli = findViewById(R.id.btn_beli_troli);
+        Button tongsampahTroli = findViewById(R.id.tongsampah_troli);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Beli Bahan Masakan");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        final TextView tv_totalJumlahPaket = findViewById(R.id.total_jumlah_paket);
+        final ElegantNumberButton btnNumberJumlahPaket = findViewById(R.id.btn_tambahJumlahPaket);
+        final TextView tv_totalEstimasi = findViewById(R.id.total_estimasi);
 
+        //nampilin produk dan resep
         for (int i = 0; i < resep.getProduk().size(); i++) {
             View view = getLayoutInflater().inflate(R.layout.text_bahan, textLinearLayoutTroli, false);
-
             TextView textViewNamaBahanTroli = view.findViewById(R.id.text_nama_bahan);
             TextView textViewTakaranTroli = view.findViewById(R.id.text_takaran_bahan);
+
             textViewNamaBahanTroli.setText(resep.getProduk().get(i).getNama());
             textViewTakaranTroli.setText(resep.getProduk().get(i).getTakaran());
-            totalHarga += resep.getProduk().get(i).getHarga();
 
+            hargaProduk += resep.getProduk().get(i).getHarga();
             textLinearLayoutTroli.addView(view);
         }
 
         tanggalTroli.setText(formatTanggal(new Date()));
-        judulTroli.setText("Bahan Masakan Untuk " + resep.getJudulResep());
-        hargaTroli.setText("Harga Bahan Masakan : "+totalHarga+",-");
         Glide.with(imageTroli.getContext()).load(resep.getResepImage()).into(imageTroli);
-        totalEstimasi.setText(Integer.toString(totalHarga+20000));
-        
+        judulTroli.setText("Bahan masakan untuk " + resep.getJudulResep());
+        tv_hargaTroli.setText("Estimasi harga bahan masakan : " + hargaProduk + ",-");
+        tv_totalEstimasi.setText("Rp." + Integer.toString(hargaProduk));
+        btnNumberJumlahPaket.setOnClickListener(new ElegantNumberButton.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                jumlahPaket = Integer.parseInt(btnNumberJumlahPaket.getNumber());
+
+                if (jumlahPaket == 2) {
+                    totalEstimasi = hargaProduk * 2;
+                    //masih bingung misahin jumlah takaran dan metrik takaran(gram/kg/dll)
+                    /*for (int i=0;i<resep.getProduk().size();i++){
+                        TextView textViewJumlahTakaranChanged = view.findViewById(R.id.text_takaran_bahan);
+                        StringTokenizer tokens = new StringTokenizer(resep.getProduk().get(i).getTakaran()," ");
+                        //ngambil angka takaran aja
+                        String angkaTakaran = tokens.nextToken();
+                        String namaTakaran = tokens.nextToken();
+                        totalTakaran = Integer.parseInt(angkaTakaran.toString())*2;
+                        textViewJumlahTakaranChanged.setText(resep.getProduk().get(i).getTakaran());
+                    }*/
+                } else if (jumlahPaket == 1) {
+                    totalEstimasi = hargaProduk;
+                } else if (jumlahPaket == 3) {
+                    totalEstimasi = hargaProduk * 3;
+                } else {
+
+                }
+
+                tv_totalEstimasi.setText("Rp." + Integer.toString(totalEstimasi));
+                tv_totalJumlahPaket.setText(jumlahPaket + " Paket");
+            }
+        });
+
+
         btnBeli.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-
                 final AlertDialog.Builder builder = new AlertDialog.Builder(TroliActivity.this);
                 builder.setMessage("Bahan masakan berhasil dimasukkan ke Keranjang Belanja")
                         .setPositiveButton("Bayar", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 //menuju page pembayaran
-                                Intent intentPembayaran = new Intent(TroliActivity.this, PengirimanActivity.class);
+                                Intent intentPembayaran = new Intent(TroliActivity.this, PembelianKonfirmasiActivity.class);
+                                intentPembayaran.putExtra("objekTroli", transaksi);
                                 startActivity(intentPembayaran);
                             }
                         })
@@ -104,17 +140,6 @@ public class TroliActivity extends AppCompatActivity {
             }
         });
     }
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            //do something before finish
-            finish();
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
 
     @Override
     public void onBackPressed() {

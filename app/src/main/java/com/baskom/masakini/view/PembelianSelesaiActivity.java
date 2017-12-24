@@ -8,42 +8,39 @@ import android.view.View;
 import android.widget.Button;
 
 import com.baskom.masakini.R;
-import com.githang.stepview.StepView;
-
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by akmalmuhamad on 17/12/17.
  */
 
-public class PembayaranActivity extends AppCompatActivity {
-
+public class PembelianSelesaiActivity extends AppCompatActivity{
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.konfirmasi_pembayaran);
+        setContentView(R.layout.konfirmasi_selesai);
 
         android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Konfirmasi Pembelian");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        StepView stepView = findViewById(R.id.step_view);
-        List<String> steps = Arrays.asList(new String[]{"Pengiriman", "Pembayaran", "Selesai"});
-        stepView.setSteps(steps);
-        stepView.selectedStep(2);
+        Button btnRiwayatOrder = findViewById(R.id.btn_riwayatOrder_selesai);
+        Button btnKembali = findViewById(R.id.btn_kembali_selesai);
 
-        Button btnSelanjutnya = findViewById(R.id.selanjutnya);
-        btnSelanjutnya.setOnClickListener(new View.OnClickListener() {
+        btnRiwayatOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PembayaranActivity.this, SelesaiActivity.class);
-                startActivity(intent);
+                Intent keRiwayat = new Intent(PembelianSelesaiActivity.this, RiwayatOrderActivity.class);
+                startActivity(keRiwayat);
             }
         });
 
-
-
+        btnKembali.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent keHome = new Intent(PembelianSelesaiActivity.this, MainActivity.class);
+                startActivity(keHome);
+            }
+        });
     }
 }

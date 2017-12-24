@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.baskom.masakini.R;
 import com.baskom.masakini.model.Resep;
 import com.bumptech.glide.Glide;
+import com.matrixxun.starry.badgetextview.MaterialBadgeTextView;
 
 /**
  * Created by akmalmuhamad on 04/12/17.
@@ -34,6 +35,7 @@ public class ResepDetilActivity extends AppCompatActivity {
         TextView textViewWaktu = findViewById(R.id.durasi_teks_detil);
         TextView textViewTingkat = findViewById(R.id.kesulitan_detil);
         TextView textViewOrang = findViewById(R.id.untuk_berapa_orang_detil);
+
         LinearLayout linearLayoutBahan = findViewById(R.id.linear_bahanMasakan);
         LinearLayout linearLayoutStep = findViewById(R.id.linear_caraMemasak);
         ImageView imageView = findViewById(R.id.main_image_banner);
@@ -57,6 +59,7 @@ public class ResepDetilActivity extends AppCompatActivity {
 
             TextView textViewNamaBahan = view.findViewById(R.id.text_nama_bahan);
             TextView textViewTakaran = view.findViewById(R.id.text_takaran_bahan);
+
             textViewNamaBahan.setText(resep.getBahan().get(i).getNama());
             textViewTakaran.setText(resep.getBahan().get(i).getTakaran());
 
@@ -64,11 +67,14 @@ public class ResepDetilActivity extends AppCompatActivity {
         }
 
         //untuk munculin judul step
-        for (int i = 0; i < resep.getStep().size(); i++) {
+        for (int i = 1; i < resep.getStep().size(); i++) {
             View view = getLayoutInflater().inflate(R.layout.text_step, linearLayoutStep, false);
 
+            MaterialBadgeTextView drawableCountStep = view.findViewById(R.id.drawable_count_step);
             TextView textViewJudulStep = view.findViewById(R.id.text_judul_step);
             TextView textViewPenjelasanStep = view.findViewById(R.id.text_penjelasan_step);
+
+            drawableCountStep.setBadgeCount(i);
             textViewJudulStep.setText(resep.getStep().get(i).getJudul());
             textViewPenjelasanStep.setText(resep.getStep().get(i).getPenjelasan());
 

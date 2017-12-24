@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#fa9d3b</color>
+    <color name="PrimaryGreen">#75B846</color>
     <color name="colorPrimaryDark">#DE8712</color>
     <color name="colorAccent">#fa9d3b</color>
     <color name="baseWhite">#FFFFFF</color>
@@ -8,7 +9,8 @@
     <color name="SemiBlack">#4A4A4A</color>
     <color name="divider">#e7e7e7</color>
     <color name="semigrey">#f2f2f2</color>
-    <drawable name="semigreudraw">#f2f2f2</drawable>
+<color name="buttonCardColor">#999999</color>
+
 
 
     <!-- Screens background color-->

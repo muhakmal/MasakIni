@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.baskom.masakini">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -10,7 +11,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_mi"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon">
         <activity
             android:name=".view.SplashActivity"
             android:theme="@style/splashTheme">
@@ -28,14 +30,14 @@
         <activity android:name=".view.TroliActivity" />
         <activity android:name=".view.ResepDetilActivity" />
         <activity android:name=".view.MainActivity" />
-        <activity android:name=".view.PengirimanActivity"/>
-        <activity android:name=".view.PembayaranActivity"/>
-        <activity android:name=".view.SelesaiActivity"/>
+        <activity android:name=".view.PembelianKonfirmasiActivity" />
+        <activity android:name=".view.PembelianSelesaiActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
+        <activity android:name=".view.CartActivity"></activity>
     </application>
 
 </manifest>

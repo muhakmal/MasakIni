@@ -6,13 +6,10 @@
 
     <TextView
         android:id="@+id/text_takaran_bahan"
-        android:layout_width="85dp"
+        android:layout_width="90dp"
         android:layout_height="wrap_content"
         android:gravity="center_vertical|right"
         android:text="Secukupnya"
-        android:textColor="@color/SemiBlack"
-        android:textSize="16sp"
-        android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,8 +21,6 @@
         android:layout_marginStart="16dp"
         android:gravity="center_vertical|left"
         android:text="Bumbu merica"
-        android:textColor="@color/SemiBlack"
-        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/text_takaran_bahan"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

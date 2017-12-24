@@ -5,31 +5,41 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <TextView
+    <com.matrixxun.starry.badgetextview.MaterialBadgeTextView
+        android:id="@+id/drawable_count_step"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@color/colorAccent"
+        android:text="9"
+        android:textColor="@color/baseWhite"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:mbtv_border_width="0dp"
+        app:mbtv_type="shadow_alpha" />
+
+      <TextView
         android:id="@+id/text_judul_step"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:gravity="center"
         android:text="Siapkan bahan"
-        android:textColor="@color/SemiBlack"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textAlignment="gravity"
+        android:textColor="@color/nliveo_black"
+        app:layout_constraintStart_toEndOf="@+id/drawable_count_step"
+        app:layout_constraintTop_toTopOf="@+id/drawable_count_step" />
 
     <TextView
         android:id="@+id/text_penjelasan_step"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:gravity="left"
         android:text="Begini cara menyiapkan bahan"
-        android:textColor="@color/SemiBlack"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/text_judul_step"
         app:layout_constraintTop_toBottomOf="@+id/text_judul_step"
-        android:layout_marginLeft="8dp" />
+        android:paddingBottom="10dp"/>
 
 </android.support.constraint.ConstraintLayout>
