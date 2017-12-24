@@ -34,12 +34,13 @@
 
     <TextView
         android:id="@+id/text_penjelasan_step"
-        android:layout_width="300dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="left"
+        android:paddingBottom="10dp"
         android:text="Begini cara menyiapkan bahan"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/text_judul_step"
-        app:layout_constraintTop_toBottomOf="@+id/text_judul_step"
-        android:paddingBottom="10dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/text_judul_step" />
 
 </android.support.constraint.ConstraintLayout>
