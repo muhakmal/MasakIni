@@ -12,6 +12,8 @@
         android:layout_width="315dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="29dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="29dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
         android:text="@string/buat_akun"
@@ -28,6 +30,8 @@
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginRight="16dp"
         android:layout_marginStart="17dp"
         android:layout_marginTop="20dp"
         android:ems="10"
@@ -46,6 +50,8 @@
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginRight="16dp"
         android:layout_marginStart="17dp"
         android:ems="10"
         android:hint="Masukkan Alamat Email"
@@ -63,11 +69,12 @@
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginRight="16dp"
         android:layout_marginStart="17dp"
         android:ems="10"
         android:hint="Masukkan Kata Sandi"
         android:inputType="textPassword"
-        android:text=""
         android:textSize="14sp"
         app:emptyErrorString="Masukkan password anda"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,30 +84,32 @@
         app:testType="alphaNumeric" />
 
     <com.andreabaccega.widget.FormEditText
-        android:id="@+id/formEditText"
+        android:id="@+id/et_no_hp_buatakun"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="17dp"
         android:layout_marginStart="17dp"
-        android:text="Masukkan No. Handphone"
+        android:hint="Masukkan No. Handphone"
         android:textColor="@color/greySubText"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/etPassword"
+        app:testType="numeric" />
 
     <com.andreabaccega.widget.FormEditText
-        android:id="@+id/formEditText2"
+        android:id="@+id/et_alamat_lengkap_buatakun"
         android:layout_width="match_parent"
         android:layout_height="46dp"
         android:layout_marginEnd="17dp"
         android:layout_marginStart="17dp"
-        android:text="Masukkan Alamat Lengkap"
+        android:hint="Masukkan Alamat Lengkap"
         android:textColor="@color/greySubText"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/formEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/et_no_hp_buatakun"
+        app:testType="alphaNumeric" />
 
     <TextView
         android:id="@+id/textLogin"
@@ -108,6 +117,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="175dp"
         android:layout_marginLeft="13dp"
+        android:layout_marginRight="175dp"
         android:layout_marginTop="10dp"
         android:text="Sudah Punya Akun? Masuk"
         android:textColor="@color/colorAccent"
@@ -131,5 +141,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/formEditText2" />
+        app:layout_constraintTop_toBottomOf="@+id/et_alamat_lengkap_buatakun" />
 </android.support.constraint.ConstraintLayout>

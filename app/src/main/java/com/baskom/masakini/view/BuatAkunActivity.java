@@ -6,11 +6,11 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.andreabaccega.formedittextvalidator.AlphaNumericValidator;
 import com.andreabaccega.formedittextvalidator.EmailValidator;
+import com.andreabaccega.formedittextvalidator.NumericValidator;
 import com.andreabaccega.formedittextvalidator.PersonFullNameValidator;
 import com.andreabaccega.widget.FormEditText;
 import com.android.volley.RequestQueue;
@@ -36,6 +36,8 @@ public class BuatAkunActivity extends AppCompatActivity {
         final FormEditText etNama = findViewById(R.id.etNama);
         final FormEditText etEmail = findViewById(R.id.etEmail);
         final FormEditText etPassword = findViewById(R.id.etPassword);
+        final FormEditText etNohp = findViewById(R.id.et_no_hp_buatakun);
+        final FormEditText etAlamat = findViewById(R.id.et_alamat_lengkap_buatakun);
         etPassword.setTypeface(EasyFonts.robotoRegular(this));
 
         etEmail.addValidator(new EmailValidator(null));
@@ -58,14 +60,16 @@ public class BuatAkunActivity extends AppCompatActivity {
                 final String nama = etNama.getText().toString();
                 final String email = etEmail.getText().toString();
                 final String password = etPassword.getText().toString();
+                final String no_hp = etNohp.getText().toString();
+                final String alamat_lengkap = etAlamat.getText().toString();
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            FormEditText[] allFields = {etNama, etEmail,etPassword};
+                            FormEditText[] allFields = {etNama, etEmail, etPassword};
                             boolean allValid = true;
-                            for(FormEditText field : allFields){
+                            for (FormEditText field : allFields) {
                                 allValid = field.testValidity() && allValid;
                             }
                             JSONObject jsonResponse = new JSONObject(response);
@@ -88,7 +92,7 @@ public class BuatAkunActivity extends AppCompatActivity {
                     }
                 };
 
-                BuatAkunRequest buatAkunRequest = new BuatAkunRequest(nama, email, password, responseListener);
+                BuatAkunRequest buatAkunRequest = new BuatAkunRequest(nama, email, password, no_hp, alamat_lengkap, responseListener);
                 RequestQueue antrian = Volley.newRequestQueue(BuatAkunActivity.this);
                 antrian.add(buatAkunRequest);
             }
