@@ -25,7 +25,7 @@ public class ItemKeranjangCardViewHolder extends RecyclerView.ViewHolder {
     private ImageView imageTroli;
     private TextView judulResepTroli;
     private TextView hargaTroli;
-    private LinearLayout linearProduk;
+    private  LinearLayout linearProduk;
     private ElegantNumberButton tambahJumlahPaket;
     private Button tongSampah;
     private LayoutInflater inflater;

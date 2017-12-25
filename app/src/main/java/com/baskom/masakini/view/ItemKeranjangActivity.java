@@ -6,7 +6,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -29,11 +31,14 @@ public class ItemKeranjangActivity extends AppCompatActivity {
     List<ItemKeranjang> itemKeranjangList = new ArrayList<>();
     RecyclerView recyclerView;
     ItemKeranjangAdapter adapter;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
+//        progressBar = findViewById(R.id.progressBarItemKeranjang);
+//        progressBar.setVisibility(View.VISIBLE);
 
         Toolbar toolbar = findViewById(R.id.toolbar_keranjang);
         setSupportActionBar(toolbar);
@@ -60,6 +65,7 @@ public class ItemKeranjangActivity extends AppCompatActivity {
                 itemKeranjangList = new Gson().fromJson(jsonResponse, listType);
                 adapter = new ItemKeranjangAdapter(itemKeranjangList);
                 recyclerView.setAdapter(adapter);
+//                progressBar.setVisibility(View.GONE);
             }
         };
 
