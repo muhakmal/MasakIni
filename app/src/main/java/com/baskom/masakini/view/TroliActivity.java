@@ -93,8 +93,8 @@ public class TroliActivity extends AppCompatActivity {
 
         tanggalTroli.setText(formatTanggal(new Date()));
         Glide.with(imageTroli.getContext()).load(resep.getResepImage()).into(imageTroli);
-        judulTroli.setText("Bahan masakan untuk " + resep.getJudulResep());
-        tv_hargaTroli.setText("Estimasi harga bahan masakan : " + hargaProduk);
+        judulTroli.setText("Bahan masakan " + resep.getJudulResep());
+        tv_hargaTroli.setText("Harga Bahan " + hargaProduk);
         tv_totalEstimasi.setText("Rp." + Integer.toString(hargaProduk));
         btnNumberJumlahPaket.setOnClickListener(new ElegantNumberButton.OnClickListener() {
             @Override
@@ -130,6 +130,7 @@ public class TroliActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Intent intent = new Intent(TroliActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         };
         errorListener = new Response.ErrorListener() {
@@ -162,9 +163,7 @@ public class TroliActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 //tambah disini untuk nambahin sesuatu ke troli
                                 queue.add(request);
-                                Toast.makeText(TroliActivity.this,"fuk",Toast.LENGTH_LONG).show();
-
-//                              finish();
+                                Toast.makeText(TroliActivity.this,"Bahan masakan berhasil ditambahkan ke Keranjang",Toast.LENGTH_LONG).show();
                             }
                         })
                         .show();

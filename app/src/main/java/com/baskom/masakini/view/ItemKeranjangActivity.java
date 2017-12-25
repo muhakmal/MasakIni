@@ -37,8 +37,8 @@ public class ItemKeranjangActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
-//        progressBar = findViewById(R.id.progressBarItemKeranjang);
-//        progressBar.setVisibility(View.VISIBLE);
+        progressBar = findViewById(R.id.progressBarItemKeranjang);
+        progressBar.setVisibility(View.VISIBLE);
 
         Toolbar toolbar = findViewById(R.id.toolbar_keranjang);
         setSupportActionBar(toolbar);
@@ -65,7 +65,7 @@ public class ItemKeranjangActivity extends AppCompatActivity {
                 itemKeranjangList = new Gson().fromJson(jsonResponse, listType);
                 adapter = new ItemKeranjangAdapter(itemKeranjangList);
                 recyclerView.setAdapter(adapter);
-//                progressBar.setVisibility(View.GONE);
+                progressBar.setVisibility(View.GONE);
             }
         };
 
@@ -77,10 +77,7 @@ public class ItemKeranjangActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home){
-            //do something before finish
             finish();
-            /*Intent back = new Intent(InfoAkunActivity.this, MainActivity.class);
-            startActivity(back);*/
         }
         return super.onOptionsItemSelected(item);
     }

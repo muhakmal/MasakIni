@@ -17,7 +17,7 @@ public class TambahItemRequest extends StringRequest {
     private Map<String, String> params;
 
     public TambahItemRequest(String email, String judulResep, int jumlahPaket, Response.Listener<String> listener, Response.ErrorListener errorListener) {
-        super(Method.GET, TAMBAHITEM_REQUEST_URL, listener, errorListener);
+        super(Method.POST, TAMBAHITEM_REQUEST_URL, listener, errorListener);
         params = new HashMap<>();
         params.put("email", email);
         params.put("judulResep", judulResep);

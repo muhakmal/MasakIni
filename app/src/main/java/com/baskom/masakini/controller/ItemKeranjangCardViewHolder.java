@@ -44,6 +44,7 @@ public class ItemKeranjangCardViewHolder extends RecyclerView.ViewHolder {
         tambahJumlahPaket = itemView.findViewById(R.id.btn_tambahJumlahPaket_item_keranjang);
         tongSampah = itemView.findViewById(R.id.tongsampah_item_keranjang);
         imageTroli = itemView.findViewById(R.id.image_item_keranjang);
+        judulResepTroli.setSelected(true);
         inflater = LayoutInflater.from(itemView.getContext());
         hargaItemKeranjang = 0;
     }
