@@ -13,8 +13,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.Volley;
 import com.baskom.masakini.R;
+import com.baskom.masakini.model.LoginRequest;
 import com.baskom.masakini.model.Resep;
 import com.baskom.masakini.model.Transaksi;
 import com.bumptech.glide.Glide;
@@ -35,6 +41,11 @@ public class TroliActivity extends AppCompatActivity {
     int totalEstimasi;
     int jumlahPaket = 1;
     int totalTakaran;
+
+    Response.Listener<String> listener;
+    Response.ErrorListener errorListener;
+    TambahItemRequest request;
+    RequestQueue queue;
 
     //fungsi tanggal
     private String formatTanggal(Date date) {
@@ -114,6 +125,22 @@ public class TroliActivity extends AppCompatActivity {
         });
         totalEstimasi = hargaProduk;
 
+        //Volley Stuff
+        listener = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Intent intent = new Intent(TroliActivity.this, MainActivity.class);
+            }
+        };
+        errorListener = new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(TroliActivity.this, error.toString(), Toast.LENGTH_LONG);
+            }
+        };
+
+        request = new TambahItemRequest(LoginRequest.getEmail(), resep.getJudulResep(), jumlahPaket, listener, errorListener);
+        queue = Volley.newRequestQueue(this);
 
         btnBeli.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,8 +161,10 @@ public class TroliActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 //tambah disini untuk nambahin sesuatu ke troli
+                                queue.add(request);
+                                Toast.makeText(TroliActivity.this,"fuk",Toast.LENGTH_LONG).show();
 
-                                finish();
+//                              finish();
                             }
                         })
                         .show();
