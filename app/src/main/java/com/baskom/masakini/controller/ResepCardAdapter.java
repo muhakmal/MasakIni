@@ -28,13 +28,13 @@ public class ResepCardAdapter extends RecyclerView.Adapter{
         //inflate new view when creating new items in recyclerview
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.card_resep, parent, false);
-        return new ResepViewHolder(itemView);
+        return new ResepCardViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         if(holder.getItemViewType() == R.layout.card_resep){
-            ((ResepViewHolder) holder).bindData(resepList.get(position));
+            ((ResepCardViewHolder) holder).bindData(resepList.get(position));
         }
     }
 

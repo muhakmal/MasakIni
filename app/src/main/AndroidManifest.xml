@@ -37,7 +37,7 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".view.CartActivity"></activity>
+        <activity android:name=".view.ItemKeranjangActivity"></activity>
     </application>
 
 </manifest>

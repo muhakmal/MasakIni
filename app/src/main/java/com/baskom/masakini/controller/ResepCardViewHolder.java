@@ -16,7 +16,7 @@ import com.bumptech.glide.Glide;
  * Created by Castor on 12/5/2017.
  */
 
-public class ResepViewHolder extends RecyclerView.ViewHolder {
+public class ResepCardViewHolder extends RecyclerView.ViewHolder {
     private TextView judulResep;
     private TextView subJudulResep;
     private TextView tingkatKesulitan;
@@ -25,15 +25,15 @@ public class ResepViewHolder extends RecyclerView.ViewHolder {
     private ImageView resepImage;
     private CardView cardView;
 
-    public ResepViewHolder(View itemView) {
+    public ResepCardViewHolder(View itemView) {
         super(itemView);
-        judulResep = itemView.findViewById(R.id.judul_resep_troli);
+        judulResep = itemView.findViewById(R.id.judul_resep_item_keranjang);
         subJudulResep = itemView.findViewById(R.id.cardView_deksripsiResep);
         tingkatKesulitan = itemView.findViewById(R.id.cardView_tingkat_kesulitan);
         untukBerapaOrang = itemView.findViewById(R.id.cardView_untukBerapaOrang);
         waktuMemasak = itemView.findViewById(R.id.cardView_waktuMemasak);
-        resepImage = itemView.findViewById(R.id.image_troli);
-        cardView = itemView.findViewById(R.id.card_troli);
+        resepImage = itemView.findViewById(R.id.image_item_keranjang);
+        cardView = itemView.findViewById(R.id.card_item_keranjang);
     }
 
     public void bindData(final Resep resep) {

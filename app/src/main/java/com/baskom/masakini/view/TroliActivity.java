@@ -50,20 +50,20 @@ public class TroliActivity extends AppCompatActivity {
         totalEstimasi = 0;
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        ImageView imageTroli = findViewById(R.id.image_troli);
-        TextView tanggalTroli = findViewById(R.id.tanggal_troli);
-        TextView judulTroli = findViewById(R.id.judul_resep_troli);
-        TextView tv_hargaTroli = findViewById(R.id.harga_troli);
+        ImageView imageTroli = findViewById(R.id.image_item_keranjang);
+        TextView tanggalTroli = findViewById(R.id.tanggal_item_keranjang);
+        TextView judulTroli = findViewById(R.id.judul_resep_item_keranjang);
+        TextView tv_hargaTroli = findViewById(R.id.harga_item_keranjang);
 
-        LinearLayout textLinearLayoutTroli = findViewById(R.id.linear_text_troli);
+        LinearLayout textLinearLayoutTroli = findViewById(R.id.linear_text_item_keranjang);
         Button btnBeli = findViewById(R.id.btn_beli_troli);
-        Button tongsampahTroli = findViewById(R.id.tongsampah_troli);
+        Button tongsampahTroli = findViewById(R.id.tongsampah_item_keranjang);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Beli Bahan Masakan");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final TextView tv_totalJumlahPaket = findViewById(R.id.total_jumlah_paket);
-        final ElegantNumberButton btnNumberJumlahPaket = findViewById(R.id.btn_tambahJumlahPaket);
+        final ElegantNumberButton btnNumberJumlahPaket = findViewById(R.id.btn_tambahJumlahPaket_item_keranjang);
         final TextView tv_totalEstimasi = findViewById(R.id.total_estimasi);
 
         //nampilin produk dan resep
@@ -82,7 +82,7 @@ public class TroliActivity extends AppCompatActivity {
         tanggalTroli.setText(formatTanggal(new Date()));
         Glide.with(imageTroli.getContext()).load(resep.getResepImage()).into(imageTroli);
         judulTroli.setText("Bahan masakan untuk " + resep.getJudulResep());
-        tv_hargaTroli.setText("Estimasi harga bahan masakan : " + hargaProduk + ",-");
+        tv_hargaTroli.setText("Estimasi harga bahan masakan : " + hargaProduk);
         tv_totalEstimasi.setText("Rp." + Integer.toString(hargaProduk));
         btnNumberJumlahPaket.setOnClickListener(new ElegantNumberButton.OnClickListener() {
             @Override

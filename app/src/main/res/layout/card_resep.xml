@@ -8,7 +8,7 @@
     android:clipToPadding="false">
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_troli"
+        android:id="@+id/card_item_keranjang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -23,7 +23,7 @@
             android:paddingTop="0dp">
 
             <ImageView
-                android:id="@+id/image_troli"
+                android:id="@+id/image_item_keranjang"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_alignParentLeft="true"
@@ -34,12 +34,12 @@
                 android:src="@drawable/dummy_img_resep" />
 
             <TextView
-                android:id="@+id/judul_resep_troli"
+                android:id="@+id/judul_resep_item_keranjang"
                 android:layout_width="wrap_content"
                 android:layout_height="24dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/image_troli"
+                android:layout_below="@+id/image_item_keranjang"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="5dp"
                 android:singleLine="true"
@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/judul_resep_troli"
+                android:layout_below="@+id/judul_resep_item_keranjang"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="0dp"
                 android:singleLine="true"

@@ -147,6 +147,7 @@
         app:layout_constraintTop_toBottomOf="@+id/et_alamat_lengkap_buatakun" />
 
     <ProgressBar
+        android:elevation="5dp"
         android:visibility="gone"
         android:background="@color/baseWhite"
         android:id="@+id/progressBar_buatakun"

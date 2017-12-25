@@ -1,4 +1,4 @@
-package com.baskom.masakini.controller;
+package com.baskom.masakini.view;
 
 
 import android.os.Bundle;

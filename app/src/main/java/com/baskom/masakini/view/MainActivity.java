@@ -2,7 +2,6 @@ package com.baskom.masakini.view;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -27,7 +26,6 @@ import com.android.volley.toolbox.Volley;
 import com.baskom.masakini.R;
 import com.baskom.masakini.controller.MainViewPagerAdapter;
 import com.baskom.masakini.model.LoginRequest;
-import com.matrixxun.starry.badgetextview.MaterialBadgeTextView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -132,7 +130,7 @@ public class MainActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if(id==R.id.cart){
-            Intent intent = new Intent(MainActivity.this, CartActivity.class);
+            Intent intent = new Intent(MainActivity.this, ItemKeranjangActivity.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);

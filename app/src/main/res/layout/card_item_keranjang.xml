@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_item_keranjang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingTop="0dp">
+
+                <TextView
+                    android:id="@+id/tanggal_item_keranjang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/judul_resep_item_keranjang"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignStart="@+id/judul_resep_item_keranjang"
+                    android:paddingTop="10dp"
+                    android:text="Sabtu, 12 Desember 2017"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/image_item_keranjang"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/tanggal_item_keranjang"
+                    android:layout_marginTop="10dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/dummy_img_resep" />
+
+                <TextView
+                    android:id="@+id/judul_resep_item_keranjang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/image_item_keranjang"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="10dp"
+                    android:singleLine="true"
+                    android:text="Bahan masakan untuk Pizza Cantik"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/harga_item_keranjang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/judul_resep_item_keranjang"
+                    android:layout_alignStart="@+id/judul_resep_item_keranjang"
+                    android:layout_below="@+id/judul_resep_item_keranjang"
+                    android:text="Estimasi harga masakan : 120.000,-" />
+
+                <TextView
+                    android:id="@+id/stringBahanMasakan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/harga_item_keranjang"
+                    android:layout_alignStart="@+id/harga_item_keranjang"
+                    android:layout_below="@id/harga_item_keranjang"
+                    android:layout_marginTop="10dp"
+                    android:text="Bahan masakan yang akan dikirim terdiri dari"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:id="@+id/linear_text_item_keranjang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/stringBahanMasakan"
+                    android:layout_alignStart="@+id/stringBahanMasakan"
+                    android:layout_below="@+id/stringBahanMasakan"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical" />
+
+                <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
+                    android:id="@+id/btn_tambahJumlahPaket_item_keranjang"
+                    android:layout_width="80dp"
+                    android:layout_height="24dp"
+                    android:layout_alignTop="@+id/tongsampah_item_keranjang"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@id/tongsampah_item_keranjang"
+                    app:backGroundColor="@color/buttonCardColor"
+                    app:finalNumber="3"
+                    app:initialNumber="1"
+                    app:textColor="@color/baseWhite" />
+
+                <Button
+                    android:id="@+id/tongsampah_item_keranjang"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/linear_text_item_keranjang"
+                    android:layout_marginEnd="9dp"
+                    android:layout_marginRight="9dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/ic_tongsampah" />
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

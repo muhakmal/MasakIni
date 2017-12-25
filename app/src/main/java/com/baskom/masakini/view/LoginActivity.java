@@ -41,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         final FormEditText etPassword = findViewById(R.id.etPassword);
         final Button btLogin = (Button) findViewById(R.id.btLogin);
         final TextView textBuatAkunLink = (TextView) findViewById(R.id.textBuatAkun);
+        final ProgressBar progressBar = findViewById(R.id.progressBar);
 
         etPassword.setTypeface(EasyFonts.robotoRegular(this));
         etEmail.addValidator(new EmailValidator("Harus email"));
@@ -60,19 +61,18 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 final String email = etEmail.getText().toString();
                 final String password = etPassword.getText().toString();
-                final ProgressBar progressBar = findViewById(R.id.progressBar);
                 progressBar.setVisibility(View.VISIBLE);
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
+
                             FormEditText[] allFields = {etEmail, etPassword};
                             boolean allValid = true;
                             for (FormEditText field : allFields) {
                                 allValid = field.testValidity() && allValid;
                             }
-
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");
                             if (success && allValid) {

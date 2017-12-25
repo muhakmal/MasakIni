@@ -67,6 +67,7 @@ public class BuatAkunActivity extends AppCompatActivity {
                 final String no_hp = etNohp.getText().toString();
                 final String alamat_lengkap = etAlamat.getText().toString();
                 progressBar.setVisibility(View.VISIBLE);
+
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

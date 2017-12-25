@@ -30,6 +30,11 @@ import org.json.JSONObject;
 public class InfoAkunActivity extends AppCompatActivity{
     private static final String INFOAKUN_REQUEST_URL = "http://masakini.xyz/masakiniapi/Infoakun.php?email=";
     String email;
+    TextView textId;
+    EditText textEmail;
+    EditText textName;
+    EditText textNoHp;
+    EditText textAlamat;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -53,9 +58,12 @@ public class InfoAkunActivity extends AppCompatActivity{
         });
 
 
-        final TextView textId = findViewById(R.id.text_view_id);
-        final EditText textEmail = findViewById(R.id.text_view_email);
-        final EditText textName = findViewById(R.id.text_view_nama);
+        textId = findViewById(R.id.text_view_id);
+        textEmail = findViewById(R.id.text_view_email);
+        textName = findViewById(R.id.text_view_nama);
+        textNoHp = findViewById(R.id.et_no_handphone);
+        textAlamat = findViewById(R.id.text_view_alamat);
+
 
         ////Tarik info akun dari database berdasarkan email
         email = LoginRequest.getEmail();
@@ -69,6 +77,8 @@ public class InfoAkunActivity extends AppCompatActivity{
                     textId.setText(jsonResponse.getString("userid"));
                     textEmail.setText(jsonResponse.getString("email"), TextView.BufferType.EDITABLE);
                     textName.setText(jsonResponse.getString("name"), TextView.BufferType.EDITABLE);
+                    textNoHp.setText(jsonResponse.getString("noHP"), TextView.BufferType.EDITABLE);
+                    textAlamat.setText(jsonResponse.getString("alamat"), TextView.BufferType.EDITABLE);
                 }catch (JSONException e){
                     e.printStackTrace();
                 }
