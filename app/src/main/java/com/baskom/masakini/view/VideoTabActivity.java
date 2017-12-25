@@ -26,6 +26,11 @@ public class VideoTabActivity extends android.support.v4.app.Fragment {
     private VideoCardAdapter adapter;
     private List<Video> videoList;
 
+    private static final String[]  YOUTUBE_PLAYLISTS ={
+            "ec3As5G7Tm0",
+
+    };
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
@@ -34,6 +39,7 @@ public class VideoTabActivity extends android.support.v4.app.Fragment {
         RecyclerView rv = (RecyclerView) rootView.findViewById(R.id.recycler_view_video);
         rv.setHasFixedSize(true);
 
+/*
         videoList = new ArrayList<>();
 
         Video video = new Video(
@@ -61,7 +67,7 @@ public class VideoTabActivity extends android.support.v4.app.Fragment {
         videoList.add(video3);
 
         adapter = new VideoCardAdapter(VideoTabActivity.this, videoList);
-        adapter.notifyDataSetChanged();
+        adapter.notifyDataSetChanged();*/
         rv.setAdapter(adapter);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());

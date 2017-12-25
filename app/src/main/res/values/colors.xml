@@ -10,6 +10,7 @@
     <color name="divider">#e7e7e7</color>
     <color name="semigrey">#f2f2f2</color>
 <color name="buttonCardColor">#999999</color>
+    <color name="semi_transparent_black">#90000000</color>
 
 
 
