@@ -227,11 +227,12 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/btn_beli_troli"
+            android:elevation="1dp"
+            android:id="@+id/btn_bayar_keranjang"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorPrimary"
-            android:text="beli"
+            android:text="bayar"
             android:textColor="@color/baseWhite"
             android:textSize="16sp"
             android:textStyle="bold" />

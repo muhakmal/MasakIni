@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -56,7 +57,7 @@ public class TroliActivity extends AppCompatActivity {
         TextView tv_hargaTroli = findViewById(R.id.harga_item_keranjang);
 
         LinearLayout textLinearLayoutTroli = findViewById(R.id.linear_text_item_keranjang);
-        Button btnBeli = findViewById(R.id.btn_beli_troli);
+        Button btnBeli = findViewById(R.id.btn_bayar_keranjang);
         Button tongsampahTroli = findViewById(R.id.tongsampah_item_keranjang);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Beli Bahan Masakan");
@@ -111,6 +112,7 @@ public class TroliActivity extends AppCompatActivity {
                 tv_totalJumlahPaket.setText(jumlahPaket + " Paket");
             }
         });
+        totalEstimasi = hargaProduk;
 
 
         btnBeli.setOnClickListener(new View.OnClickListener() {
@@ -139,6 +141,17 @@ public class TroliActivity extends AppCompatActivity {
                         .show();
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            //do something before finish
+            finish();
+            /*Intent back = new Intent(InfoAkunActivity.this, MainActivity.class);
+            startActivity(back);*/
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

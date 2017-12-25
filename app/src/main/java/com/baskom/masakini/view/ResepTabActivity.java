@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -36,20 +38,20 @@ public class ResepTabActivity extends android.support.v4.app.Fragment {
     List<Resep> resepList = new ArrayList<>();
     RecyclerView recyclerView;
     ResepCardAdapter adapter;
+    ProgressBar progressBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-
         View rootView = inflater.inflate(R.layout.fragment_resep, container, false);
+        progressBar = rootView.findViewById(R.id.progressBar_Resep);
+        progressBar.setVisibility(View.VISIBLE);
 
         recyclerView = rootView.findViewById(R.id.recycler_view);
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setFocusable(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setHasFixedSize(true);
-
         getResepList();
-
         return rootView;
     }
 
@@ -62,6 +64,7 @@ public class ResepTabActivity extends android.support.v4.app.Fragment {
                 resepList = new Gson().fromJson(jsonResponse,listType);
                 adapter = new ResepCardAdapter(resepList);
                 recyclerView.setAdapter(adapter);
+                progressBar.setVisibility(View.GONE);
             }
         };
 
@@ -71,7 +74,6 @@ public class ResepTabActivity extends android.support.v4.app.Fragment {
                 Log.e("response", error.toString());
             }
         };
-
         RequestQueue queue = Volley.newRequestQueue(getContext());
         StringRequest request = new StringRequest(Request.Method.GET, RESEPLIST_REQUEST_URL, responseListener, responseErrorListener);
         queue.add(request);

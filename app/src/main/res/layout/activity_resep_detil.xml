@@ -34,6 +34,7 @@
             </RelativeLayout>
 
             <TextView
+                android:ellipsize="marquee"
                 android:id="@+id/judul_resep_detil"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -183,7 +184,7 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
                 android:text="Bahan-Bahan Masakan"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/nliveo_black_light"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -210,7 +211,7 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
                 android:text="Cara Memasak"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/nliveo_black_light"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
