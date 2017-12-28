@@ -63,7 +63,7 @@ public class ItemKeranjangActivity extends AppCompatActivity {
                 Type listType = new TypeToken<List<ItemKeranjang>>() {
                 }.getType();
                 itemKeranjangList = new Gson().fromJson(jsonResponse, listType);
-                adapter = new ItemKeranjangAdapter(itemKeranjangList);
+                adapter = new ItemKeranjangAdapter(itemKeranjangList, ItemKeranjangActivity.this);
                 recyclerView.setAdapter(adapter);
                 progressBar.setVisibility(View.GONE);
             }

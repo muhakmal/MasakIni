@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.baskom.masakini.R;
 import com.baskom.masakini.model.ItemKeranjang;
@@ -21,14 +22,14 @@ import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
  */
 
 public class ItemKeranjangCardViewHolder extends RecyclerView.ViewHolder {
-    private CardView cardView;
-    private ImageView imageTroli;
-    private TextView judulResepTroli;
-    private TextView hargaTroli;
-    private  LinearLayout linearProduk;
-    private ElegantNumberButton tambahJumlahPaket;
-    private Button tongSampah;
-    private LayoutInflater inflater;
+    protected CardView cardView;
+    protected ImageView imageTroli;
+    protected TextView judulResepTroli;
+    protected TextView hargaTroli;
+    protected   LinearLayout linearProduk;
+    protected ElegantNumberButton tambahJumlahPaket;
+    protected Button tongSampah;
+    protected LayoutInflater inflater;
 
     private int hargaItemKeranjang;
 
@@ -82,6 +83,5 @@ public class ItemKeranjangCardViewHolder extends RecyclerView.ViewHolder {
 
         hargaTroli.setText("Estimasi harga bahan masakan : Rp" + Integer.toString(hargaItemKeranjang * itemKeranjang.getJumlahPaket()));
         tambahJumlahPaket.setNumber(Integer.toString(itemKeranjang.getJumlahPaket()));
-
     }
 }
