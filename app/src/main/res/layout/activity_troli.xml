@@ -49,13 +49,13 @@
                     android:paddingTop="0dp">
 
                     <TextView
-                        android:paddingTop="10dp"
                         android:id="@+id/tanggal_item_keranjang"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/judul_resep_item_keranjang"
                         android:layout_alignParentTop="true"
                         android:layout_alignStart="@+id/judul_resep_item_keranjang"
+                        android:paddingTop="10dp"
                         android:text="Sabtu, 12 Desember 2017"
                         android:textSize="14sp" />
 
@@ -116,30 +116,19 @@
                         android:orientation="vertical" />
 
                     <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
-                        app:initialNumber="1"
-                        app:finalNumber="3"
                         android:id="@+id/btn_tambahJumlahPaket_item_keranjang"
                         android:layout_width="80dp"
                         android:layout_height="24dp"
-                        app:textColor="@color/baseWhite"
-                        app:backGroundColor="@color/buttonCardColor"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginRight="10dp"
-                        android:layout_toLeftOf="@id/tongsampah_item_keranjang" />
-
-                    <Button
-                        android:id="@+id/tongsampah_item_keranjang"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
                         android:layout_below="@id/linear_text_item_keranjang"
-                        android:layout_marginEnd="9dp"
-                        android:layout_marginRight="9dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/ic_tongsampah" />
-
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_toLeftOf="@id/tongsampah_item_keranjang"
+                        app:backGroundColor="@color/buttonCardColor"
+                        app:finalNumber="3"
+                        app:initialNumber="1"
+                        app:textColor="@color/baseWhite" />
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
 
@@ -181,12 +170,12 @@
             android:textStyle="bold" />
 
         <TextView
-            android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/textView3"
             android:layout_alignStart="@+id/textView3"
             android:layout_below="@+id/textView3"
+            android:layout_marginTop="5dp"
             android:text="Jumlah Paket :"
             android:textStyle="bold" />
 
@@ -205,12 +194,12 @@
 
         <TextView
             android:id="@+id/total_jumlah_paket"
-            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignLeft="@id/total_estimasi"
             android:layout_below="@id/total_estimasi"
-            android:text="1 Paket"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_marginTop="5dp"
+            android:text="1 Paket" />
     </RelativeLayout>
 
     <LinearLayout
@@ -227,11 +216,11 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:elevation="1dp"
             android:id="@+id/btn_bayar_keranjang"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorPrimary"
+            android:elevation="1dp"
             android:text="bayar"
             android:textColor="@color/baseWhite"
             android:textSize="16sp"

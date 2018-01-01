@@ -9,25 +9,17 @@
     <color name="SemiBlack">#4A4A4A</color>
     <color name="divider">#e7e7e7</color>
     <color name="semigrey">#f2f2f2</color>
-<color name="buttonCardColor">#999999</color>
+    <color name="buttonCardColor">#999999</color>
     <color name="semi_transparent_black">#90000000</color>
-
-
-
-    <!-- Screens background color-->
 
     <!-- dots inactive colors -->
     <color name="dot_dark_screen">#b6b9b9</color>
-
     <!-- dots active colors -->
     <color name="dot_light_screen">#f9a636</color>
-
     <array name="array_dot_active">
         <item>@color/dot_light_screen</item>
     </array>
-
     <array name="array_dot_inactive">
         <item>@color/dot_dark_screen</item>
     </array>
-
 </resources>

@@ -20,8 +20,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:paddingBottom="20dp"
         android:gravity="center_vertical|center_horizontal"
+        android:paddingBottom="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
@@ -45,18 +45,18 @@
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
             android:text="PROSES PEMESANAN SELESAI"
+            android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView7"
-            android:textAlignment="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView6"
             android:text="Nomor Order Anda Adalah : 00001"
+            android:textAlignment="center"
             android:textStyle="bold" />
 
         <TextView
@@ -67,8 +67,8 @@
             android:layout_alignParentStart="true"
             android:layout_below="@+id/textView7"
             android:layout_marginTop="5dp"
-            android:textAlignment="center"
-            android:text="Anda memilih metode pembayaran" />
+            android:text="Anda memilih metode pembayaran"
+            android:textAlignment="center" />
 
         <TextView
             android:layout_width="match_parent"
@@ -76,17 +76,17 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/textView8"
-            android:textAlignment="center"
             android:text="Cash On Delivery (COD)"
+            android:textAlignment="center"
             android:textColor="@color/colorPrimary" />
     </RelativeLayout>
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
         app:cardBackgroundColor="@color/semigrey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,66 +95,68 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <TextView
                 android:id="@+id/a"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:textAlignment="center"
-                android:text="Jumlah yang harus Anda bayar" />
+                android:text="Jumlah yang harus Anda bayar"
+                android:textAlignment="center" />
 
             <TextView
-                android:layout_marginTop="2dp"
+                android:id="@+id/harga_selesai"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/a"
-                android:textAlignment="center"
+                android:layout_marginTop="2dp"
                 android:text="Rp 170.000,-"
+                android:textAlignment="center"
                 android:textColor="@color/colorPrimary"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:id="@+id/textView10" />
+                android:textStyle="bold" />
 
             <TextView
-                android:paddingRight="10dp"
-                android:paddingLeft="10dp"
-                android:paddingBottom="10dp"
-                android:layout_marginTop="10dp"
-                android:textAlignment="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/textView10"
-                android:text="@string/tungguNotifikasiAdmin" />
+                android:layout_below="@+id/harga_selesai"
+                android:layout_marginTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/tungguNotifikasiAdmin"
+                android:textAlignment="center" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 
 
     <RelativeLayout
-        android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="@dimen/tinggiButton"
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:gravity="center_vertical">
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
-            android:layout_marginTop="1dp"
-            android:background="@color/baseWhite"
+            android:id="@+id/linearLayout3"
             android:layout_width="180dp"
             android:layout_height="49dp"
-            android:id="@+id/linearLayout3">
+            android:layout_marginTop="1dp"
+            android:background="@color/baseWhite">
+
             <Button
                 android:id="@+id/btn_kembali_selesai"
-                android:textColor="@color/colorPrimary"
-                android:text="KEMBALI KE BERANDA"
-                android:background="@color/baseWhite"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:background="@color/baseWhite"
+                android:text="KEMBALI KE BERANDA"
+                android:textColor="@color/colorPrimary" />
         </LinearLayout>
 
         <LinearLayout
@@ -169,11 +171,11 @@
 
             <Button
                 android:id="@+id/btn_riwayatOrder_selesai"
-                android:textColor="@color/baseWhite"
-                android:text="RIWAYAT Pesanan"
-                android:background="@color/colorPrimary"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                android:text="RIWAYAT Pesanan"
+                android:textColor="@color/baseWhite" />
 
         </LinearLayout>
 

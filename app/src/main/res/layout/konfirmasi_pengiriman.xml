@@ -87,43 +87,49 @@
                     android:layout_marginTop="40dp">
 
                     <TextView
-                        android:id="@+id/nama_lengkap"
+                        android:id="@+id/tv_nama_lengkap_konfirmasi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:text="Alvina Aulia" />
+                        android:layout_marginTop="10dp"/>
 
                     <TextView
-                        android:id="@+id/tv_alamt_lengkap"
+                        android:id="@+id/tv_alamt_lengkap_konfirmasi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignLeft="@+id/nama_lengkap"
-                        android:layout_alignStart="@+id/nama_lengkap"
-                        android:layout_below="@+id/nama_lengkap"
+                        android:layout_alignLeft="@+id/tv_nama_lengkap_konfirmasi"
+                        android:layout_alignStart="@+id/tv_nama_lengkap_konfirmasi"
+                        android:layout_below="@+id/tv_nama_lengkap_konfirmasi"
                         android:layout_marginRight="20dp"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/alamat_dummy" />
+                        android:layout_marginTop="10dp"/>
 
                     <TextView
                         android:id="@+id/noHp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignLeft="@+id/tv_alamt_lengkap"
-                        android:layout_alignStart="@+id/tv_alamt_lengkap"
-                        android:layout_below="@+id/tv_alamt_lengkap"
+                        android:layout_alignLeft="@+id/tv_alamt_lengkap_konfirmasi"
+                        android:layout_alignStart="@+id/tv_alamt_lengkap_konfirmasi"
+                        android:layout_below="@+id/tv_alamt_lengkap_konfirmasi"
                         android:layout_marginTop="10dp"
                         android:paddingBottom="10dp"
                         android:text="No. Handphone :" />
 
                     <TextView
-                        android:id="@+id/tv_no_hp"
+                        android:id="@+id/tv_no_hp_konfirmasi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignBaseline="@+id/noHp"
                         android:layout_marginLeft="5dp"
-                        android:layout_toRightOf="@+id/noHp"
-                        android:text="@string/no_hp_dummy" />
+                        android:layout_toRightOf="@+id/noHp"/>
+
+                    <ProgressBar
+                        android:id="@+id/progressBar_konfirmasi"
+                        style="?android:attr/progressBarStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/noHp"
+                        android:layout_toEndOf="@+id/tv_nama_lengkap_konfirmasi"
+                        android:layout_toRightOf="@+id/tv_nama_lengkap_konfirmasi" />
 
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
