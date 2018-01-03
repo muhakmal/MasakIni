@@ -27,9 +27,7 @@ import com.baskom.masakini.request.TambahItemRequest;
 import com.bumptech.glide.Glide;
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 
-import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.util.Date;
 import java.util.Locale;
 
 /**
@@ -49,16 +47,10 @@ public class TroliActivity extends AppCompatActivity {
     int jumlahPaket = 1;
     int totalTakaran;
 
-    Response.Listener<String> listener;
-    Response.ErrorListener errorListener;
-    TambahItemRequest request;
-    RequestQueue queue;
-
-    /*//fungsi tanggal
-    private String formatTanggal(Date date) {
-        java.text.DateFormat dateFormat = java.text.DateFormat.getDateInstance(java.text.DateFormat.FULL);
-        return dateFormat.format(date);
-    }*/
+    Response.Listener<String> listenerLanjutBelanja, listenerKeranjang;
+    Response.ErrorListener errorListenerLanjutBelanja, errorListenerKeranjang;
+    TambahItemRequest requestLanjutBelanja, requestKeranjang;
+    RequestQueue queueLanjutBelanja, queueKeranjang;
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,6 +94,7 @@ public class TroliActivity extends AppCompatActivity {
         judulTroli.setText("Bahan masakan " + resep.getJudulResep());
         tv_hargaTroli.setText("Harga Bahan " + formatRupiah.format(hargaProduk));
         tv_totalEstimasi.setText(formatRupiah.format(hargaProduk));
+
         btnNumberJumlahPaket.setOnClickListener(new ElegantNumberButton.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -122,45 +115,60 @@ public class TroliActivity extends AppCompatActivity {
         totalEstimasi = hargaProduk;
 
         //Volley Stuff
-        listener = new Response.Listener<String>() {
+        listenerLanjutBelanja = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Intent intent = new Intent(TroliActivity.this, MainDrawerActivity.class);
+                intent.putExtra("objekTroli", transaksi);
+                intent.putExtra("totalEstimasi", totalEstimasi);
                 startActivity(intent);
             }
         };
-        errorListener = new Response.ErrorListener() {
+
+        listenerKeranjang = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Intent intentItemKeranjang = new Intent(TroliActivity.this, ItemKeranjangActivity.class);
+                intentItemKeranjang.putExtra("objekTroli", transaksi);
+                intentItemKeranjang.putExtra("totalEstimasi", totalEstimasi);
+                startActivity(intentItemKeranjang);
+            }
+        };
+
+        errorListenerLanjutBelanja = new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(TroliActivity.this, error.toString(), Toast.LENGTH_LONG);
+            }
+        };
+        errorListenerKeranjang = new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(TroliActivity.this, error.toString(), Toast.LENGTH_LONG);
             }
         };
 
-        request = new TambahItemRequest(MasukRequest.getEmail(), resep.getJudulResep(), jumlahPaket, listener, errorListener);
-        queue = Volley.newRequestQueue(this);
+        requestLanjutBelanja = new TambahItemRequest(MasukRequest.getEmail(), resep.getJudulResep(), jumlahPaket, listenerLanjutBelanja, errorListenerLanjutBelanja);
+        requestKeranjang = new TambahItemRequest(MasukRequest.getEmail(),resep.getJudulResep(), jumlahPaket, listenerKeranjang, errorListenerKeranjang);
+        queueLanjutBelanja = Volley.newRequestQueue(this);
+        queueKeranjang = Volley.newRequestQueue(this);
 
         btnBeli.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
                 final AlertDialog.Builder builder = new AlertDialog.Builder(TroliActivity.this);
                 builder.setMessage("Bahan masakan berhasil dimasukkan ke Keranjang Belanja")
-                        .setPositiveButton("Bayar", new DialogInterface.OnClickListener() {
+                        .setPositiveButton("Keranjang", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                //menuju page pembayaran
-                                Intent intentPembayaran = new Intent(TroliActivity.this, PembelianKonfirmasiActivity.class);
-                                intentPembayaran.putExtra("objekTroli", transaksi);
-                                intentPembayaran.putExtra("totalEstimasi", totalEstimasi);
-                                //nanti dulu
-                                //queue.add(request);
-                                startActivity(intentPembayaran);
+                                queueKeranjang.add(requestKeranjang);
+                                Toast.makeText(TroliActivity.this,"Bahan masakan berhasil ditambahkan ke Keranjang",Toast.LENGTH_LONG).show();
                             }
                         })
-                        .setNegativeButton("Lanjutkan Berbelanja", new DialogInterface.OnClickListener() {
+                        .setNegativeButton("Beranda", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                //tambah disini untuk nambahin sesuatu ke troli
-                                queue.add(request);
+                                queueLanjutBelanja.add(requestLanjutBelanja);
                                 Toast.makeText(TroliActivity.this,"Bahan masakan berhasil ditambahkan ke Keranjang",Toast.LENGTH_LONG).show();
                             }
                         })

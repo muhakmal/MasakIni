@@ -209,7 +209,7 @@
             android:layout_height="match_parent"
             android:background="@color/colorPrimary"
             android:elevation="1dp"
-            android:text="bayar"
+            android:text="TAMBAHKAN KE KERANJANG"
             android:textColor="@color/baseWhite"
             android:textSize="16sp"
             android:textStyle="bold" />

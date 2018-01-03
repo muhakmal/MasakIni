@@ -65,7 +65,6 @@ public class MasukActivity extends AppCompatActivity {
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 final String email = etEmail.getText().toString();
                 final String password = etPassword.getText().toString();
                 progressBar.setVisibility(View.VISIBLE);
@@ -74,15 +73,16 @@ public class MasukActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         try {
-
                             FormEditText[] allFields = {etEmail, etPassword};
                             boolean allValid = true;
                             for (FormEditText field : allFields) {
                                 allValid = field.testValidity() && allValid;
                             }
+
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");
                             if (success && allValid) {
+
                                 Intent intent = new Intent(MasukActivity.this, MainDrawerActivity.class);
                                 MasukActivity.this.startActivity(intent);
                                 MasukActivity.this.finish();

@@ -1,5 +1,6 @@
 package com.baskom.masakini.activity;
 
+import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import com.android.volley.toolbox.Volley;
 import com.baskom.masakini.R;
 import com.baskom.masakini.adapter.ItemKeranjangAdapter;
 import com.baskom.masakini.model.ItemKeranjang;
+import com.baskom.masakini.model.Resep;
 import com.baskom.masakini.request.ItemKeranjangRequest;
 import com.baskom.masakini.request.MasukRequest;
 import com.google.gson.Gson;
@@ -34,13 +36,16 @@ public class ItemKeranjangActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ItemKeranjangAdapter adapter;
     ProgressBar progressBar;
+    //ImageView backgroundSrpite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_keranjang);
         progressBar = findViewById(R.id.progressBarItemKeranjang);
+        //backgroundSrpite = findViewById(R.id.sad);
         progressBar.setVisibility(View.VISIBLE);
+        //backgroundSrpite.setVisibility(View.VISIBLE);
 
         Toolbar toolbar = findViewById(R.id.toolbar_keranjang);
         setSupportActionBar(toolbar);
@@ -54,7 +59,15 @@ public class ItemKeranjangActivity extends AppCompatActivity {
 
         getItemKeranjangList();
 
-        Button button = findViewById(R.id.btn_bayar_keranjang);
+        Button btnBayarKeranjang = findViewById(R.id.btn_bayar_keranjang);
+
+        btnBayarKeranjang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ItemKeranjangActivity.this, PembelianKonfirmasiActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void getItemKeranjangList() {
