@@ -27,7 +27,10 @@ import com.baskom.masakini.request.TambahItemRequest;
 import com.bumptech.glide.Glide;
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by akmalmuhamad on 22/11/17.
@@ -37,6 +40,9 @@ public class TroliActivity extends AppCompatActivity {
 
     Resep resep;
     Transaksi transaksi;
+
+    Locale localeID = new Locale("in", "ID");
+    NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
 
     int hargaProduk;
     int totalEstimasi;
@@ -48,11 +54,11 @@ public class TroliActivity extends AppCompatActivity {
     TambahItemRequest request;
     RequestQueue queue;
 
-    //fungsi tanggal
+    /*//fungsi tanggal
     private String formatTanggal(Date date) {
         java.text.DateFormat dateFormat = java.text.DateFormat.getDateInstance(java.text.DateFormat.FULL);
         return dateFormat.format(date);
-    }
+    }*/
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,13 +70,12 @@ public class TroliActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         ImageView imageTroli = findViewById(R.id.image_item_keranjang);
-        TextView tanggalTroli = findViewById(R.id.tanggal_item_keranjang);
+        //TextView tanggalTroli = findViewById(R.id.tanggal_item_keranjang);
         TextView judulTroli = findViewById(R.id.judul_resep_item_keranjang);
         TextView tv_hargaTroli = findViewById(R.id.harga_item_keranjang);
 
         LinearLayout textLinearLayoutTroli = findViewById(R.id.linear_text_item_keranjang);
         Button btnBeli = findViewById(R.id.btn_bayar_keranjang);
-        Button tongsampahTroli = findViewById(R.id.tongsampah_item_keranjang);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Beli Bahan Masakan");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -92,11 +97,11 @@ public class TroliActivity extends AppCompatActivity {
             textLinearLayoutTroli.addView(view);
         }
 
-        tanggalTroli.setText(formatTanggal(new Date()));
+        //tanggalTroli.setText(formatTanggal(new Date()));
         Glide.with(imageTroli.getContext()).load(resep.getResepImage()).into(imageTroli);
         judulTroli.setText("Bahan masakan " + resep.getJudulResep());
-        tv_hargaTroli.setText("Harga Bahan " + hargaProduk);
-        tv_totalEstimasi.setText("Rp." + Integer.toString(hargaProduk));
+        tv_hargaTroli.setText("Harga Bahan " + formatRupiah.format(hargaProduk));
+        tv_totalEstimasi.setText(formatRupiah.format(hargaProduk));
         btnNumberJumlahPaket.setOnClickListener(new ElegantNumberButton.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -104,14 +109,13 @@ public class TroliActivity extends AppCompatActivity {
 
                 if (jumlahPaket == 2) {
                     totalEstimasi = hargaProduk * 2;
-                    //masih bingung misahin jumlah takaran dan metrik takaran(gram/kg/dll)
                 } else if (jumlahPaket == 1) {
                     totalEstimasi = hargaProduk;
                 } else if (jumlahPaket == 3) {
                     totalEstimasi = hargaProduk * 3;
                 }
 
-                tv_totalEstimasi.setText("Rp." + Integer.toString(totalEstimasi));
+                tv_totalEstimasi.setText(formatRupiah.format(totalEstimasi));
                 tv_totalJumlahPaket.setText(jumlahPaket + " Paket");
             }
         });

@@ -7,10 +7,10 @@ import java.io.Serializable;
  */
 
 public class Transaksi implements Serializable {
-    int nomorOrder=00001;
-    int hargaProduk=0;
+    int nomorOrder;
+    int hargaProduk;
     int totalEstimasi;
-    int jumlahPaket =1;
+    int jumlahPaket;
 
     public int getNomorOrder() {
         return nomorOrder;

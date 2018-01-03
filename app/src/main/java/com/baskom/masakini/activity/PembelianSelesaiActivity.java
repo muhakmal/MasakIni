@@ -10,16 +10,27 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.baskom.masakini.R;
+import com.baskom.masakini.model.Transaksi;
+
+import java.text.NumberFormat;
+import java.util.Locale;
 
 /**
  * Created by akmalmuhamad on 17/12/17.
  */
 
 public class PembelianSelesaiActivity extends AppCompatActivity{
+    Locale localeID = new Locale("in", "ID");
+    NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+
+    Transaksi transaksi;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.konfirmasi_selesai);
+
+        transaksi = (Transaksi) getIntent().getSerializableExtra("objekTroli");
 
         Bundle harga = getIntent().getExtras();
         /*Intent intent = getIntent().*/
@@ -29,11 +40,12 @@ public class PembelianSelesaiActivity extends AppCompatActivity{
         getSupportActionBar().setTitle("Konfirmasi Pembelian");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        TextView nomorPesanan = findViewById(R.id.tv_nomor_pesanan);
         TextView tvHargaTotal = findViewById(R.id.harga_selesai);
         Button btnRiwayatOrder = findViewById(R.id.btn_riwayatOrder_selesai);
         Button btnKembali = findViewById(R.id.btn_kembali_selesai);
 
-        tvHargaTotal.setText("Rp "+ Integer.toString(harga.getInt("totalHarga")));
+        tvHargaTotal.setText(formatRupiah.format(harga.getInt("totalHarga")));
 
         btnRiwayatOrder.setOnClickListener(new View.OnClickListener() {
             @Override

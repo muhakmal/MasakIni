@@ -28,7 +28,7 @@ public class RiwayatOrderActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Status Pemesanan");
+        getSupportActionBar().setTitle("Riwayat Pemesanan");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         viewPager = findViewById(R.id.view_pager_riwayat);

@@ -34,7 +34,7 @@
         android:layout_marginStart="17dp"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="Masukkan Alamat Email"
+        android:hint="pengguna@kotaksurat.com"
         android:inputType="textEmailAddress"
         android:textSize="14sp"
         app:emptyErrorString="Masukkan alamat email"
@@ -53,7 +53,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginStart="17dp"
         android:ems="10"
-        android:hint="Masukkan Kata Sandi"
+        android:hint="******"
         android:inputType="textPassword"
         android:text=""
         android:textSize="14sp"
@@ -92,7 +92,7 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cb_ingat_sandi" />
+        app:layout_constraintTop_toBottomOf="@+id/btLogin" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -108,16 +108,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.311" />
-
-    <CheckBox
-        android:id="@+id/cb_ingat_sandi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ingat Kata Sandi"
-        android:textColor="@color/nliveo_black_light"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/btLogin"
-        app:layout_constraintTop_toBottomOf="@+id/btLogin" />
 
 
 </android.support.constraint.ConstraintLayout>

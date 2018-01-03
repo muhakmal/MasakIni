@@ -24,6 +24,9 @@ import com.baskom.masakini.request.MasukRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 /**
  * Created by akmalmuhamad on 15/12/17.
  */
@@ -32,7 +35,11 @@ public class PembelianKonfirmasiActivity extends AppCompatActivity {
     private static final String PEMBELIAN_KONFIRMASI_REQUEST = "http://masakini.xyz/masakiniapi/Infoakun.php?email=";
     String email;
 
+    Locale localeID = new Locale("in", "ID");
+    NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+
     Transaksi transaksi;
+    
     int totalEstimasi;
 
     @Override
@@ -59,8 +66,8 @@ public class PembelianKonfirmasiActivity extends AppCompatActivity {
         TextView tvHargaBahan = findViewById(R.id.tv_harga_bahan_masakan);
         TextView tvBiayaPengiriman = findViewById(R.id.tv_biaya_pengiriman);
         TextView tvTotal = findViewById(R.id.total_harga);
-        tvHargaBahan.setText("Rp" + Integer.toString(totalEstimasi));
-        tvTotal.setText("Rp" + Integer.toString(totalEstimasi + 20000));
+        tvHargaBahan.setText(formatRupiah.format(totalEstimasi));
+        tvTotal.setText(formatRupiah.format(totalEstimasi + 20000));
 
         email = MasukRequest.getEmail();
         progressBar.setVisibility(View.VISIBLE);

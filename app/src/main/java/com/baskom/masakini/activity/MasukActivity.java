@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -34,11 +35,6 @@ public class MasukActivity extends AppCompatActivity {
     private static final String DRAWER_REQUEST = "http://masakini.xyz/masakiniapi/Infoakun.php?email=";
     String email;
 
-    private SharedPreferences loginPreferences;
-    private SharedPreferences.Editor loginPrefsEditor;
-    private CheckBox saveLoginCheckBox;
-    private Boolean saveLogin;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,15 +46,12 @@ public class MasukActivity extends AppCompatActivity {
         final TextView textBuatAkunLink = (TextView) findViewById(R.id.textBuatAkun);
         final ProgressBar progressBar = findViewById(R.id.progressBar);
 
-        saveLoginCheckBox = findViewById(R.id.cb_ingat_sandi);
-        loginPreferences = getSharedPreferences("loginPrefs", MODE_PRIVATE);
-        loginPrefsEditor = loginPreferences.edit();
-
-        saveLogin = loginPreferences.getBoolean("saveLogin", false);
 
         etPassword.setTypeface(EasyFonts.robotoRegular(this));
         etEmail.addValidator(new EmailValidator("Harus email"));
         etPassword.addValidator(new AlphaNumericValidator(null));
+
+        etPassword.setImeActionLabel("MASUK", KeyEvent.KEYCODE_ENTER);
 
         textBuatAkunLink.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,8 +65,6 @@ public class MasukActivity extends AppCompatActivity {
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                inputMethodManager.hideSoftInputFromWindow(etEmail.getWindowToken(), 0);
 
                 final String email = etEmail.getText().toString();
                 final String password = etPassword.getText().toString();
@@ -92,16 +83,6 @@ public class MasukActivity extends AppCompatActivity {
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");
                             if (success && allValid) {
-                                if (saveLoginCheckBox.isChecked()) {
-                                    loginPrefsEditor.putBoolean("saveLogin", true);
-                                    loginPrefsEditor.putString("email", email);
-                                    loginPrefsEditor.putString("password", password);
-                                    loginPrefsEditor.commit();
-                                } else {
-                                    loginPrefsEditor.clear();
-                                    loginPrefsEditor.commit();
-                                }
-
                                 Intent intent = new Intent(MasukActivity.this, MainDrawerActivity.class);
                                 MasukActivity.this.startActivity(intent);
                                 MasukActivity.this.finish();
