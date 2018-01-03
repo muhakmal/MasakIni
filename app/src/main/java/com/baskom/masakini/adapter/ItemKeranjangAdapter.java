@@ -28,9 +28,7 @@ public class ItemKeranjangAdapter extends RecyclerView.Adapter{
     private List<ItemKeranjang> itemKeranjangList = new ArrayList<>();
 
     //For Volley Stuff
-    Response.Listener<String> listener;
     RequestQueue queue;
-    DeleteItemKeranjangRequest request;
     Context context;
 
     public ItemKeranjangAdapter(List<ItemKeranjang> itemKeranjangList, final Context context){
@@ -50,22 +48,21 @@ public class ItemKeranjangAdapter extends RecyclerView.Adapter{
 
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
-        //Initialize the request
-        listener = new Response.Listener<String>() {
+        Response.Listener<String> listener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                itemKeranjangList.remove(position);
-                notifyItemRemoved(position);
+                itemKeranjangList.remove(holder.getAdapterPosition());
+                notifyItemRemoved(holder.getAdapterPosition());
                 Toast.makeText(context, "Bahan masakan telah dihapus dari troli.", Toast.LENGTH_SHORT).show();
             }
         };
-        request = new DeleteItemKeranjangRequest(MasukRequest.getEmail(), itemKeranjangList.get(position).getJudulResep(), listener);
+        final DeleteItemKeranjangRequest request = new DeleteItemKeranjangRequest(MasukRequest.getEmail(), itemKeranjangList.get(holder.getAdapterPosition()).getJudulResep(), listener);
 
-        ((ItemKeranjangCardViewHolder) holder).bindData(itemKeranjangList.get(position));
+        ((ItemKeranjangCardViewHolder) holder).bindData(itemKeranjangList.get(holder.getAdapterPosition()));
         ((ItemKeranjangCardViewHolder) holder).tongSampah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "jangan klik lagi udah di klik bego", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, Integer.toString(holder.getAdapterPosition())+" "+itemKeranjangList.get(holder.getAdapterPosition()).getJudulResep(), Toast.LENGTH_SHORT).show();
                 queue.add(request);
             }
         });
