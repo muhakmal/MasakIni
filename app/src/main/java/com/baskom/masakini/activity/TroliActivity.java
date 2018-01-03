@@ -50,7 +50,7 @@ public class TroliActivity extends AppCompatActivity {
     Response.Listener<String> listenerLanjutBelanja, listenerKeranjang;
     Response.ErrorListener errorListenerLanjutBelanja, errorListenerKeranjang;
     TambahItemRequest requestLanjutBelanja, requestKeranjang;
-    RequestQueue queueLanjutBelanja, queueKeranjang;
+    RequestQueue queue;
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -150,8 +150,8 @@ public class TroliActivity extends AppCompatActivity {
 
         requestLanjutBelanja = new TambahItemRequest(MasukRequest.getEmail(), resep.getJudulResep(), jumlahPaket, listenerLanjutBelanja, errorListenerLanjutBelanja);
         requestKeranjang = new TambahItemRequest(MasukRequest.getEmail(),resep.getJudulResep(), jumlahPaket, listenerKeranjang, errorListenerKeranjang);
-        queueLanjutBelanja = Volley.newRequestQueue(this);
-        queueKeranjang = Volley.newRequestQueue(this);
+
+        queue = Volley.newRequestQueue(this);
 
         btnBeli.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,14 +161,14 @@ public class TroliActivity extends AppCompatActivity {
                         .setPositiveButton("Keranjang", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                queueKeranjang.add(requestKeranjang);
+                                queue.add(requestKeranjang);
                                 Toast.makeText(TroliActivity.this,"Bahan masakan berhasil ditambahkan ke Keranjang",Toast.LENGTH_LONG).show();
                             }
                         })
                         .setNegativeButton("Beranda", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                queueLanjutBelanja.add(requestLanjutBelanja);
+                                queue.add(requestLanjutBelanja);
                                 Toast.makeText(TroliActivity.this,"Bahan masakan berhasil ditambahkan ke Keranjang",Toast.LENGTH_LONG).show();
                             }
                         })
@@ -188,5 +188,7 @@ public class TroliActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         finish();
+        Intent intent = new Intent(this, MainDrawerActivity.class);
+        startActivity(intent);
     }
 }

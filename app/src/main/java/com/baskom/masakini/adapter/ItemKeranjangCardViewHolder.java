@@ -23,7 +23,7 @@ public class ItemKeranjangCardViewHolder extends RecyclerView.ViewHolder {
     protected ImageView imageTroli;
     protected TextView judulResepTroli;
     protected TextView hargaTroli;
-    protected   LinearLayout linearProduk;
+    protected LinearLayout linearProduk;
     protected ElegantNumberButton tambahJumlahPaket;
     protected Button tongSampah;
     protected LayoutInflater inflater;
@@ -74,7 +74,7 @@ public class ItemKeranjangCardViewHolder extends RecyclerView.ViewHolder {
                 } else if (Integer.parseInt(tambahJumlahPaket.getNumber()) == 3) {
                     total = hargaItemKeranjang * 3;
                 }
-                hargaTroli.setText("Estimasi harga bahan masakan : Rp"+ Integer.toString(total));
+                hargaTroli.setText("Estimasi harga bahan masakan : Rp" + Integer.toString(total));
             }
         });
 

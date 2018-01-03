@@ -31,18 +31,14 @@ public class ItemKeranjangAdapter extends RecyclerView.Adapter{
     Response.Listener<String> listener;
     RequestQueue queue;
     DeleteItemKeranjangRequest request;
+    Context context;
 
     public ItemKeranjangAdapter(List<ItemKeranjang> itemKeranjangList, final Context context){
         //Initialize the Dataset
         this.itemKeranjangList.addAll(itemKeranjangList);
-
+        this.context = context;
         //Initialize the listener and queue
-        listener = new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Toast.makeText(context, "Bahan masakan telah dihapus dari troli.", Toast.LENGTH_SHORT).show();
-            }
-        };
+
         queue = Volley.newRequestQueue(context);
     }
 
@@ -53,17 +49,24 @@ public class ItemKeranjangAdapter extends RecyclerView.Adapter{
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         //Initialize the request
+        listener = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                itemKeranjangList.remove(position);
+                notifyItemRemoved(position);
+                Toast.makeText(context, "Bahan masakan telah dihapus dari troli.", Toast.LENGTH_SHORT).show();
+            }
+        };
         request = new DeleteItemKeranjangRequest(MasukRequest.getEmail(), itemKeranjangList.get(position).getJudulResep(), listener);
 
         ((ItemKeranjangCardViewHolder) holder).bindData(itemKeranjangList.get(position));
         ((ItemKeranjangCardViewHolder) holder).tongSampah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(context, "jangan klik lagi udah di klik bego", Toast.LENGTH_SHORT).show();
                 queue.add(request);
-                itemKeranjangList.remove(position);
-                notifyDataSetChanged();
             }
         });
     }
