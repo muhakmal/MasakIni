@@ -11,12 +11,15 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import com.baskom.masakini.R;
+import com.baskom.masakini.activity.ItemKeranjangActivity;
 import com.baskom.masakini.request.DeleteItemKeranjangRequest;
 import com.baskom.masakini.model.ItemKeranjang;
 import com.baskom.masakini.request.MasukRequest;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.baskom.masakini.activity.ItemKeranjangActivity.totalEstimasi;
 
 /**
  * Created by akmalmuhamad on 25/12/17.

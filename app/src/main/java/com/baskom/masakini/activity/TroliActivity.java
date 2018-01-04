@@ -47,6 +47,8 @@ public class TroliActivity extends AppCompatActivity {
     int jumlahPaket = 1;
     int totalTakaran;
 
+    ElegantNumberButton btnNumberJumlahPaket;
+
     Response.Listener<String> listenerLanjutBelanja, listenerKeranjang;
     Response.ErrorListener errorListenerLanjutBelanja, errorListenerKeranjang;
     TambahItemRequest requestLanjutBelanja, requestKeranjang;
@@ -73,7 +75,7 @@ public class TroliActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final TextView tv_totalJumlahPaket = findViewById(R.id.total_jumlah_paket);
-        final ElegantNumberButton btnNumberJumlahPaket = findViewById(R.id.btn_tambahJumlahPaket_item_keranjang);
+        btnNumberJumlahPaket = findViewById(R.id.btn_tambahJumlahPaket_item_keranjang);
         final TextView tv_totalEstimasi = findViewById(R.id.total_estimasi);
 
         //nampilin produk dan resep
@@ -110,6 +112,8 @@ public class TroliActivity extends AppCompatActivity {
 
                 tv_totalEstimasi.setText(formatRupiah.format(totalEstimasi));
                 tv_totalJumlahPaket.setText(jumlahPaket + " Paket");
+                requestKeranjang = new TambahItemRequest(MasukRequest.getEmail(),resep.getJudulResep(), jumlahPaket, listenerKeranjang, errorListenerKeranjang);
+                requestLanjutBelanja = new TambahItemRequest(MasukRequest.getEmail(), resep.getJudulResep(), jumlahPaket, listenerLanjutBelanja, errorListenerLanjutBelanja);
             }
         });
         totalEstimasi = hargaProduk;
@@ -148,9 +152,9 @@ public class TroliActivity extends AppCompatActivity {
             }
         };
 
-        requestLanjutBelanja = new TambahItemRequest(MasukRequest.getEmail(), resep.getJudulResep(), jumlahPaket, listenerLanjutBelanja, errorListenerLanjutBelanja);
-        requestKeranjang = new TambahItemRequest(MasukRequest.getEmail(),resep.getJudulResep(), jumlahPaket, listenerKeranjang, errorListenerKeranjang);
 
+        requestKeranjang = new TambahItemRequest(MasukRequest.getEmail(),resep.getJudulResep(), jumlahPaket, listenerKeranjang, errorListenerKeranjang);
+        requestLanjutBelanja = new TambahItemRequest(MasukRequest.getEmail(), resep.getJudulResep(), jumlahPaket, listenerLanjutBelanja, errorListenerLanjutBelanja);
         queue = Volley.newRequestQueue(this);
 
         btnBeli.setOnClickListener(new View.OnClickListener() {
