@@ -10,9 +10,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.baskom.masakini.R;
+import com.baskom.masakini.activity.ItemKeranjangActivity;
 import com.baskom.masakini.model.ItemKeranjang;
 import com.bumptech.glide.Glide;
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
+
+import static com.baskom.masakini.activity.ItemKeranjangActivity.totalEstimasi;
 
 /**
  * Created by akmalmuhamad on 25/12/17.
@@ -78,7 +81,10 @@ public class ItemKeranjangCardViewHolder extends RecyclerView.ViewHolder {
             }
         });
 
-        hargaTroli.setText("Estimasi harga bahan masakan : Rp" + Integer.toString(hargaItemKeranjang * itemKeranjang.getJumlahPaket()));
+
+        total = hargaItemKeranjang*itemKeranjang.getJumlahPaket();
+        ItemKeranjangActivity.totalEstimasi += total;
+        hargaTroli.setText("Estimasi harga bahan masakan : Rp" + Integer.toString(total));
         tambahJumlahPaket.setNumber(Integer.toString(itemKeranjang.getJumlahPaket()));
     }
 }
