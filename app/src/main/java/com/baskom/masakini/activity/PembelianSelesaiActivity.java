@@ -33,7 +33,7 @@ public class PembelianSelesaiActivity extends AppCompatActivity{
         transaksi = (Transaksi) getIntent().getSerializableExtra("objekTroli");
 
         Bundle harga = getIntent().getExtras();
-        /*Intent intent = getIntent().*/
+        /*Intent intentTotalEstimasi = getIntent().*/
 
         android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

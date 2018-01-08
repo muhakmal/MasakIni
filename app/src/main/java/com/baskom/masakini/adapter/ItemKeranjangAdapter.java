@@ -11,15 +11,13 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import com.baskom.masakini.R;
-import com.baskom.masakini.activity.ItemKeranjangActivity;
+import com.baskom.masakini.model.Transaksi;
 import com.baskom.masakini.request.DeleteItemKeranjangRequest;
 import com.baskom.masakini.model.ItemKeranjang;
 import com.baskom.masakini.request.MasukRequest;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.baskom.masakini.activity.ItemKeranjangActivity.totalEstimasi;
 
 /**
  * Created by akmalmuhamad on 25/12/17.
@@ -62,7 +60,8 @@ public class ItemKeranjangAdapter extends RecyclerView.Adapter{
         final DeleteItemKeranjangRequest request = new DeleteItemKeranjangRequest(MasukRequest.getEmail(), itemKeranjangList.get(holder.getAdapterPosition()).getJudulResep(), listener);
 
         ((ItemKeranjangCardViewHolder) holder).bindData(itemKeranjangList.get(holder.getAdapterPosition()));
-        ((ItemKeranjangCardViewHolder) holder).tongSampah.setOnClickListener(new View.OnClickListener() {
+
+        ((ItemKeranjangCardViewHolder) holder).btnTongSampah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, Integer.toString(holder.getAdapterPosition())+" "+itemKeranjangList.get(holder.getAdapterPosition()).getJudulResep(), Toast.LENGTH_SHORT).show();

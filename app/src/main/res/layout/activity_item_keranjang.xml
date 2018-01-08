@@ -56,7 +56,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btn_bayar_keranjang"
+            android:id="@+id/btn_bayar_troli"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorPrimary"
@@ -104,7 +104,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginEnd="21dp"
             android:layout_marginRight="21dp"
-            android:text="Rp 120.000,-" />
+            android:text="Rp0,-" />
     </RelativeLayout>
 
 

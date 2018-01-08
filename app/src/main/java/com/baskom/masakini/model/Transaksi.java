@@ -7,25 +7,21 @@ import java.io.Serializable;
  */
 
 public class Transaksi implements Serializable {
-    int nomorOrder;
-    int hargaProduk;
-    int totalEstimasi;
-    int jumlahPaket;
+    private int nomorOrder;
+    private int totalEstimasi;
+
+    public Transaksi(int nomorOrder, int totalEstimasi) {
+        this.nomorOrder = nomorOrder;
+        this.totalEstimasi = totalEstimasi;
+    }
 
     public int getNomorOrder() {
+
         return nomorOrder;
     }
 
     public void setNomorOrder(int nomorOrder) {
         this.nomorOrder = nomorOrder;
-    }
-
-    public int getHargaProduk() {
-        return hargaProduk;
-    }
-
-    public void setHargaProduk(int hargaProduk) {
-        this.hargaProduk = hargaProduk;
     }
 
     public int getTotalEstimasi() {
@@ -34,20 +30,5 @@ public class Transaksi implements Serializable {
 
     public void setTotalEstimasi(int totalEstimasi) {
         this.totalEstimasi = totalEstimasi;
-    }
-
-    public int getJumlahPaket() {
-        return jumlahPaket;
-    }
-
-    public void setJumlahPaket(int jumlahPaket) {
-        this.jumlahPaket = jumlahPaket;
-    }
-
-    public Transaksi(int nomorOrder, int hargaProduk, int totalEstimasi, int jumlahPaket) {
-        this.nomorOrder = nomorOrder;
-        this.hargaProduk = hargaProduk;
-        this.totalEstimasi = totalEstimasi;
-        this.jumlahPaket = jumlahPaket;
     }
 }

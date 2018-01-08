@@ -28,7 +28,7 @@
             android:layout_height="wrap_content">
 
             <android.support.v7.widget.CardView
-                android:id="@+id/card_item_keranjang"
+                android:id="@+id/card_troli"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -49,23 +49,22 @@
                     android:paddingTop="0dp">
 
                     <ImageView
-                        android:id="@+id/image_item_keranjang"
+                        android:id="@+id/image_troli"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
-                        android:layout_below="@+id/tanggal_item_keranjang"
                         android:adjustViewBounds="true"
                         android:scaleType="centerCrop"
                         android:src="@drawable/dummy_img_resep" />
 
                     <TextView
-                        android:id="@+id/judul_resep_item_keranjang"
+                        android:id="@+id/tv_judul_resep_troli"
                         android:layout_width="wrap_content"
                         android:layout_height="24dp"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
-                        android:layout_below="@+id/image_item_keranjang"
+                        android:layout_below="@+id/image_troli"
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="10dp"
                         android:singleLine="true"
@@ -74,27 +73,36 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/harga_item_keranjang"
+                        android:id="@+id/estimasihargamasakan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignLeft="@+id/judul_resep_item_keranjang"
-                        android:layout_alignStart="@+id/judul_resep_item_keranjang"
-                        android:layout_below="@+id/judul_resep_item_keranjang"
-                        android:text="Estimasi harga masakan : 120.000,-" />
+                        android:layout_alignLeft="@+id/tv_judul_resep_troli"
+                        android:layout_alignStart="@+id/tv_judul_resep_troli"
+                        android:layout_below="@+id/tv_judul_resep_troli"
+                        android:text="Harga bahan masakan :" />
+
+                    <TextView
+                        android:id="@+id/tv_harga_produk_troli"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@id/estimasihargamasakan"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@id/estimasihargamasakan"
+                        android:text="Rp100.000" />
 
                     <TextView
                         android:id="@+id/stringBahanMasakan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignLeft="@+id/harga_item_keranjang"
-                        android:layout_alignStart="@+id/harga_item_keranjang"
-                        android:layout_below="@id/harga_item_keranjang"
+                        android:layout_alignLeft="@+id/estimasihargamasakan"
+                        android:layout_alignStart="@+id/estimasihargamasakan"
+                        android:layout_below="@id/estimasihargamasakan"
                         android:layout_marginTop="10dp"
                         android:text="Bahan masakan yang akan dikirim terdiri dari"
                         android:textSize="14sp" />
 
                     <LinearLayout
-                        android:id="@+id/linear_text_item_keranjang"
+                        android:id="@+id/linear_text_troli"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/stringBahanMasakan"
@@ -103,20 +111,6 @@
                         android:layout_marginTop="5dp"
                         android:orientation="vertical" />
 
-                    <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
-                        android:id="@+id/btn_tambahJumlahPaket_item_keranjang"
-                        android:layout_width="80dp"
-                        android:layout_height="24dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_below="@id/linear_text_item_keranjang"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_toLeftOf="@id/tongsampah_item_keranjang"
-                        app:backGroundColor="@color/buttonCardColor"
-                        app:finalNumber="3"
-                        app:initialNumber="1"
-                        app:textColor="@color/baseWhite" />
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
 
@@ -137,7 +131,7 @@
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -150,6 +144,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="15dp"
             android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
@@ -157,19 +152,9 @@
             android:text="Total Estimasi :"
             android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView3"
-            android:layout_alignStart="@+id/textView3"
-            android:layout_below="@+id/textView3"
-            android:layout_marginTop="5dp"
-            android:text="Jumlah Paket :"
-            android:textStyle="bold" />
-
 
         <TextView
-            android:id="@+id/total_estimasi"
+            android:id="@+id/tv_total_estimasi_troli"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/textView3"
@@ -180,14 +165,6 @@
             android:layout_marginRight="21dp"
             android:text="Rp 120.000,-" />
 
-        <TextView
-            android:id="@+id/total_jumlah_paket"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/total_estimasi"
-            android:layout_below="@id/total_estimasi"
-            android:layout_marginTop="5dp"
-            android:text="1 Paket" />
     </RelativeLayout>
 
     <LinearLayout
@@ -204,7 +181,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/btn_bayar_keranjang"
+            android:id="@+id/btn_bayar_troli"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorPrimary"

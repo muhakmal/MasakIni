@@ -27,13 +27,13 @@ public class ResepCardViewHolder extends RecyclerView.ViewHolder {
 
     public ResepCardViewHolder(View itemView) {
         super(itemView);
-        judulResep = itemView.findViewById(R.id.judul_resep_item_keranjang);
+        judulResep = itemView.findViewById(R.id.tv_judul_resep_troli);
         subJudulResep = itemView.findViewById(R.id.cardView_deksripsiResep);
         tingkatKesulitan = itemView.findViewById(R.id.cardView_tingkat_kesulitan);
         untukBerapaOrang = itemView.findViewById(R.id.cardView_untukBerapaOrang);
         waktuMemasak = itemView.findViewById(R.id.cardView_waktuMemasak);
-        resepImage = itemView.findViewById(R.id.image_item_keranjang);
-        cardView = itemView.findViewById(R.id.card_item_keranjang);
+        resepImage = itemView.findViewById(R.id.image_troli);
+        cardView = itemView.findViewById(R.id.card_troli);
     }
 
     public void bindData(final Resep resep) {

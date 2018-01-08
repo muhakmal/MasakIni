@@ -18,6 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.baskom.masakini.R;
+import com.baskom.masakini.adapter.ItemKeranjangCardViewHolder;
 import com.baskom.masakini.model.Transaksi;
 import com.baskom.masakini.request.MasukRequest;
 
@@ -48,7 +49,8 @@ public class PembelianKonfirmasiActivity extends AppCompatActivity {
         setContentView(R.layout.konfirmasi_pengiriman);
 
         transaksi = (Transaksi) getIntent().getSerializableExtra("objekTroli");
-        totalEstimasi = getIntent().getIntExtra("totalEstimasi", 1);
+        Intent intent = getIntent();
+        totalEstimasi = intent.getIntExtra("total", 5);
 
         android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

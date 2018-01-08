@@ -13,50 +13,52 @@ import com.baskom.masakini.R;
 import com.baskom.masakini.activity.ItemKeranjangActivity;
 import com.baskom.masakini.model.ItemKeranjang;
 import com.bumptech.glide.Glide;
-import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 
-import static com.baskom.masakini.activity.ItemKeranjangActivity.totalEstimasi;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 /**
  * Created by akmalmuhamad on 25/12/17.
  */
 
 public class ItemKeranjangCardViewHolder extends RecyclerView.ViewHolder {
-    protected CardView cardView;
-    protected ImageView imageTroli;
-    protected TextView judulResepTroli;
-    protected TextView hargaTroli;
-    protected LinearLayout linearProduk;
-    protected ElegantNumberButton tambahJumlahPaket;
-    protected Button tongSampah;
+    Locale localeID = new Locale("in", "ID");
+    NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+    protected CardView cvItemKeranjang;
+    protected ImageView ivItemKeranjang;
+    protected TextView tvJudulBahanMasakanItemKeranjang;
+    protected TextView tvHargaItemKeranjang;
+    protected LinearLayout linearLayoutProduk;
+    protected Button btnTongSampah;
     protected LayoutInflater inflater;
 
-    private int hargaItemKeranjang;
-
-    private int total;
+    private int hargaItemKeranjang = 0;
+    int tempTotal = 0;
+    int total = 0;
+    int totallagi = 0;
 
 
     public ItemKeranjangCardViewHolder(View itemView) {
         super(itemView);
-        cardView = itemView.findViewById(R.id.card_item_keranjang);
-        judulResepTroli = itemView.findViewById(R.id.judul_resep_item_keranjang);
-        hargaTroli = itemView.findViewById(R.id.harga_item_keranjang);
-        linearProduk = itemView.findViewById(R.id.linear_text_item_keranjang);
-        tambahJumlahPaket = itemView.findViewById(R.id.btn_tambahJumlahPaket_item_keranjang);
-        tongSampah = itemView.findViewById(R.id.tongsampah_item_keranjang);
-        imageTroli = itemView.findViewById(R.id.image_item_keranjang);
-        judulResepTroli.setSelected(true);
+        cvItemKeranjang = itemView.findViewById(R.id.card_troli);
+        ivItemKeranjang = itemView.findViewById(R.id.image_troli);
+        tvJudulBahanMasakanItemKeranjang = itemView.findViewById(R.id.tv_judul_resep_troli);
+        tvHargaItemKeranjang = itemView.findViewById(R.id.tv_harga_produk_troli);
+        tvJudulBahanMasakanItemKeranjang.setSelected(true);
+        linearLayoutProduk = itemView.findViewById(R.id.linear_text_troli);
+        btnTongSampah = itemView.findViewById(R.id.tongsampah_item_keranjang);
         inflater = LayoutInflater.from(itemView.getContext());
-        hargaItemKeranjang = 0;
     }
 
     public void bindData(final ItemKeranjang itemKeranjang) {
-        Glide.with(cardView.getContext())
+        Glide.with(cvItemKeranjang.getContext())
                 .load(itemKeranjang.getResepImage())
-                .into(imageTroli);
-        judulResepTroli.setText("Bahan masakan untuk " + itemKeranjang.getJudulResep());
+                .into(ivItemKeranjang);
+
+        tvJudulBahanMasakanItemKeranjang.setText("Bahan masakan untuk " + itemKeranjang.getJudulResep());
+
         for (int i = 0; i < itemKeranjang.getProduk().size(); i++) {
-            View view = inflater.inflate(R.layout.text_bahan, linearProduk, false);
+            View view = inflater.inflate(R.layout.text_bahan, linearLayoutProduk, false);
             TextView textViewNamaProduk = view.findViewById(R.id.text_nama_bahan);
             TextView textViewTakaranProduk = view.findViewById(R.id.text_takaran_bahan);
 
@@ -65,26 +67,19 @@ public class ItemKeranjangCardViewHolder extends RecyclerView.ViewHolder {
 
             hargaItemKeranjang += itemKeranjang.getProduk().get(i).getHarga();
 
-            linearProduk.addView(view);
+            linearLayoutProduk.addView(view);
         }
-        tambahJumlahPaket.setOnClickListener(new ElegantNumberButton.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (Integer.parseInt(tambahJumlahPaket.getNumber()) == 2) {
-                    total = hargaItemKeranjang * 2;
-                } else if (Integer.parseInt(tambahJumlahPaket.getNumber()) == 1) {
-                    total = hargaItemKeranjang * 1;
-                } else if (Integer.parseInt(tambahJumlahPaket.getNumber()) == 3) {
-                    total = hargaItemKeranjang * 3;
-                }
-                hargaTroli.setText("Estimasi harga bahan masakan : Rp" + Integer.toString(total));
-            }
-        });
+        tvHargaItemKeranjang.setText(formatRupiah.format(hargaItemKeranjang));
+        tempTotal+=hargaItemKeranjang;
 
+        for (int i = 0 ; i<ItemKeranjangActivity.jumlahItemKeranjang;i++){
+            total+=tempTotal;
+        }
+        totallagi=total;
 
-        total = hargaItemKeranjang*itemKeranjang.getJumlahPaket();
-        ItemKeranjangActivity.totalEstimasi += total;
-        hargaTroli.setText("Estimasi harga bahan masakan : Rp" + Integer.toString(total));
-        tambahJumlahPaket.setNumber(Integer.toString(itemKeranjang.getJumlahPaket()));
+        ItemKeranjangActivity.tvTotalEstimasi.setText(formatRupiah.format(total));
+        ItemKeranjangActivity.total+=totallagi;
+        /*total = hargaItemKeranjang*itemKeranjang.getJumlahPaket();
+        ItemKeranjangActivity.totalEstimasi += total;*/
     }
 }

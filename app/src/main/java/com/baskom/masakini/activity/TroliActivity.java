@@ -25,9 +25,10 @@ import com.baskom.masakini.model.Resep;
 import com.baskom.masakini.model.Transaksi;
 import com.baskom.masakini.request.TambahItemRequest;
 import com.bumptech.glide.Glide;
-import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 
 import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 /**
@@ -36,49 +37,42 @@ import java.util.Locale;
 
 public class TroliActivity extends AppCompatActivity {
 
-    Resep resep;
-    Transaksi transaksi;
-
+    List<Transaksi> transaksiList = new ArrayList<>();
     Locale localeID = new Locale("in", "ID");
     NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
-
-    int hargaProduk;
-    int totalEstimasi;
-    int jumlahPaket = 1;
-    int totalTakaran;
-
-    ElegantNumberButton btnNumberJumlahPaket;
-
+    Resep resep;
+    Transaksi transaksi;
     Response.Listener<String> listenerLanjutBelanja, listenerKeranjang;
     Response.ErrorListener errorListenerLanjutBelanja, errorListenerKeranjang;
-    TambahItemRequest requestLanjutBelanja, requestKeranjang;
+    ImageView imageTroli;
+    Toolbar toolbar;
+    LinearLayout textLinearLayoutTroli;
+    Button btnBeli;
+    TextView tvTotalEstimasi;
+    TextView tvJudulTroli;
+    TextView tvHargaProduk;
     RequestQueue queue;
+    TambahItemRequest requestLanjutBelanja, requestKeranjang;
+    int totalEstimasi;
+    int hargaProduk;
+    int jumlahPaket = 1;
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_troli);
 
         resep = (Resep) getIntent().getSerializableExtra("objekResep");
-        hargaProduk = 0;
-        totalEstimasi = 0;
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        ImageView imageTroli = findViewById(R.id.image_item_keranjang);
-        //TextView tanggalTroli = findViewById(R.id.tanggal_item_keranjang);
-        TextView judulTroli = findViewById(R.id.judul_resep_item_keranjang);
-        TextView tv_hargaTroli = findViewById(R.id.harga_item_keranjang);
-
-        LinearLayout textLinearLayoutTroli = findViewById(R.id.linear_text_item_keranjang);
-        Button btnBeli = findViewById(R.id.btn_bayar_keranjang);
+        toolbar = findViewById(R.id.toolbar);
+        imageTroli = findViewById(R.id.image_troli);
+        tvJudulTroli = findViewById(R.id.tv_judul_resep_troli);
+        tvHargaProduk = findViewById(R.id.tv_harga_produk_troli);
+        tvTotalEstimasi = findViewById(R.id.tv_total_estimasi_troli);
+        textLinearLayoutTroli = findViewById(R.id.linear_text_troli);
+        btnBeli = findViewById(R.id.btn_bayar_troli);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Beli Bahan Masakan");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        final TextView tv_totalJumlahPaket = findViewById(R.id.total_jumlah_paket);
-        btnNumberJumlahPaket = findViewById(R.id.btn_tambahJumlahPaket_item_keranjang);
-        final TextView tv_totalEstimasi = findViewById(R.id.total_estimasi);
-
-        //nampilin produk dan resep
         for (int i = 0; i < resep.getProduk().size(); i++) {
             View view = getLayoutInflater().inflate(R.layout.text_bahan, textLinearLayoutTroli, false);
             TextView textViewNamaBahanTroli = view.findViewById(R.id.text_nama_bahan);
@@ -90,33 +84,14 @@ public class TroliActivity extends AppCompatActivity {
             hargaProduk += resep.getProduk().get(i).getHarga();
             textLinearLayoutTroli.addView(view);
         }
-
-        //tanggalTroli.setText(formatTanggal(new Date()));
-        Glide.with(imageTroli.getContext()).load(resep.getResepImage()).into(imageTroli);
-        judulTroli.setText("Bahan masakan " + resep.getJudulResep());
-        tv_hargaTroli.setText("Harga Bahan " + formatRupiah.format(hargaProduk));
-        tv_totalEstimasi.setText(formatRupiah.format(hargaProduk));
-
-        btnNumberJumlahPaket.setOnClickListener(new ElegantNumberButton.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                jumlahPaket = Integer.parseInt(btnNumberJumlahPaket.getNumber());
-
-                if (jumlahPaket == 2) {
-                    totalEstimasi = hargaProduk * 2;
-                } else if (jumlahPaket == 1) {
-                    totalEstimasi = hargaProduk;
-                } else if (jumlahPaket == 3) {
-                    totalEstimasi = hargaProduk * 3;
-                }
-
-                tv_totalEstimasi.setText(formatRupiah.format(totalEstimasi));
-                tv_totalJumlahPaket.setText(jumlahPaket + " Paket");
-                requestKeranjang = new TambahItemRequest(MasukRequest.getEmail(),resep.getJudulResep(), jumlahPaket, listenerKeranjang, errorListenerKeranjang);
-                requestLanjutBelanja = new TambahItemRequest(MasukRequest.getEmail(), resep.getJudulResep(), jumlahPaket, listenerLanjutBelanja, errorListenerLanjutBelanja);
-            }
-        });
         totalEstimasi = hargaProduk;
+        Glide.with(imageTroli.getContext()).load(resep.getResepImage()).into(imageTroli);
+        tvJudulTroli.setText("Bahan masakan " + resep.getJudulResep());
+        tvHargaProduk.setText(formatRupiah.format(hargaProduk));
+        tvTotalEstimasi.setText(formatRupiah.format(totalEstimasi));
+
+        requestKeranjang = new TambahItemRequest(MasukRequest.getEmail(),resep.getJudulResep(), jumlahPaket, listenerKeranjang, errorListenerKeranjang);
+        requestLanjutBelanja = new TambahItemRequest(MasukRequest.getEmail(), resep.getJudulResep(), jumlahPaket, listenerLanjutBelanja, errorListenerLanjutBelanja);
 
         //Volley Stuff
         listenerLanjutBelanja = new Response.Listener<String>() {
@@ -151,7 +126,6 @@ public class TroliActivity extends AppCompatActivity {
                 Toast.makeText(TroliActivity.this, error.toString(), Toast.LENGTH_LONG);
             }
         };
-
 
         requestKeranjang = new TambahItemRequest(MasukRequest.getEmail(),resep.getJudulResep(), jumlahPaket, listenerKeranjang, errorListenerKeranjang);
         requestLanjutBelanja = new TambahItemRequest(MasukRequest.getEmail(), resep.getJudulResep(), jumlahPaket, listenerLanjutBelanja, errorListenerLanjutBelanja);
