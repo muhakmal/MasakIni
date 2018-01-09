@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -46,7 +47,7 @@ public class ItemKeranjangActivity extends AppCompatActivity {
     Intent intentTotalEstimasi;
     public static int jumlahItemKeranjang;
     public static TextView tvTotalEstimasi;
-    public static int total = 0;
+    public int total;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,8 +63,8 @@ public class ItemKeranjangActivity extends AppCompatActivity {
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setFocusable(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setHasFixedSize(true);
 
+        total = 0;
         tvTotalEstimasi = findViewById(R.id.tv_total_estimasi_item_keranjang);
         tvTotalEstimasi.setText(formatRupiah.format(total));
 
@@ -91,30 +92,15 @@ public class ItemKeranjangActivity extends AppCompatActivity {
                 recyclerView.setAdapter(adapter);
                 progressBar.setVisibility(View.GONE);
                 jumlahItemKeranjang = adapter.getItemCount();
-//
-//                for (int i = 0 ; i<jumlahItemKeranjang;i++){
-//                    ItemKeranjangCardViewHolder.tempTotal
-//                }
-                //Bagian setharga, masih on progress
-                /*recyclerView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-                    @Override
-                    @TargetApi(16)
-                    public void onGlobalLayout() {
-                        for(int i = 0; i < recyclerView.getAdapter().getItemCount(); i++){
-                            View view = recyclerView.getLayoutManager().findViewByPosition(0);
-                            TextView test = view.findViewById(R.id.harga_item_keranjang);
-                            int hargaItem = Integer.parseInt(test.getText().toString().substring(33));
-                            totalEstimasi += hargaItem;
-                        }
-                        tvTotalEstimasi.setText(Integer.toString(totalEstimasi));
-                        if(Build.VERSION.SDK_INT == 15) {
-                            recyclerView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                        }else{
-                            recyclerView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                        }
-                    }
 
-                });*/
+                for(int i = 0; i < itemKeranjangList.size(); i++){
+                    int harga = 0;
+                    for(int j = 0; j < itemKeranjangList.get(i).getProduk().size(); j++){
+                        harga += itemKeranjangList.get(i).getProduk().get(j).getHarga();
+                    }
+                    total += harga;
+                }
+                tvTotalEstimasi.setText(formatRupiah.format(total));
             }
         };
 

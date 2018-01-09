@@ -70,16 +70,6 @@ public class ItemKeranjangCardViewHolder extends RecyclerView.ViewHolder {
             linearLayoutProduk.addView(view);
         }
         tvHargaItemKeranjang.setText(formatRupiah.format(hargaItemKeranjang));
-        tempTotal+=hargaItemKeranjang;
 
-        for (int i = 0 ; i<ItemKeranjangActivity.jumlahItemKeranjang;i++){
-            total+=tempTotal;
-        }
-        totallagi=total;
-
-        ItemKeranjangActivity.tvTotalEstimasi.setText(formatRupiah.format(total));
-        ItemKeranjangActivity.total+=totallagi;
-        /*total = hargaItemKeranjang*itemKeranjang.getJumlahPaket();
-        ItemKeranjangActivity.totalEstimasi += total;*/
     }
 }
