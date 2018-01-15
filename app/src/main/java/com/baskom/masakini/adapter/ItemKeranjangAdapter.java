@@ -1,6 +1,8 @@
 package com.baskom.masakini.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,7 +25,8 @@ import java.util.List;
  * Created by akmalmuhamad on 25/12/17.
  */
 
-public class ItemKeranjangAdapter extends RecyclerView.Adapter{
+public class ItemKeranjangAdapter extends RecyclerView.Adapter {
+
 
     //The Dataset
     private List<ItemKeranjang> itemKeranjangList = new ArrayList<>();
@@ -32,7 +35,7 @@ public class ItemKeranjangAdapter extends RecyclerView.Adapter{
     RequestQueue queue;
     Context context;
 
-    public ItemKeranjangAdapter(List<ItemKeranjang> itemKeranjangList, final Context context){
+    public ItemKeranjangAdapter(List<ItemKeranjang> itemKeranjangList, final Context context) {
         //Initialize the Dataset
         this.itemKeranjangList.addAll(itemKeranjangList);
         this.context = context;
@@ -52,9 +55,9 @@ public class ItemKeranjangAdapter extends RecyclerView.Adapter{
         Response.Listener<String> listener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                Toast.makeText(context, itemKeranjangList.get(holder.getAdapterPosition()).getJudulResep() + " telah dihapus dari keranjang", Toast.LENGTH_SHORT).show();
                 itemKeranjangList.remove(holder.getAdapterPosition());
                 notifyItemRemoved(holder.getAdapterPosition());
-                Toast.makeText(context, "Bahan masakan telah dihapus dari troli.", Toast.LENGTH_SHORT).show();
             }
         };
         final DeleteItemKeranjangRequest request = new DeleteItemKeranjangRequest(MasukRequest.getEmail(), itemKeranjangList.get(holder.getAdapterPosition()).getJudulResep(), listener);
@@ -64,8 +67,23 @@ public class ItemKeranjangAdapter extends RecyclerView.Adapter{
         ((ItemKeranjangCardViewHolder) holder).btnTongSampah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, Integer.toString(holder.getAdapterPosition())+" "+itemKeranjangList.get(holder.getAdapterPosition()).getJudulResep(), Toast.LENGTH_SHORT).show();
-                queue.add(request);
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Hapus Bahan Masakan")
+                        .setMessage("Hapus " + itemKeranjangList.get(holder.getAdapterPosition()).getJudulResep() + " dari keranjang?")
+                        .setPositiveButton("Tidak", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //do nothing
+                            }
+                        })
+                        .setNegativeButton("Ya", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                queue.add(request);
+                            }
+                        }).show();
+                //Toast.makeText(context, Integer.toString(holder.getAdapterPosition())+" "+itemKeranjangList.get(holder.getAdapterPosition()).getJudulResep(), Toast.LENGTH_SHORT).show();
+
             }
         });
     }

@@ -22,8 +22,14 @@ import java.util.Locale;
 public class PembelianSelesaiActivity extends AppCompatActivity{
     Locale localeID = new Locale("in", "ID");
     NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+    android.support.v7.widget.Toolbar toolbar;
 
     Transaksi transaksi;
+
+    TextView nomorPesanan;
+    TextView tvHargaTotal;
+    Button btnRiwayatOrder;
+    Button btnKembali;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,15 +41,15 @@ public class PembelianSelesaiActivity extends AppCompatActivity{
         Bundle harga = getIntent().getExtras();
         /*Intent intentTotalEstimasi = getIntent().*/
 
-        android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Konfirmasi Pembelian");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        TextView nomorPesanan = findViewById(R.id.tv_nomor_pesanan);
-        TextView tvHargaTotal = findViewById(R.id.harga_selesai);
-        Button btnRiwayatOrder = findViewById(R.id.btn_riwayatOrder_selesai);
-        Button btnKembali = findViewById(R.id.btn_kembali_selesai);
+        nomorPesanan = findViewById(R.id.tv_nomor_pesanan);
+        tvHargaTotal = findViewById(R.id.harga_selesai);
+        btnRiwayatOrder = findViewById(R.id.btn_riwayatOrder_selesai);
+        btnKembali = findViewById(R.id.btn_kembali_selesai);
 
         tvHargaTotal.setText(formatRupiah.format(harga.getInt("totalHarga")));
 

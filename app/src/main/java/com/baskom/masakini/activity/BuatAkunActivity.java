@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.andreabaccega.formedittextvalidator.AlphaNumericValidator;
 import com.andreabaccega.formedittextvalidator.EmailValidator;
@@ -29,17 +30,27 @@ import org.json.JSONObject;
  */
 
 public class BuatAkunActivity extends AppCompatActivity {
+
+    FormEditText etNama;
+    FormEditText etEmail;
+    FormEditText etPassword;
+    FormEditText etNohp;
+    FormEditText etAlamat;
+    ProgressBar progressBar;
+
+    Button btBuatAkun;
+    TextView loginLink;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buat_akun);
 
-        final FormEditText etNama = findViewById(R.id.etNama);
-        final FormEditText etEmail = findViewById(R.id.etEmail);
-        final FormEditText etPassword = findViewById(R.id.etPassword);
-        final FormEditText etNohp = findViewById(R.id.et_no_hp_buatakun);
-        final FormEditText etAlamat = findViewById(R.id.et_alamat_lengkap_buatakun);
-        final ProgressBar progressBar = findViewById(R.id.progressBar_buatakun);
+        etNama = findViewById(R.id.etNama);
+        etEmail = findViewById(R.id.etEmail);
+        etPassword = findViewById(R.id.etPassword);
+        etNohp = findViewById(R.id.et_no_hp_buatakun);
+        etAlamat = findViewById(R.id.et_alamat_lengkap_buatakun);
+        progressBar = findViewById(R.id.progressBar_buatakun);
         etPassword.setTypeface(EasyFonts.robotoRegular(this));
 
         etEmail.addValidator(new EmailValidator(null));
@@ -48,8 +59,8 @@ public class BuatAkunActivity extends AppCompatActivity {
         etNohp.addValidator(new NumericValidator(null));
         etAlamat.addValidator(new AlphaNumericValidator(null));
 
-        final Button btBuatAkun = (Button) findViewById(R.id.btBuatAkun);
-        final TextView loginLink = (TextView) findViewById(R.id.textLogin);
+        btBuatAkun = (Button) findViewById(R.id.btBuatAkun);
+        loginLink = (TextView) findViewById(R.id.textLogin);
         loginLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,6 +91,7 @@ public class BuatAkunActivity extends AppCompatActivity {
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");
                             if (success && allValid) {
+                                Toast.makeText(BuatAkunActivity.this, "Data anda telah tersimpan, silahkan masuk dengan data anda.", Toast.LENGTH_LONG).show();
                                 Intent intent = new Intent(BuatAkunActivity.this, MasukActivity.class);
                                 BuatAkunActivity.this.startActivity(intent);
                             } else {

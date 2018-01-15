@@ -21,6 +21,16 @@ import com.matrixxun.starry.badgetextview.MaterialBadgeTextView;
 public class ResepDetilActivity extends AppCompatActivity {
 
     Resep resep;
+    TextView textViewJudul;
+    TextView textViewSubjudul;
+    TextView textViewPenjelasan;
+    TextView textViewWaktu;
+    TextView textViewTingkat;
+    TextView textViewOrang;
+    LinearLayout linearLayoutBahan;
+    LinearLayout linearLayoutStep;
+    ImageView imageView;
+    Button btn_beli;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,19 +39,17 @@ public class ResepDetilActivity extends AppCompatActivity {
 
         resep = (Resep) getIntent().getSerializableExtra("objekResep");
 
-        TextView textViewJudul = findViewById(R.id.judul_resep_detil);
-        TextView textViewSubjudul = findViewById(R.id.deskripsi_detil);
-        TextView textViewPenjelasan = findViewById(R.id.penjelasan_resep);
-        TextView textViewWaktu = findViewById(R.id.durasi_teks_detil);
-        TextView textViewTingkat = findViewById(R.id.kesulitan_detil);
-        TextView textViewOrang = findViewById(R.id.untuk_berapa_orang_detil);
+        textViewJudul = findViewById(R.id.judul_resep_detil);
+        textViewSubjudul = findViewById(R.id.deskripsi_detil);
+        textViewPenjelasan = findViewById(R.id.penjelasan_resep);
+        textViewWaktu = findViewById(R.id.durasi_teks_detil);
+        textViewTingkat = findViewById(R.id.kesulitan_detil);
+        textViewOrang = findViewById(R.id.untuk_berapa_orang_detil);
 
-        LinearLayout linearLayoutBahan = findViewById(R.id.linear_bahanMasakan);
-        LinearLayout linearLayoutStep = findViewById(R.id.linear_caraMemasak);
-        ImageView imageView = findViewById(R.id.main_image_banner);
-
+        linearLayoutBahan = findViewById(R.id.linear_bahanMasakan);
+        linearLayoutStep = findViewById(R.id.linear_caraMemasak);
+        imageView = findViewById(R.id.main_image_banner);
         Button btn_beli = findViewById(R.id.btn_beli);
-
         btn_beli.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

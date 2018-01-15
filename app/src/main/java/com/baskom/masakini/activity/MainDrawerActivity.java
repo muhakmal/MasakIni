@@ -1,9 +1,12 @@
 package com.baskom.masakini.activity;
 
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.design.widget.NavigationView;
@@ -24,8 +27,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.baskom.masakini.R;
+import com.baskom.masakini.adapter.ItemKeranjangAdapter;
 import com.baskom.masakini.adapter.MainViewPagerAdapter;
 import com.baskom.masakini.request.MasukRequest;
+import com.mikepenz.actionitembadge.library.ActionItemBadge;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -124,7 +129,7 @@ public class MainDrawerActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.drawer, menu);
         MenuItem item = menu.findItem(R.id.cart);
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -133,6 +138,7 @@ public class MainDrawerActivity extends AppCompatActivity
         if (id == R.id.cart) {
             Intent intent = new Intent(MainDrawerActivity.this, ItemKeranjangActivity.class);
             startActivity(intent);
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -147,14 +153,17 @@ public class MainDrawerActivity extends AppCompatActivity
         } else if (id == R.id.nav_info_akun) {
             Intent infoAkun = new Intent(MainDrawerActivity.this, InfoAkunActivity.class);
             startActivity(infoAkun);
+            finish();
         } else if (id == R.id.nav_riwayat_order) {
             Intent riwayatOrder = new Intent(MainDrawerActivity.this, RiwayatOrderActivity.class);
             startActivity(riwayatOrder);
+            finish();
         } else if (id == R.id.nav_kontak_kami) {
             try {
                 Intent emailIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + "kontak@masakini.xyz"));
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Kontak MasakIni | ");
                 startActivity(emailIntent);
+                finish();
             } catch (ActivityNotFoundException e) {
                 //nothing
             }
@@ -176,5 +185,40 @@ public class MainDrawerActivity extends AppCompatActivity
     }
 
 
+    public class SessionManagerPreferences {
+        private Context context = null;
+        private SharedPreferences sharedPreferences = null;
+        private SharedPreferences.Editor editor = null;
+
+        public SessionManagerPreferences(Context context){
+            this.context = context;
+            this.sharedPreferences = this.context.getSharedPreferences();
+            this.editor = this.sharedPreferences.edit();
+        }
+
+        public void login(){
+            this.editor.putBoolean(Globals.KEY_LOGGED_IN, true);
+            this.editor.commit();
+        }
+
+        public void logout() {
+            this.editor.clear();
+            this.editor.commit();
+
+            Intent newIntent = new Intent(this.context, LoginActivity.class);
+
+            newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            newIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+            this.context.startActivity(newIntent);
+        }
+
+        public boolean isLoggedIn(){
+            return this.sharedPreferences.getBoolean(Globals.KEY_LOGGED_IN, false);
+        }
+    }
+
 }
+
+
 

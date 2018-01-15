@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.andreabaccega.formedittextvalidator.AlphaNumericValidator;
 import com.andreabaccega.formedittextvalidator.EmailValidator;
@@ -35,22 +36,25 @@ public class MasukActivity extends AppCompatActivity {
     private static final String DRAWER_REQUEST = "http://masakini.xyz/masakiniapi/Infoakun.php?email=";
     String email;
 
+    FormEditText etEmail;
+    FormEditText etPassword;
+    Button btLogin;
+    TextView textBuatAkunLink;
+    ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        final FormEditText etEmail = findViewById(R.id.etEmail);
-        final FormEditText etPassword = findViewById(R.id.etPassword);
-        final Button btLogin = (Button) findViewById(R.id.btLogin);
-        final TextView textBuatAkunLink = (TextView) findViewById(R.id.textBuatAkun);
-        final ProgressBar progressBar = findViewById(R.id.progressBar);
-
-
+        etEmail = findViewById(R.id.etEmail);
+        etPassword = findViewById(R.id.etPassword);
+        btLogin = findViewById(R.id.btLogin);
+        textBuatAkunLink = findViewById(R.id.textBuatAkun);
+        progressBar = findViewById(R.id.progressBar);
         etPassword.setTypeface(EasyFonts.robotoRegular(this));
         etEmail.addValidator(new EmailValidator("Harus email"));
         etPassword.addValidator(new AlphaNumericValidator(null));
-
         etPassword.setImeActionLabel("MASUK", KeyEvent.KEYCODE_ENTER);
 
         textBuatAkunLink.setOnClickListener(new View.OnClickListener() {
@@ -65,8 +69,8 @@ public class MasukActivity extends AppCompatActivity {
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String email = etEmail.getText().toString();
-                final String password = etPassword.getText().toString();
+                String email = etEmail.getText().toString();
+                String password = etPassword.getText().toString();
                 progressBar.setVisibility(View.VISIBLE);
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
@@ -82,7 +86,7 @@ public class MasukActivity extends AppCompatActivity {
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");
                             if (success && allValid) {
-
+                                Toast.makeText(MasukActivity.this, "Selamat, anda berhasil masuk", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(MasukActivity.this, MainDrawerActivity.class);
                                 MasukActivity.this.startActivity(intent);
                                 MasukActivity.this.finish();

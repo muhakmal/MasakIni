@@ -1,8 +1,10 @@
 package com.baskom.masakini.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -100,18 +102,33 @@ public class InfoAkunActivity extends AppCompatActivity{
         btnSimpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //set request listener update info akun
                 Intent intent = new Intent(InfoAkunActivity.this, MainDrawerActivity.class);
                 startActivity(intent);
+                finish();
 
             }
         });
         btnKeluar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent intentKeluar = new Intent(InfoAkunActivity.this, MasukActivity.class);
-                intentKeluar.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intentKeluar);
-                InfoAkunActivity.this.finish();
+                AlertDialog.Builder builder = new AlertDialog.Builder(InfoAkunActivity.this);
+                builder.setMessage("Apakah anda yakin ingin keluar?")
+                        .setPositiveButton("Tidak", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //do nothing
+                            }
+                        })
+                        .setNegativeButton("Keluar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intentKeluar = new Intent(InfoAkunActivity.this, MasukActivity.class);
+                                intentKeluar.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(intentKeluar);
+                                InfoAkunActivity.this.finish();
+                            }
+                        }).show();
             }
         });
 

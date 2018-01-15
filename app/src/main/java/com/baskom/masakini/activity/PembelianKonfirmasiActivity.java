@@ -40,7 +40,18 @@ public class PembelianKonfirmasiActivity extends AppCompatActivity {
     NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
 
     Transaksi transaksi;
-    
+
+    ProgressBar progressBar;
+    TextView tvNama;
+    TextView tvAlamat;
+    TextView tvnoHp;
+    Button btnSelanjutnya;
+    RadioButton radioButtonCOD;
+
+    TextView btnUbah;
+    TextView tvHargaBahan;
+    TextView tvBiayaPengiriman;
+    TextView tvTotal;
     int totalEstimasi;
 
     @Override
@@ -57,17 +68,17 @@ public class PembelianKonfirmasiActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Konfirmasi Pembelian");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        final ProgressBar progressBar = findViewById(R.id.progressBar_konfirmasi);
-        final TextView tvNama = findViewById(R.id.tv_nama_lengkap_konfirmasi);
-        final TextView tvAlamat = findViewById(R.id.tv_alamt_lengkap_konfirmasi);
-        final TextView tvnoHp = findViewById(R.id.tv_no_hp_konfirmasi);
-        Button btnSelanjutnya = findViewById(R.id.selanjutnya);
-        RadioButton radioButtonCOD = findViewById(R.id.radio_button_COD);
+        progressBar = findViewById(R.id.progressBar_konfirmasi);
+        tvNama = findViewById(R.id.tv_nama_lengkap_konfirmasi);
+        tvAlamat = findViewById(R.id.tv_alamt_lengkap_konfirmasi);
+        tvnoHp = findViewById(R.id.tv_no_hp_konfirmasi);
+        btnSelanjutnya = findViewById(R.id.selanjutnya);
+        radioButtonCOD = findViewById(R.id.radio_button_COD);
 
-        TextView btnUbah = findViewById(R.id.btn_ubah);
-        TextView tvHargaBahan = findViewById(R.id.tv_harga_bahan_masakan);
-        TextView tvBiayaPengiriman = findViewById(R.id.tv_biaya_pengiriman);
-        TextView tvTotal = findViewById(R.id.total_harga);
+        btnUbah = findViewById(R.id.btn_ubah);
+        tvHargaBahan = findViewById(R.id.tv_harga_bahan_masakan);
+        tvBiayaPengiriman = findViewById(R.id.tv_biaya_pengiriman);
+        tvTotal = findViewById(R.id.total_harga);
         tvHargaBahan.setText(formatRupiah.format(totalEstimasi));
         tvTotal.setText(formatRupiah.format(totalEstimasi + 20000));
 

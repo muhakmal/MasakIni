@@ -1,5 +1,6 @@
 package com.baskom.masakini.activity;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,25 +16,30 @@ public class WelcomeActivity extends AppIntro {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SharedPreferences settings = getSharedPreferences("prefs", 0);
+        boolean firstRun = settings.getBoolean("firstRun", false);
+        if (firstRun == false){
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putBoolean("firstRun", false);
+            editor.commit();
 
-        // Note here that we DO NOT use setContentView();
+            addSlide(WelcomeFragment.newInstance(R.layout.splash_1));
+            addSlide(WelcomeFragment.newInstance(R.layout.splash_2));
+            addSlide(WelcomeFragment.newInstance(R.layout.splash_3));
+            addSlide(WelcomeFragment.newInstance(R.layout.splash_4));
 
-        // Add your slide fragments here.
-        // AppIntro will automatically generate the dots indicator and buttons.
-        addSlide(WelcomeFragment.newInstance(R.layout.splash_1));
-        addSlide(WelcomeFragment.newInstance(R.layout.splash_2));
-        addSlide(WelcomeFragment.newInstance(R.layout.splash_3));
-        addSlide(WelcomeFragment.newInstance(R.layout.splash_4));
+            setBarColor(Color.parseColor("#fa9d3b"));
+            setSeparatorColor(Color.parseColor("#2196F3"));
 
-        setBarColor(Color.parseColor("#fa9d3b"));
-        setSeparatorColor(Color.parseColor("#2196F3"));
-
-        setDoneText("Mulai");
-        // Hide Skip/Done button.
-        showSkipButton(false);
-        setProgressButtonEnabled(true);
-
-
+            setDoneText("Mulai");
+            // Hide Skip/Done button.
+            showSkipButton(false);
+            setProgressButtonEnabled(true);
+        }else {
+            Intent intent = new Intent(this, MasukActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     @Override
@@ -42,6 +48,7 @@ public class WelcomeActivity extends AppIntro {
         // Do something when users tap on Done button.
         Intent btnMulai = new Intent(WelcomeActivity.this, MasukActivity.class);
         WelcomeActivity.this.startActivity(btnMulai);
+        finish();
     }
 
 

@@ -140,14 +140,14 @@ public class TroliActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 queue.add(requestKeranjang);
-                                Toast.makeText(TroliActivity.this,"Bahan masakan berhasil ditambahkan ke Keranjang",Toast.LENGTH_LONG).show();
+                                Toast.makeText(TroliActivity.this,"Bahan masakan berhasil ditambahkan ke keranjang",Toast.LENGTH_LONG).show();
                             }
                         })
                         .setNegativeButton("Beranda", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 queue.add(requestLanjutBelanja);
-                                Toast.makeText(TroliActivity.this,"Bahan masakan berhasil ditambahkan ke Keranjang",Toast.LENGTH_LONG).show();
+                                Toast.makeText(TroliActivity.this,"Bahan masakan berhasil ditambahkan ke keranjang",Toast.LENGTH_LONG).show();
                             }
                         })
                         .show();
@@ -166,7 +166,5 @@ public class TroliActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         finish();
-        Intent intent = new Intent(this, MainDrawerActivity.class);
-        startActivity(intent);
     }
 }

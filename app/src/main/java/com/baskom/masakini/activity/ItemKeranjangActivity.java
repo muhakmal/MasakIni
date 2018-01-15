@@ -112,6 +112,8 @@ public class ItemKeranjangActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home){
+            Intent intent = new Intent(this, MainDrawerActivity.class);
+            startActivity(intent);
             finish();
         }
         return super.onOptionsItemSelected(item);
@@ -119,6 +121,8 @@ public class ItemKeranjangActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        Intent intent = new Intent(this, MainDrawerActivity.class);
+        startActivity(intent);
         finish();
     }
 
