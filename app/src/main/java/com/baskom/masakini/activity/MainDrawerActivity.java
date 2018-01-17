@@ -185,7 +185,7 @@ public class MainDrawerActivity extends AppCompatActivity
     }
 
 
-    public class SessionManagerPreferences {
+    /*public class SessionManagerPreferences {
         private Context context = null;
         private SharedPreferences sharedPreferences = null;
         private SharedPreferences.Editor editor = null;
@@ -216,7 +216,7 @@ public class MainDrawerActivity extends AppCompatActivity
         public boolean isLoggedIn(){
             return this.sharedPreferences.getBoolean(Globals.KEY_LOGGED_IN, false);
         }
-    }
+    }*/
 
 }
 

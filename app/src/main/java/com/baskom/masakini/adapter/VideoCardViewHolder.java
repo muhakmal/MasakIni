@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.toolbox.StringRequest;
 import com.baskom.masakini.R;
 import com.baskom.masakini.model.Video;
 import com.bumptech.glide.Glide;
@@ -19,23 +20,20 @@ import com.bumptech.glide.Glide;
 public class VideoCardViewHolder extends RecyclerView.ViewHolder{
     private ImageView videoThumbnail;
     private TextView judulVideo;
-    private String URL_VIDEO;
-
+    private Uri uri;
+    private String urlVideo;
     private CardView cardViewVideo;
 
     public VideoCardViewHolder(View itemView) {
         super(itemView);
-        videoThumbnail= itemView.findViewById(R.id.cardView_main_image_video);
         judulVideo = itemView.findViewById(R.id.cardView_judul_video);
+        videoThumbnail= itemView.findViewById(R.id.cardView_main_image_video);
 
         cardViewVideo = itemView.findViewById(R.id.card_view_video);
 
     }
 
     public void bindData(final Video video){
-
-        final Uri uri = Uri.parse(video.getVideoURL());
-
         Glide.with(cardViewVideo.getContext())
                 .load(video.getVideoThumbnail())
                 .into(videoThumbnail);
@@ -44,6 +42,7 @@ public class VideoCardViewHolder extends RecyclerView.ViewHolder{
         cardViewVideo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                uri = Uri.parse(video.getVideoURL());
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 intent.putExtra("force_fullscreen", true);
                 v.getContext().startActivity(intent);

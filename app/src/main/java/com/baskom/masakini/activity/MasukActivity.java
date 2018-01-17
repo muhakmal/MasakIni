@@ -33,9 +33,6 @@ import org.json.JSONObject;
  */
 
 public class MasukActivity extends AppCompatActivity {
-    private static final String DRAWER_REQUEST = "http://masakini.xyz/masakiniapi/Infoakun.php?email=";
-    String email;
-
     FormEditText etEmail;
     FormEditText etPassword;
     Button btLogin;
@@ -62,7 +59,7 @@ public class MasukActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent buatAkunIntent = new Intent(MasukActivity.this, BuatAkunActivity.class);
-                MasukActivity.this.startActivity(buatAkunIntent);
+                startActivity(buatAkunIntent);
             }
         });
 

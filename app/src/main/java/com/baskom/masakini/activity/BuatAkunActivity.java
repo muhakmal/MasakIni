@@ -94,11 +94,12 @@ public class BuatAkunActivity extends AppCompatActivity {
                                 Toast.makeText(BuatAkunActivity.this, "Data anda telah tersimpan, silahkan masuk dengan data anda.", Toast.LENGTH_LONG).show();
                                 Intent intent = new Intent(BuatAkunActivity.this, MasukActivity.class);
                                 BuatAkunActivity.this.startActivity(intent);
+                                finish();
                             } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(BuatAkunActivity.this);
                                 builder.setMessage("User sudah terdaftar dan atau format yang anda masukkan salah")
                                         .setTitle("Buat Akun Gagal")
-                                        .setNegativeButton("Ulangi", null)
+                                        .setNegativeButton("Coba lagi", null)
                                         .create()
                                         .show();
                             }

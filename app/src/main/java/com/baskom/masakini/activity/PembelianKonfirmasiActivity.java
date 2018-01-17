@@ -3,6 +3,7 @@ package com.baskom.masakini.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
@@ -120,6 +121,7 @@ public class PembelianKonfirmasiActivity extends AppCompatActivity {
                 Intent intent = new Intent(PembelianKonfirmasiActivity.this, PembelianSelesaiActivity.class);
                 intent.putExtra("totalHarga", totalEstimasi+20000);
                 startActivity(intent);
+                finish();
             }
         });
 
