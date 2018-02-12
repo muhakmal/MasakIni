@@ -123,4 +123,12 @@ public class ItemKeranjang implements Serializable {
         this.produk = produk;
         this.jumlahPaket = jumlahPaket;
     }
+
+    public int getTotalHarga(){
+        int total = 0;
+        for (int i = 0 ; i < produk.size(); i++){
+            total += produk.get(i).getHarga();
+        }
+        return total;
+    }
 }

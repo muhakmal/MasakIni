@@ -13,7 +13,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import com.baskom.masakini.R;
-import com.baskom.masakini.model.Transaksi;
 import com.baskom.masakini.request.DeleteItemKeranjangRequest;
 import com.baskom.masakini.model.ItemKeranjang;
 import com.baskom.masakini.request.MasukRequest;

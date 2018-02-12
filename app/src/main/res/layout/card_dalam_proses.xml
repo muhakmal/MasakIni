@@ -67,7 +67,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/pesanan"
                     android:layout_marginLeft="10dp"
-                    android:text="Jumlah pesanan :" />
+                    android:text="Total Estimasi :" />
 
                 <TextView
                     android:id="@+id/statuspesanan"
@@ -93,7 +93,7 @@
                     android:layout_alignBaseline="@id/jumlahpesanan"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="10dp"
-                    android:text="5 Paket" />
+                    android:text="Rp 100000" />
 
                 <TextView
                     android:id="@+id/tv_status_pesanan"
