@@ -12,15 +12,13 @@ import java.util.Map;
  */
 
 public class TransaksiRequest extends StringRequest {
-    private static final String TRANSAKSI_REQUEST_URL = "";
+    private static final String TRANSAKSI_REQUEST_URL = "http://masakini.xyz/masakiniapi/ItemTransaksi.php";
     private Map<String, String> params;
 
-    public TransaksiRequest(String email, int nomorPesanan, String statusPesanan, Response.Listener<String> listener, Response.ErrorListener errorListener) {
+    public TransaksiRequest(String email, Response.Listener<String> listener, Response.ErrorListener errorListener) {
         super(Method.POST, TRANSAKSI_REQUEST_URL, listener, errorListener);
         params = new HashMap<>();
         params.put("email", email);
-        params.put("nomorPesanan", Integer.toString(nomorPesanan));
-        params.put("statusPesanan", statusPesanan);
     }
 
     @Override

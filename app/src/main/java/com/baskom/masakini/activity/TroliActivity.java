@@ -22,7 +22,7 @@ import com.android.volley.toolbox.Volley;
 import com.baskom.masakini.R;
 import com.baskom.masakini.request.MasukRequest;
 import com.baskom.masakini.model.Resep;
-import com.baskom.masakini.model.Transaksi;
+import com.baskom.masakini.model.ItemTransaksi;
 import com.baskom.masakini.request.TambahItemRequest;
 import com.bumptech.glide.Glide;
 
@@ -37,11 +37,11 @@ import java.util.Locale;
 
 public class TroliActivity extends AppCompatActivity {
 
-    List<Transaksi> transaksiList = new ArrayList<>();
+    List<ItemTransaksi> transaksiList = new ArrayList<>();
     Locale localeID = new Locale("in", "ID");
     NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
     Resep resep;
-    Transaksi transaksi;
+    ItemTransaksi transaksi;
     Response.Listener<String> listenerLanjutBelanja, listenerKeranjang;
     Response.ErrorListener errorListenerLanjutBelanja, errorListenerKeranjang;
     ImageView imageTroli;

@@ -31,11 +31,6 @@
             app:tabIndicatorColor="@color/baseWhite"
             app:tabTextColor="@color/baseWhite" />
 
-        <View
-            android:layout_below="@id/tab_layout_riwayat"
-            android:background="@color/nliveo_divider"
-            android:layout_width="match_parent"
-            android:layout_height="3dp"/>
 
     </RelativeLayout>
 

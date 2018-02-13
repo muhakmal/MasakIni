@@ -87,7 +87,7 @@
                     android:text="Bahan Masakan 90's Cake" />
 
                 <TextView
-                    android:id="@+id/tv_jumlah_pesanan"
+                    android:id="@+id/tv_total_estimasi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignBaseline="@id/jumlahpesanan"

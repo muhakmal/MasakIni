@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.baskom.masakini.R;
-import com.baskom.masakini.model.Transaksi;
+import com.baskom.masakini.model.ItemTransaksi;
 
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -24,7 +24,7 @@ public class PembelianSelesaiActivity extends AppCompatActivity{
     NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
     android.support.v7.widget.Toolbar toolbar;
 
-    Transaksi transaksi;
+    ItemTransaksi transaksi;
 
     TextView nomorPesanan;
     TextView tvHargaTotal;
@@ -36,7 +36,7 @@ public class PembelianSelesaiActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.konfirmasi_selesai);
 
-        transaksi = (Transaksi) getIntent().getSerializableExtra("objekTroli");
+        transaksi = (ItemTransaksi) getIntent().getSerializableExtra("objekTroli");
 
         Bundle harga = getIntent().getExtras();
         /*Intent intentTotalEstimasi = getIntent().*/

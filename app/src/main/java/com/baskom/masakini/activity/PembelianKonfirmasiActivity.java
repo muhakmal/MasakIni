@@ -3,7 +3,6 @@ package com.baskom.masakini.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,6 +10,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -19,9 +19,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.baskom.masakini.R;
-import com.baskom.masakini.adapter.ItemKeranjangCardViewHolder;
-import com.baskom.masakini.model.Transaksi;
+import com.baskom.masakini.model.ItemTransaksi;
 import com.baskom.masakini.request.MasukRequest;
+import com.baskom.masakini.request.TambahTransaksiRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -40,7 +40,7 @@ public class PembelianKonfirmasiActivity extends AppCompatActivity {
     Locale localeID = new Locale("in", "ID");
     NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
 
-    Transaksi transaksi;
+    ItemTransaksi transaksi;
 
     ProgressBar progressBar;
     TextView tvNama;
@@ -60,7 +60,7 @@ public class PembelianKonfirmasiActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.konfirmasi_pengiriman);
 
-        transaksi = (Transaksi) getIntent().getSerializableExtra("objekTroli");
+        transaksi = (ItemTransaksi) getIntent().getSerializableExtra("objekTroli");
         Intent intent = getIntent();
         totalEstimasi = intent.getIntExtra("total", 5);
 
@@ -118,6 +118,16 @@ public class PembelianKonfirmasiActivity extends AppCompatActivity {
         btnSelanjutnya.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Masukan ke transaksi
+                Response.Listener<String> listener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Toast.makeText(PembelianKonfirmasiActivity.this, "dlfasldfj", Toast.LENGTH_SHORT).show();
+                    }
+                };
+                TambahTransaksiRequest request = new TambahTransaksiRequest(MasukRequest.getEmail(),listener);
+                Volley.newRequestQueue(getApplicationContext()).add(request);
+
                 Intent intent = new Intent(PembelianKonfirmasiActivity.this, PembelianSelesaiActivity.class);
                 intent.putExtra("totalHarga", totalEstimasi+20000);
                 startActivity(intent);
