@@ -136,6 +136,7 @@ public class TroliActivity extends AppCompatActivity {
             public void onClick(final View view) {
                 final AlertDialog.Builder builder = new AlertDialog.Builder(TroliActivity.this);
                 builder.setMessage("Bahan masakan berhasil dimasukkan ke Keranjang Belanja")
+                        .setTitle("Pilih Halaman Tujuan")
                         .setPositiveButton("Keranjang", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {

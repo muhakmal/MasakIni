@@ -21,7 +21,6 @@ public class VideoCardViewHolder extends RecyclerView.ViewHolder{
     private ImageView videoThumbnail;
     private TextView judulVideo;
     private Uri uri;
-    private String urlVideo;
     private CardView cardViewVideo;
 
     public VideoCardViewHolder(View itemView) {

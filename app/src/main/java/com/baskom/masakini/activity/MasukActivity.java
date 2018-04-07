@@ -85,8 +85,8 @@ public class MasukActivity extends AppCompatActivity {
                             if (success && allValid) {
                                 Toast.makeText(MasukActivity.this, "Selamat, anda berhasil masuk", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(MasukActivity.this, MainDrawerActivity.class);
-                                MasukActivity.this.startActivity(intent);
-                                MasukActivity.this.finish();
+                                startActivity(intent);
+                                finish();
 
                             } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(MasukActivity.this);

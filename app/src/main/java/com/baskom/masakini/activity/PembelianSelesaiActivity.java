@@ -20,6 +20,8 @@ import java.util.Locale;
  */
 
 public class PembelianSelesaiActivity extends AppCompatActivity{
+    private static final String NOMORPESANAN_REQUEST_URL = "";
+    String email;
     Locale localeID = new Locale("in", "ID");
     NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
     android.support.v7.widget.Toolbar toolbar;
@@ -37,9 +39,7 @@ public class PembelianSelesaiActivity extends AppCompatActivity{
         setContentView(R.layout.konfirmasi_selesai);
 
         transaksi = (ItemTransaksi) getIntent().getSerializableExtra("objekTroli");
-
         Bundle harga = getIntent().getExtras();
-        /*Intent intentTotalEstimasi = getIntent().*/
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

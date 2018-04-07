@@ -139,6 +139,8 @@ public class InfoAkunActivity extends AppCompatActivity{
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home){
             finish();
+            Intent intent = new Intent(this, MainDrawerActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -146,5 +148,7 @@ public class InfoAkunActivity extends AppCompatActivity{
     @Override
     public void onBackPressed() {
         finish();
+        Intent intent = new Intent(this, MainDrawerActivity.class);
+        startActivity(intent);
     }
 }

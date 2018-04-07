@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -44,10 +45,10 @@ public class ItemKeranjangActivity extends AppCompatActivity {
     ProgressBar progressBar;
     Toolbar toolbar;
     Button btnBayarKeranjang;
-    Intent intentTotalEstimasi;
     public static int jumlahItemKeranjang;
     public static TextView tvTotalEstimasi;
     public int total;
+    private ImageView imgKamuBelumBelanja;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,9 @@ public class ItemKeranjangActivity extends AppCompatActivity {
         setContentView(R.layout.activity_item_keranjang);
         toolbar = findViewById(R.id.toolbar_keranjang);
         setSupportActionBar(toolbar);
+        imgKamuBelumBelanja = findViewById(R.id.img_kamu_belum_belanja);
+        imgKamuBelumBelanja.setVisibility(View.VISIBLE);
+
         getSupportActionBar().setTitle("Keranjang Masakan");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         progressBar = findViewById(R.id.progressBarItemKeranjang);

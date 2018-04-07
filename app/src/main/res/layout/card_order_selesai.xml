@@ -1,116 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
+    android:id="@+id/linear_resep"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:clipToPadding="false"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view_order_selesai"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:cardElevation="5dp"
+        app:cardUseCompatPadding="true">
 
-        <android.support.v7.widget.CardView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            app:cardElevation="5dp">
+            android:layout_height="wrap_content">
 
             <RelativeLayout
-                android:id="@+id/relativenomorpesanan"
+                android:id="@+id/relativenoorder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <View
-                    android:layout_width="3dp"
-                    android:layout_height="110dp"
-                    android:background="@color/PrimaryGreen" />
-
                 <TextView
-                    android:id="@+id/nomorpesanan"
+                    android:id="@+id/nopesanan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="Nomor Pesanan" />
+                    android:layout_margin="5dp"
+                    android:text="Nomor Pesanan"
+                    android:textColor="@color/nliveo_black" />
 
                 <TextView
-
-                    android:id="@+id/tv_nomor_pesanan"
+                    android:id="@+id/tv_card_noorder_order_selesai"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/nomorpesanan"
-                    android:layout_alignBottom="@+id/nomorpesanan"
+                    android:layout_alignBaseline="@+id/nopesanan"
+                    android:layout_alignBottom="@+id/nopesanan"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
-                    android:text="10001" />
+                    android:text="00001"
+                    android:textColor="@color/nliveo_black" />
 
                 <View
-                    android:id="@+id/view"
+                    android:id="@+id/a"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_below="@id/nomorpesanan"
-                    android:background="@color/nliveo_divider" />
+                    android:layout_below="@id/nopesanan"
+                    android:background="@color/divider" />
 
                 <TextView
-                    android:id="@+id/pesanan"
+                    android:layout_below="@id/a"
+                    android:id="@+id/bahanmasakan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/view"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginLeft="10dp"
-                    android:text="Pesanan :" />
+                    android:layout_alignBaseline="@id/tv_card_namaBahanMasakan"
+                    android:layout_marginLeft="5dp"
+                    android:text="Bahan Masakan :" />
 
                 <TextView
                     android:id="@+id/jumlahpesanan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/pesanan"
-                    android:layout_marginLeft="10dp"
-                    android:text="Jumlah pesanan :" />
+                    android:layout_marginLeft="5dp"
+                    android:layout_above="@id/tv_card_alamatPengiriman_order_selesai"
+                    android:text="Jumlah Pesanan :" />
 
                 <TextView
-                    android:id="@+id/statuspesanan"
+                    android:id="@+id/alamatpengiriman"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/jumlahpesanan"
-                    android:layout_marginLeft="10dp"
-                    android:text="Status pesanan :" />
+                    android:layout_marginLeft="5dp"
+                    android:layout_alignTop="@id/tv_card_alamatPengiriman_order_selesai"
+                    android:text="Alamat Pengiriman :" />
 
                 <TextView
-                    android:id="@+id/tv_pesanan"
+                    android:id="@+id/harga"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@id/pesanan"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="10dp"
-                    android:text="Bahan Masakan 90's Cake" />
+                    android:layout_alignLeft="@+id/alamatpengiriman"
+                    android:layout_below="@+id/tv_card_alamatPengiriman_order_selesai"
+                    android:text="Harga :" />
 
                 <TextView
-                    android:id="@+id/tv_total_estimasi"
+                    android:id="@+id/tv_card_namaBahanMasakan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@id/jumlahpesanan"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="10dp"
-                    android:text="5 Paket" />
+                    android:layout_alignRight="@id/tv_card_noorder_order_selesai"
+                    android:layout_below="@+id/a"
+                    android:layout_marginTop="5dp"
+                    android:layout_toRightOf="@id/bahanmasakan"
+                    android:gravity="end"
+                    android:text="90'S Cake"
+                    android:textColor="@color/nliveo_black_light" />
 
                 <TextView
-                    android:id="@+id/tv_status_pesanan"
+                    android:id="@+id/tv_card_jumlahPaket_order_selesai"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@id/statuspesanan"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="10dp"
-                    android:text="DITERIMA"
-                    android:textColor="@color/PrimaryGreen"
-                    android:textStyle="bold" />
+                    android:gravity="end"
+                    android:layout_below="@id/tv_card_namaBahanMasakan"
+                    android:text="5 Paket"
+                    android:textColor="@color/nliveo_black_light"
+                    android:layout_alignRight="@id/tv_card_namaBahanMasakan" />
+
+                <TextView
+                    android:id="@+id/tv_card_alamatPengiriman_order_selesai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/tv_card_jumlahPaket_order_selesai"
+                    android:gravity="end"
+                    android:layout_below="@id/tv_card_jumlahPaket_order_selesai"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@id/alamatpengiriman"
+                    android:text="Komplek Sandang C15 RT001/RW011, Kec. Palmerah, DKI Jakarta, Kota Jakarta Barat, Palmerah"
+                    android:textColor="@color/nliveo_black_light" />
+
+                <TextView
+                    android:id="@+id/tv_card_harga_order_selesai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/harga"
+                    android:layout_marginLeft="5dp"
+                    android:layout_alignRight="@id/tv_card_alamatPengiriman_order_selesai"
+                    android:layout_alignEnd="@id/tv_card_alamatPengiriman_order_selesai"
+                    android:text="Rp250.000"
+                    android:textColor="@color/nliveo_black_light" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/harga"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/divider" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/view">
+
+                    <LinearLayout
+                        android:id="@+id/linearbutonterima"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp">
+
+                        <Button
+                            android:id="@+id/btn_terima_pesanan"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/nliveo_green_colorPrimary"
+                            android:text="KONFIRMASI PENERIMAAN"
+                            android:textColor="@color/nliveo_white"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </RelativeLayout>
 
             </RelativeLayout>
 
 
-        </android.support.v7.widget.CardView>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
 
-    </RelativeLayout>
 
-</LinearLayout>
+</RelativeLayout>

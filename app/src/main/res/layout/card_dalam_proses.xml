@@ -22,7 +22,7 @@
 
                 <View
                     android:layout_width="3dp"
-                    android:layout_height="110dp"
+                    android:layout_height="39dp"
                     android:background="@color/colorPrimary" />
 
                 <TextView
@@ -33,7 +33,6 @@
                     android:text="Nomor Pesanan" />
 
                 <TextView
-
                     android:id="@+id/tv_nomor_pesanan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -56,8 +55,7 @@
                     android:id="@+id/pesanan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/view"
-                    android:layout_marginTop="5dp"
+                    android:layout_alignBaseline="@id/tv_pesanan"
                     android:layout_marginLeft="10dp"
                     android:text="Pesanan :" />
 
@@ -65,6 +63,7 @@
                     android:id="@+id/jumlahpesanan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/tv_total_estimasi"
                     android:layout_below="@id/pesanan"
                     android:layout_marginLeft="10dp"
                     android:text="Total Estimasi :" />
@@ -73,6 +72,7 @@
                     android:id="@+id/statuspesanan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/tv_status_pesanan"
                     android:layout_below="@id/jumlahpesanan"
                     android:layout_marginLeft="10dp"
                     android:text="Status pesanan :" />
@@ -81,31 +81,35 @@
                     android:id="@+id/tv_pesanan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@id/pesanan"
                     android:layout_alignParentRight="true"
+                    android:layout_below="@id/view"
                     android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="end"
                     android:text="Bahan Masakan 90's Cake" />
 
                 <TextView
                     android:id="@+id/tv_total_estimasi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@id/jumlahpesanan"
                     android:layout_alignParentRight="true"
+                    android:layout_below="@id/tv_pesanan"
                     android:layout_marginRight="10dp"
+                    android:gravity="end"
                     android:text="Rp 100000" />
 
                 <TextView
                     android:id="@+id/tv_status_pesanan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@id/statuspesanan"
                     android:layout_alignParentRight="true"
+                    android:layout_below="@id/tv_total_estimasi"
+                    android:layout_marginBottom="5dp"
                     android:layout_marginRight="10dp"
+                    android:gravity="end"
                     android:text="Menunggu"
                     android:textColor="@color/colorPrimary"
                     android:textStyle="bold" />
-
             </RelativeLayout>
 
 

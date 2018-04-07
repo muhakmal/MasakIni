@@ -1,8 +1,10 @@
 package com.baskom.masakini.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
@@ -46,7 +48,7 @@ public class PembelianKonfirmasiActivity extends AppCompatActivity {
     TextView tvNama;
     TextView tvAlamat;
     TextView tvnoHp;
-    Button btnSelanjutnya;
+    Button btnPesanBahanMasakan;
     RadioButton radioButtonCOD;
 
     TextView btnUbah;
@@ -73,7 +75,7 @@ public class PembelianKonfirmasiActivity extends AppCompatActivity {
         tvNama = findViewById(R.id.tv_nama_lengkap_konfirmasi);
         tvAlamat = findViewById(R.id.tv_alamt_lengkap_konfirmasi);
         tvnoHp = findViewById(R.id.tv_no_hp_konfirmasi);
-        btnSelanjutnya = findViewById(R.id.selanjutnya);
+        btnPesanBahanMasakan = findViewById(R.id.selanjutnya);
         radioButtonCOD = findViewById(R.id.radio_button_COD);
 
         btnUbah = findViewById(R.id.btn_ubah);
@@ -82,6 +84,8 @@ public class PembelianKonfirmasiActivity extends AppCompatActivity {
         tvTotal = findViewById(R.id.total_harga);
         tvHargaBahan.setText(formatRupiah.format(totalEstimasi));
         tvTotal.setText(formatRupiah.format(totalEstimasi + 20000));
+
+        radioButtonCOD.setChecked(true);
 
         email = MasukRequest.getEmail();
         progressBar.setVisibility(View.VISIBLE);
@@ -115,23 +119,38 @@ public class PembelianKonfirmasiActivity extends AppCompatActivity {
                 responseListener, responseErrorListener);
         queue.add(request);
 
-        btnSelanjutnya.setOnClickListener(new View.OnClickListener() {
+        btnPesanBahanMasakan.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(final View view) {
                 //Masukan ke transaksi
-                Response.Listener<String> listener = new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        Toast.makeText(PembelianKonfirmasiActivity.this, "dlfasldfj", Toast.LENGTH_SHORT).show();
-                    }
-                };
-                TambahTransaksiRequest request = new TambahTransaksiRequest(MasukRequest.getEmail(),listener);
-                Volley.newRequestQueue(getApplicationContext()).add(request);
+                final AlertDialog.Builder builder = new AlertDialog.Builder(PembelianKonfirmasiActivity.this);
+                builder.setTitle("Konfirmasi Pembelian")
+                        .setMessage("Apakah anda yakin ingin memesan bahan masakan ini?")
+                        .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Response.Listener<String> listener = new Response.Listener<String>() {
+                                    @Override
+                                    public void onResponse(String response) {
+                                        Toast.makeText(PembelianKonfirmasiActivity.this, "Pembelian Berhasil, menunggu konfirmasi Admin.", Toast.LENGTH_SHORT).show();
+                                    }
+                                };
+                                TambahTransaksiRequest request = new TambahTransaksiRequest(MasukRequest.getEmail(), listener);
+                                Volley.newRequestQueue(getApplicationContext()).add(request);
 
-                Intent intent = new Intent(PembelianKonfirmasiActivity.this, PembelianSelesaiActivity.class);
-                intent.putExtra("totalHarga", totalEstimasi+20000);
-                startActivity(intent);
-                finish();
+                                Intent intent = new Intent(PembelianKonfirmasiActivity.this, PembelianSelesaiActivity.class);
+                                intent.putExtra("totalHarga", totalEstimasi + 20000);
+                                startActivity(intent);
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        })
+                        .show();
             }
         });
 
@@ -140,6 +159,7 @@ public class PembelianKonfirmasiActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(PembelianKonfirmasiActivity.this, InfoAkunActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

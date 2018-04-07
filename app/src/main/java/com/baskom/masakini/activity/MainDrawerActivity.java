@@ -143,7 +143,6 @@ public class MainDrawerActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("masih kosong")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -183,40 +182,6 @@ public class MainDrawerActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
-
-
-    /*public class SessionManagerPreferences {
-        private Context context = null;
-        private SharedPreferences sharedPreferences = null;
-        private SharedPreferences.Editor editor = null;
-
-        public SessionManagerPreferences(Context context){
-            this.context = context;
-            this.sharedPreferences = this.context.getSharedPreferences();
-            this.editor = this.sharedPreferences.edit();
-        }
-
-        public void login(){
-            this.editor.putBoolean(Globals.KEY_LOGGED_IN, true);
-            this.editor.commit();
-        }
-
-        public void logout() {
-            this.editor.clear();
-            this.editor.commit();
-
-            Intent newIntent = new Intent(this.context, LoginActivity.class);
-
-            newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            newIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-            this.context.startActivity(newIntent);
-        }
-
-        public boolean isLoggedIn(){
-            return this.sharedPreferences.getBoolean(Globals.KEY_LOGGED_IN, false);
-        }
-    }*/
 
 }
 

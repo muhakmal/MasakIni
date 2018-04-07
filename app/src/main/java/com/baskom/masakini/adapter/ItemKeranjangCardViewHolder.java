@@ -33,9 +33,7 @@ public class ItemKeranjangCardViewHolder extends RecyclerView.ViewHolder {
     protected LayoutInflater inflater;
 
     private int hargaItemKeranjang = 0;
-    int tempTotal = 0;
-    int total = 0;
-    int totallagi = 0;
+
 
 
     public ItemKeranjangCardViewHolder(View itemView) {

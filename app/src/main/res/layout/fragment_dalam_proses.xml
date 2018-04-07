@@ -6,6 +6,13 @@
     tools:context=".fragment.DalamProsesFragment"
     android:background="@color/baseWhite">
 
+    <ProgressBar
+        android:id="@+id/progressBar_dalamProses"
+        android:visibility="gone"
+        android:layout_margin="@dimen/progress_bar_center_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 
     <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view_dalam_proses"

@@ -25,8 +25,6 @@ import java.util.List;
  */
 
 public class ItemKeranjangAdapter extends RecyclerView.Adapter {
-
-
     //The Dataset
     private List<ItemKeranjang> itemKeranjangList = new ArrayList<>();
 
@@ -45,7 +43,8 @@ public class ItemKeranjangAdapter extends RecyclerView.Adapter {
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_item_keranjang, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.card_item_keranjang, parent, false);
         return new ItemKeranjangCardViewHolder(itemView);
     }
 
@@ -54,14 +53,19 @@ public class ItemKeranjangAdapter extends RecyclerView.Adapter {
         Response.Listener<String> listener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(context, itemKeranjangList.get(holder.getAdapterPosition()).getJudulResep() + " telah dihapus dari keranjang", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, itemKeranjangList.get(holder.getAdapterPosition())
+                        .getJudulResep() + " telah dihapus dari keranjang", Toast.LENGTH_SHORT)
+                        .show();
                 itemKeranjangList.remove(holder.getAdapterPosition());
                 notifyItemRemoved(holder.getAdapterPosition());
             }
         };
-        final DeleteItemKeranjangRequest request = new DeleteItemKeranjangRequest(MasukRequest.getEmail(), itemKeranjangList.get(holder.getAdapterPosition()).getJudulResep(), listener);
+        final DeleteItemKeranjangRequest request = new DeleteItemKeranjangRequest(MasukRequest.getEmail(),
+                itemKeranjangList.get(holder.getAdapterPosition()).getJudulResep(),
+                listener);
 
-        ((ItemKeranjangCardViewHolder) holder).bindData(itemKeranjangList.get(holder.getAdapterPosition()));
+        ((ItemKeranjangCardViewHolder) holder)
+                .bindData(itemKeranjangList.get(holder.getAdapterPosition()));
 
         ((ItemKeranjangCardViewHolder) holder).btnTongSampah.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,13 +73,14 @@ public class ItemKeranjangAdapter extends RecyclerView.Adapter {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setTitle("Hapus Bahan Masakan")
                         .setMessage("Hapus " + itemKeranjangList.get(holder.getAdapterPosition()).getJudulResep() + " dari keranjang?")
-                        .setPositiveButton("Tidak", new DialogInterface.OnClickListener() {
+                        .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 //do nothing
                             }
                         })
-                        .setNegativeButton("Ya", new DialogInterface.OnClickListener() {
+                        .setPositiveButton
+                        ("Ya", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 queue.add(request);

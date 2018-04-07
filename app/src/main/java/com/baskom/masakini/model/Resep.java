@@ -10,16 +10,16 @@ import java.util.List;
 
 public class Resep implements Serializable {
 
-    private String judulResep;
-    private String subJudulResep;
-    private String penjelasanResep;
-    private String tingkatKesulitan;
-    private String untukBerapaOrang;
-    private String waktuMemasak;
-    private String resepImage;
-    private List<Bahan> bahan = new ArrayList<>();
-    private List<Step> step = new ArrayList<>();
-    private List<Produk> produk = new ArrayList<>();
+        private String judulResep;
+        private String subJudulResep;
+        private String penjelasanResep;
+        private String tingkatKesulitan;
+        private String untukBerapaOrang;
+        private String waktuMemasak;
+        private String resepImage;
+        private List<Bahan> bahan = new ArrayList<>();
+        private List<Step> step = new ArrayList<>();
+        private List<Produk> produk = new ArrayList<>();
 
     public Resep(String judulResep, String subJudulResep, String penjelasanResep, String tingkatKesulitan, String untukBerapaOrang, String waktuMemasak, String resepImage, List<Bahan> bahan, List<Step> step, List<Produk> produk) {
         this.judulResep = judulResep;

@@ -9,18 +9,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.baskom.masakini.R;
-import com.baskom.masakini.adapter.ItemTransaksiAdapater;
-import com.baskom.masakini.adapter.ResepCardAdapter;
+import com.baskom.masakini.adapter.DalamProsesAdapter;
 import com.baskom.masakini.model.ItemTransaksi;
-import com.baskom.masakini.model.Resep;
 import com.baskom.masakini.request.MasukRequest;
 import com.baskom.masakini.request.TransaksiRequest;
 import com.google.gson.Gson;
@@ -38,22 +34,21 @@ import java.util.List;
 public class DalamProsesFragment extends Fragment {
     private List<ItemTransaksi> itemTransaksiList = new ArrayList<>();
     private RecyclerView recyclerView;
-    private ItemTransaksiAdapater adapter;
-
+    private DalamProsesAdapter adapter;
+    private ProgressBar progressBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_dalam_proses, container, false);
-
-        adapter = new ItemTransaksiAdapater(itemTransaksiList);
+        adapter = new DalamProsesAdapter(itemTransaksiList);
+        progressBar = rootView.findViewById(R.id.progressBar_dalamProses);
+        progressBar.setVisibility(View.VISIBLE);
         recyclerView = rootView.findViewById(R.id.recycler_view_dalam_proses);
         recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
         recyclerView.setAdapter(adapter);
-
         getItemTransaksiList();
-
         return rootView;
     }
 
@@ -66,6 +61,7 @@ public class DalamProsesFragment extends Fragment {
                 itemTransaksiList = new Gson().fromJson(jsonResponse,listType);
                 adapter.setItemTransaksiList(itemTransaksiList);
                 adapter.notifyDataSetChanged();
+                progressBar.setVisibility(View.GONE);
             }
         };
 
